@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: BlooDiscounts_production
-  username: BlooDiscounts
-  password: <%= ENV['BLOODISCOUNTS_DATABASE_PASSWORD'] %>
+  # username: BlooDiscounts
+  # password: <%= ENV['BLOODISCOUNTS_DATABASE_PASSWORD'] %>
