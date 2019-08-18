@@ -6,13 +6,16 @@ addons:
 env:
   - DB=postgresql
 
-before_script:
-  - psql -c 'create database BlooDiscounts_test' -U jimaeda
+services:
+  - postgresql
+# before_script:
+  # - psql -c 'create database BlooDiscounts_test' -U jimaeda
 
 after_success:
   - bundle exec codeclimate-test-reporter
 
 dist: trusty
+
 bundler_args: --binstubs=./bundler_stubs
 
 language: ruby
@@ -21,9 +24,10 @@ rvm:
 
 script:
   - bundle install --jobs=3 --retry=3
-  - RAILS_ENV=test bundle exec rake db:migrate --trace
-  - bundle exec rake:db:test:prepare
+  # - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - RAILS_ENV=test bundle exec rails db:reset db:setup db:migrate 
+  # - bundle exec rake:db:test:prepare
   - bundle exec rspec
 
-services:
-  - redis-server
+# services:
+  # - redis-server
