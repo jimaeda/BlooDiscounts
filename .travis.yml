@@ -14,7 +14,7 @@ dist: trusty
 
 language: ruby
 rvm:
-  - 2.5.0
+  - 2.5.1
 
 script:
   - bundle exec rails db:migrate RAILS_ENV=test
