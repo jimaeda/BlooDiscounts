@@ -1,13 +1,13 @@
 addons:
-  postgresql: 10.10
+  postgresql: 9.4
   code_climate:
       repo_token: f441fe719ff504f2afec737c2154eaece83bf6b04bbaa12c60b6b55981e70b61
 
 env:
   - DB=postgresql
 
-# before_script:
-  # - psql -c 'create database BlooDiscounts_test'
+before_script:
+  - psql -c 'create database BlooDiscounts_test' -U postgresql
 
 after_success:
   - bundle exec codeclimate-test-reporter
@@ -21,8 +21,8 @@ rvm:
 
 script:
   - bundle install --jobs=3 --retry=3
-  # - RAILS_ENV=test bundle exec rake db:migrate --trace
-  # - bundle exec rake:db:test:prepare
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - bundle exec rake:db:test:prepare
   - bundle exec rspec
 
 services:
