@@ -16,7 +16,8 @@ Tal aplicação ajudaria a incentivar a doação de sangue.
 > Link para o [Travis CI](https://travis-ci.org/).
 
 ### Heroku
-> Link para o [Heroku]().
+Fizemos deploy
+> Link para o [Heroku](https://bloodiscounts.herokuapp.com/).
 
 ### Nosso grupo é composto por 6 pessoas:
 * Denise Keiko Adati **(Denisekfa) NUSP:** 10430962
