@@ -12,7 +12,7 @@ Tal aplicação ajudaria a incentivar a doação de sangue.
 > Link para o [CodeClimate](https://codeclimate.com/github/codeclimate/codeclimate).
 
 ### Travis CI Badge
-[![Build Status](https://travis-ci.org/WilliamAyukawa/ESI1.svg?branch=master)](https://travis-ci.org/WilliamAyukawa/ESI1)
+[![Build Status](https://travis-ci.org/jimaeda/BlooDiscounts.svg?branch=master)](https://travis-ci.org/jimaeda/BlooDiscounts)
 > Link para o [Travis CI](https://travis-ci.org/).
 
 ### Heroku
