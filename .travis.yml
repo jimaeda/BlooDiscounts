@@ -7,9 +7,7 @@ env:
   - DB=postgresql
 
 before_script:
-  - mysql -e 'create database BlooDiscounts_test'
-  - psql -c 'create database BlooDiscounts_test' -U postgres
-
+  - psql -c 'create database BlooDiscounts_test'
 
 after_success:
   - bundle exec codeclimate-test-reporter
