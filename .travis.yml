@@ -7,7 +7,7 @@ env:
   - DB=postgresql
 
 before_script:
-  - psql -c 'create database BlooDiscounts_test' -U postgresql
+  - psql -c 'create database BlooDiscounts_test' -U jimaeda
 
 after_success:
   - bundle exec codeclimate-test-reporter
