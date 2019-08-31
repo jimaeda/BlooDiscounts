@@ -24,10 +24,11 @@ rvm:
 
 script:
   - bundle install --jobs=3 --retry=3
-  # - RAILS_ENV=test bundle exec rake db:migrate --trace
   - RAILS_ENV=test bundle exec rails db:reset db:setup db:migrate 
-  # - bundle exec rake:db:test:prepare
   - bundle exec rspec
+  - bundle exec rake spec:features
+  # - RAILS_ENV=test bundle exec rake db:migrate --trace
+  # - bundle exec rake:db:test:prepare
 
 # services:
   # - redis-server
