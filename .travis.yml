@@ -3,13 +3,17 @@ addons:
   code_climate:
       repo_token: f441fe719ff504f2afec737c2154eaece83bf6b04bbaa12c60b6b55981e70b61
 
-env:
-  - DB=postgresql
+# Don't know if we will need it in the future
+# env:
+#   - DB=postgresql
 
 services:
   - postgresql
-# before_script:
-  # - psql -c 'create database BlooDiscounts_test' -U jimaeda
+
+
+before_script:
+  - psql -c 'create database whispr_test;' -U postgres
+  - cp config/database.yml.travis config/database.yml
 
 after_success:
   - bundle exec codeclimate-test-reporter
@@ -19,12 +23,12 @@ dist: trusty
 bundler_args: --binstubs=./bundler_stubs
 
 language: ruby
-rvm:
-  - 2.5.1
+# rvm:
+#   - 2.5.1
 
 script:
-  - bundle install --jobs=3 --retry=3
-  - RAILS_ENV=test bundle exec rails db:reset db:setup db:migrate 
+  # - bundle install --jobs=3 --retry=3
+  # - RAILS_ENV=test bundle exec rails db:reset db:setup db:migrate 
   - bundle exec rspec
   - bundle exec rake features
   # - RAILS_ENV=test bundle exec rake db:migrate --trace
