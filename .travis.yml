@@ -12,7 +12,7 @@ services:
 
 
 before_script:
-  - psql -c 'create database whispr_test;' -U postgres
+  - psql -c 'create database BlooDiscounts_test;' -U postgres
   - cp config/database.yml.travis config/database.yml
 
 after_success:
