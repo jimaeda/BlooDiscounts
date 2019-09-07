@@ -1,0 +1,41 @@
+addons:
+  # Used for reference don't know if we are going to use in the end
+  # postgresql: 9.4
+  code_climate:
+      repo_token: f441fe719ff504f2afec737c2154eaece83bf6b04bbaa12c60b6b55981e70b61
+
+# Used for reference don't know if we are going to use in the end
+# env:
+  # - DB=postgresql
+
+services:
+  - postgresql
+
+before_script:
+  - psql -c 'create database BlooDiscounts_test' -U jimaeda
+  - cp config/database.yml.travis config/database.yml
+
+after_success:
+  - bundle exec codeclimate-test-reporter
+
+dist: trusty
+
+bundler_args: --binstubs=./bundler_stubs
+
+language: ruby
+
+# Used for reference don't know if we are going to use in the end
+# rvm:
+  # - 2.5.1
+
+script:
+  - bundle install --jobs=3 --retry=3
+  # Used for reference don't know if we are going to use in the end
+  # - RAILS_ENV=test bundle exec rake db:migrate --trace
+  # - RAILS_ENV=test bundle exec rails db:reset db:setup db:migrate 
+  # - bundle exec rake:db:test:prepare
+  - bundle exec rspec
+  - bundle exec cucumber --profile default
+
+# services:
+  # - redis-server
