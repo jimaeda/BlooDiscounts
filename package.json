@@ -1,5 +1,5 @@
 {
-  "name": "BlooDiscounts",
+  "name": "bloodiscounts",
   "private": true,
   "dependencies": {
     "@rails/actioncable": "^6.0.0-alpha",
@@ -13,5 +13,24 @@
     "jasmine": "^3.4.0",
     "webpack-dev-server": "^3.8.0"
   },
-  "scripts": { "test": "jasmine" }
+  "scripts": {
+    "test": "jasmine",
+    "start": "node  babel.config.js"
+  },
+  "description": "# BlooDiscounts",
+  "main": "babel.config.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jimaeda/BlooDiscounts.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jimaeda/BlooDiscounts/issues"
+  },
+  "homepage": "https://github.com/jimaeda/BlooDiscounts#readme"
 }
