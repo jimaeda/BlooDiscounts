@@ -47,29 +47,39 @@
 <body>
     <div>
         <div align="center">
-            <p>
-                <div>
-                    <h1> BlooDiscounts </h1>
-                </div>
-                <div class="img-logo">
-                        <a href="index.html"><img src="img/logo.png" alt="logo"> </a>
-                </div>
-                <br/>
-                <br/>
-                <div class="botao_usuario">
-                <a href="dadosUsuario.html">
-                    <button><h2>Entrar com usuário</h2></button></a>
-                </div>
-                <br/>
-                <br/>
-                <div>
-                    <a href="dadosUsuario.html">
-                      <button><h2>Entrar como admnistrador</h2></button></a>
-                </div>
-            </p>   
+            <div>
+                <h1> BlooDiscounts </h1>
+            </div>
+            <div class="img-logo">
+                    <a href="index.html"><img src="img/logo.png" alt="logo"> </a>
+            </div>
+            
+            <form name="dados_login" method="post" id="formulario">
+                <div align="center">
+                    <p>
+                        <div> 
+                            <h3>Login</h3>
+                            <label>
+                                <span>Email</span>
+                                <input type="text" name="email" id="email"/>
+                            </label>
+                            <br />
+                            <br />
+                            <label>
+                                <span>Senha</span>
+                                <input type="text" name="senha" id="senha"/>
+                            </label>
+                            <br />
+                            <br />                          
+                            <label>
+                                <a href="index.html">
+                                <button><h2>Entrar</h2></button></a>
+                            </label>           
+                        </div>
+                    </p>
+                </div>    
+            </form> 
         </div>
     </div>
 </body>
 </html>
-
-
