@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-br">
+<html lang="en">
 
 <head>
     <!-- Required meta tags -->
@@ -7,51 +7,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>BlooDiscounts</title>
     <!-- style CSS -->
+    <style>
+        body{
+            background-image: url(img/backg.png); 
+            background-position: 90px 0px;
+        }
+        h1{
+            color: #660000;
+            font-family: "Times New Roman", Times, serif;
+            font-size: 450%;
+        }
+        h3{
+            color: #660000;
+            font-family: "Times New Roman", Times, serif;
+            font-size: 200%;
+        }
+        a{
+            font-size: 150%;
+        }
+        button {
+            background-color: #660000;
+            border: none;
+            color: white;
+            width: 300px;
+            height: 50px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 10px;
+        }
+        .img-logo img{
+            width: 200px;
+            height: 200px;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 
 <body>
-    <header class="tela_inicial">
-        <div>
-            <div align="center">
-                <div>
-                    <h1> BlooDiscounts </h1>
-                </div>
-                <div class="col-lg-12">
-                        <a class="navbar-brand" href="index.html"><img src="img/logo.jpg" alt="logo"> </a>
-                </div>
-                
-                <form name="dados_login" method="post" id="formulario">
-                    <div align="center">
-                        <p>
-                            <div class="box"> 
-                                <h1>Cadastro</h1>
-                                <label>
-                                    <span>Nome</span>
-                                    <input type="text" class="input_text" name="nome" id="nome"/>
-                                </label>
-                                <br />
-                                <br />
-                                <label>
-                                    <span>Email</span>
-                                    <input type="text" class="input_text" name="email" id="email"/>
-                                </label>
-                                <br />
-                                <br />
-                                <label>
-                                    <span>Senha</span>
-                                    <input type="text" class="input_text" name="senha" id="senha"/>
-                                </label>
-                                <br />
-                                <br />                          
-                                <label>
-                                    <input type="button" class="button" value="Enviar" />
-                                </label>           
-                            </div>
-                        </p>
-                    </div>    
-                </form> 
+    <div>
+        <div align="center">
+            <div>
+                <h1> BlooDiscounts </h1>
             </div>
+            <div class="img-logo">
+                    <a href="index.html"><img src="img/logo.png" alt="logo"> </a>
+            </div>
+            
+            <form name="dados_login" method="post" id="formulario">
+                <div align="center">
+                    <p>
+                        <div> 
+                            <h3>Cadastro</h3>
+                            <label>
+                                <span>Nome</span>
+                                <input type="text" class="input_text" name="nome" id="nome"/>
+                            </label>
+                            <br />
+                            <br />
+                            <label>
+                                <span>Email</span>
+                                <input type="text" class="input_text" name="email" id="email"/>
+                            </label>
+                            <br />
+                            <br />
+                            <label>
+                                <span>Senha</span>
+                                <input type="text" class="input_text" name="senha" id="senha"/>
+                            </label>
+                            <br />
+                            <br />                          
+                            <label>
+                                <a href="index.html">
+                                <button><h2>Cadastrar</h2></button></a>
+                            </label>           
+                        </div>
+                    </p>
+                </div>    
+            </form> 
         </div>
-    </header>
+    </div>
 </body>
 </html>
