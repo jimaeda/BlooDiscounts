@@ -1,0 +1,42 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+body{
+    background-image: url(backg.png); 
+    background-position: 90px 0px;
+}
+
+h1{
+    color: #FF0000;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 450%;
+}
+
+h3{
+    color: #FF0000;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 200%;
+}
+
+a{
+    font-size: 150%;
+}
+
+button {
+    background-color: #FF0000;
+    border: none;
+    color: white;
+    width: 300px;
+    height: 50px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 10px;
+}
+
+.img-logo img{
+    width: 200px;
+    height: 200px;
+    margin-top: 10px;
+}
