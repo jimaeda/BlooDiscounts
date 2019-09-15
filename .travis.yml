@@ -12,15 +12,15 @@ services:
   - postgresql
 
 before_script:
-  - psql -c 'create database BlooDiscounts_test' -U jimaeda
+  - psql -c 'create database BlooDiscounts_test' -U postgres
   - cp config/database.yml.travis config/database.yml
 
 after_success:
   - bundle exec codeclimate-test-reporter
 
-dist: trusty
-
-bundler_args: --binstubs=./bundler_stubs
+# Used for reference don't know if we are going to use in the end
+# dist: trusty
+# bundler_args: --binstubs=./bundler_stubs
 
 language: ruby
 
@@ -34,6 +34,7 @@ script:
   # - RAILS_ENV=test bundle exec rake db:migrate --trace
   # - RAILS_ENV=test bundle exec rails db:reset db:setup db:migrate 
   # - bundle exec rake:db:test:prepare
+  - bundle exec rails db:reset db:setup
   - bundle exec rspec
   - bundle exec cucumber --profile default
 
