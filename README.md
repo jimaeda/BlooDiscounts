@@ -19,6 +19,11 @@ Tal aplicação ajudaria a incentivar a doação de sangue.
 Fizemos deploy
 > Link para o [Heroku](https://bloodiscounts.herokuapp.com/).
 
+### Pivotal Tracker
+É possível linkar suas mudanças com o **Pivotal Tracker** de duas formas:
+* Criando uma brand com o id da story (`123123-super-cool-feature`) 
+* Fazendo um commit com o id da story (`git commit -m "[finishes #123123] Updated settings for holograph projector"`), nesse caso é possível colocar um estado (`[(Finishes|Fixes|Delivers) #TRACKER_STORY_ID]`), colocando  “Finishes” ou “Fixes” no seu commit message vai mudar o estado da story especificada para o estado Finished, enquanto “Delivers” mudara para o estado Delivered.
+
 ### Nosso grupo é composto por 6 pessoas:
 * Denise Keiko Adati **(Denisekfa) NUSP:** 10430962
 * Diego Mera Guimarães **(DiegoMera) NUSP:** 10258834
