@@ -1,0 +1,24 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import url(https://fonts.googleapis.com/css?family=Rubik&display=swap);
+$rubik: 'Rubik', sans-serif;
+
+body {
+	background-color: white
+	/* I think that not using a wallpaper works better */
+    /*background-image: url(backg.png); */
+    /*background-position: 90px 0px;*/
+}
+
+h1 {
+  color: #FF0000;
+  font-family: $rubik;
+  font-size: 450%;
+}
+
+a {
+  font-family: $rubik;
+  font-size: 150%;
+}

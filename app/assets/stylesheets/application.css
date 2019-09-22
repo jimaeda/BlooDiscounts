@@ -13,3 +13,45 @@
  *= require_tree .
  *= require_self
  */
+
+@import url(https://fonts.googleapis.com/css?family=Rubik&display=swap);
+$rubik: 'Rubik', sans-serif;
+
+body{
+	 /*I think that not using a wallpaper works better */
+    /*background-image: url(backg.png); */
+    /*background-position: 90px 0px;*/
+}
+
+.img-logo img{
+    width: 200px;
+    height: 200px;
+    margin-top: 10px;
+}
+
+.custom-button{
+    display: inline-block;
+    background-color: #FF0000;
+    border: none;
+    color: white;
+    border-radius: 12px;
+    width: 300px;
+    height: 50px;
+    text-align: center;
+    font-family: $rubik;
+    font-size: 20px;
+}
+
+/* RIpple effect */
+.ripple {
+  background-position: center;
+  transition: background 0.8s;
+}
+.ripple:hover {
+  background: #ff6969 radial-gradient(circle, transparent 1%, #ff6969 1%) center/15000%;
+}
+.ripple:active {
+  background-color: #ffa3a3;
+  background-size: 100%;
+  transition: background 0s;
+}
