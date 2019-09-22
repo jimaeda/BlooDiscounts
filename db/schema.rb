@@ -16,6 +16,9 @@ ActiveRecord::Schema.define(version: 2019_09_22_204113) do
   enable_extension "plpgsql"
 
   create_table "users", force: :cascade do |t|
+  	t.string "email", default: "", null: false
+    t.string "first_name", default: "", null: false	    
+    t.string "last_name", default: "", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
