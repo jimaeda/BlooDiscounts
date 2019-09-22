@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
@@ -15,13 +15,11 @@
             	<%= image_tag "logo.png" %>    
             </a>
         </div>
-        <br />
-        <br />
-        <a href="cadastro.html">
-        	<button class="ripple"><h2>Cadastrar</h2></button>
-        </a>
-        <br />
-        <br />
+        <br/>
+        <br/>
+        <%= button_to "Cadastrar", new_user_path, :class => "custom-button ripple", :method => :get %>
+        <br/>
+        <br/>
     	<a>Já possui cadastro? </a>
     	<a href="login.html">Entre aqui.</a>              
     </div>

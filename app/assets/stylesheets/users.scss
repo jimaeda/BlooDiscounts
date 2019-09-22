@@ -1,4 +1,4 @@
-// Place all the styles related to the welcome controller here.
+// Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
@@ -13,12 +13,22 @@ body {
 }
 
 h1 {
-  color: #FF0000;
-  font-family: $rubik;
-  font-size: 450%;
+    color: #FF0000;
+    font-family: $rubik;
+    font-size: 450%;
+}
+
+h3 {
+    color: #FF0000;
+    font-family: $rubik;
+    font-size: 200%;
 }
 
 a {
-  font-family: $rubik;
-  font-size: 150%;
+	font-family: $rubik;
+    font-size: 150%;
+}
+
+span {
+	font-family: $rubik;
 }
