@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
@@ -8,22 +8,20 @@
 </head>
 
 <body>
-    <div align="center">     
+    <div align="center">
 		<h1> BlooDiscounts </h1>
         <div class="img-logo">
             <a href="index.html">
-            	<%= image_tag "logo.png" %>    
+            	<%= image_tag "logo.png" %>
             </a>
         </div>
-        <br />
-        <br />
-        <a href="cadastro.html">
-        	<button class="ripple"><h2>Cadastrar</h2></button>
-        </a>
-        <br />
-        <br />
+        <br/>
+        <br/>
+        <%= button_to "Cadastrar", new_user_path, :class => "custom-button ripple", :method => :get %>
+        <br/>
+        <br/>
     	<a>Já possui cadastro? </a>
-    	<a href="login.html">Entre aqui.</a>              
+        <%= link_to  "Entre aqui.", login_path %>
     </div>
 </body>
 </html>
