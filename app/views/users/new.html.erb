@@ -12,9 +12,32 @@
     <div align="center">
         <h1> BlooDiscounts </h1>
         <div class="img-logo">
-            <%= image_tag "logo.png" %>    
+            <%= image_tag "logo.png" %>
         </div>
-        
+
+        <div>
+          <% if flash[:alert] %>
+          <p id="notice"><%= flash[:alert] %></p>
+          <% end %>
+          <%= form_tag do %>
+          <fieldset>
+            <legend>Por favor, entre</legend>
+            <div>
+              <%= label_tag :name, 'Nome' %>
+              <%= text_field_tag :name, params[:name] %>
+              <%= label_tag :email, 'Email' %>
+              <%= text_field_tag :email, params[:email] %>
+              <%= label_tag :password, 'Senha' %>
+              <%= password_field_tag :password, params[:password] %>
+            </div>
+            <div>
+              <%= submit_tag "Login" %>
+            </div>
+          </fieldset>
+          <% end %>
+        </div>
+
+        <%#
         <form name="sign_up_information" method="post" id="formulario">
             <div align="center">
                 <h3>Cadastro</h3>
@@ -29,10 +52,12 @@
                 <span>Senha:</span>
                 <input type="text" name="senha" id="senha"/>
                 <br/>
-                <br/>                          
+                <br/>
                 <%= button_to "Cadastrar", new_user_path, :class => "custom-button ripple", :method => :get %>
-            </div>    
-        </form> 
+        <%#
+            </div>
+        </form>
+         %>
     </div>
 </body>
 </html>

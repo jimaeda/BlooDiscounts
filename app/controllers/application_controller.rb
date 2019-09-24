@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
-	def hello    
+	def hello
         render html: 'Salve, salve'
-    end
+  end
+
 end
