@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>BlooDiscounts</title>
+</head>
+
+<body>
+    <div align="center">
+        <h1> BlooDiscounts </h1>
+        <div class="img-logo">
+            <%= image_tag "logo.png" %>
+        </div>
+
+        <div>
+          <% if flash[:alert] %>
+          <p id="notice"><%= flash[:alert] %></p>
+          <% end %>
+          <%= form_tag do %>
+          <fieldset>
+            <legend>Por favor, entre</legend>
+            <div>
+              <%= label_tag :name, 'Nome' %>
+              <%= text_field_tag :name, params[:name] %>
+              <%= label_tag :birthdate, 'Data de nascimento' %>
+              <%= date_field_tag :birthdate, params[:birthdate] %>
+              <%= label_tag :bloodtype, 'Tipo sanguíneo' %>
+              <%= select_tag :bloodtype, options_for_select(User.bloodtype.map {|k, v| [k.humanize.capitalize, v]} %>
+              <%= label_tag :email, 'Email' %>
+              <%= text_field_tag :email, params[:email] %>
+              <%= label_tag :password, 'Senha' %>
+              <%= password_field_tag :password, params[:password] %>
+            </div>
+            <div>
+              <%= submit_tag "Login" %>
+            </div>
+          </fieldset>
+          <% end %>
+        </div>
+
+        <%#
+        <form name="sign_up_information" method="post" id="formulario">
+            <div align="center">
+                <h3>Cadastro</h3>
+                <span>Nome:</span>
+                <input type="text" name="nome" id="nome"/>
+                <br/>
+                <br/>
+                <span>Email:</span>
+                <input type="text" name="email" id="email"/>
+                <br/>
+                <br/>
+                <span>Senha:</span>
+                <input type="text" name="senha" id="senha"/>
+                <br/>
+                <br/>
+                <%= button_to "Cadastrar", new_user_path, :class => "custom-button ripple", :method => :get %>
+        <%#
+            </div>
+        </form>
+         %>
+    </div>
+</body>
+</html>

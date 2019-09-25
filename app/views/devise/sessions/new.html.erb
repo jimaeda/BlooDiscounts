@@ -10,34 +10,34 @@
 </head>
 
 <body>
-  <div align="center">      
+  <div align="center">
     <h1> BlooDiscounts </h1>
     <div class="img-logo">
-      <%= image_tag "logo.png" %>   
-    </div>    
+      <%= image_tag "logo.png" %>
+    </div>
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <h3>Login</h3>
     <div class="field">
       <%= f.label :email %><br />
       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
     </div>
-    <br/> 
+    <br/>
     <div class="field">
       <%= f.label :password %><br />
       <%= f.password_field :password, autocomplete: "current-password" %>
     </div>
-    <br/> 
+    <br/>
     <% if devise_mapping.rememberable? %>
     <div class="field">
       <%= f.check_box :remember_me %>
       <%= f.label :remember_me %>
     </div>
     <% end %>
-    <br/>                 
+    <br/>
     <div class="actions">
       <%= f.submit "Entrar", :class => "custom-button ripple" %>
     </div>
-    <% end %> 
+    <% end %>
   </div>
 </body>
 </html>
