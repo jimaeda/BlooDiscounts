@@ -25,6 +25,10 @@
             <div>
               <%= label_tag :name, 'Nome' %>
               <%= text_field_tag :name, params[:name] %>
+              <%= label_tag :birthdate, 'Data de nascimento' %>
+              <%= date_field_tag :birthdate, params[:birthdate] %>
+              <%= label_tag :bloodtype, 'Tipo sanguíneo' %>
+              <%= select_tag :bloodtype, options_for_select(User.bloodtype.map {|k, v| [k.humanize.capitalize, v]} %>
               <%= label_tag :email, 'Email' %>
               <%= text_field_tag :email, params[:email] %>
               <%= label_tag :password, 'Senha' %>
