@@ -5,6 +5,8 @@
 ### A ideia
 A ideia de nossa aplicação seria funcionar como um **banco de sangue**, que a cada doação o usuário seria recompensado com prêmios.
 Tal aplicação ajudaria a incentivar a doação de sangue.
+> [O protótipo](https://www.figma.com/proto/asbdkCrqvnLqc741a5IfGI04/IHC-Project?node-id=42%3A57&scaling=min-zoom).
+
 
 ### CodeClimate Badge
 <a href="https://codeclimate.com/github/jimaeda/BlooDiscounts/maintainability"><img src="https://api.codeclimate.com/v1/badges/a4d567446ecf31a68307/maintainability" /></a>

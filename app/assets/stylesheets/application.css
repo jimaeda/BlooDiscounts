@@ -13,9 +13,10 @@
  *= require_tree .
  *= require_self
  */
-
-@import url(https://fonts.googleapis.com/css?family=Rubik&display=swap);
-$rubik: 'Rubik', sans-serif;
+@font-face {
+  font-family: 'Rubik', sans-serif;
+  src: url('/assets/Rubik-Regular.tff');
+}
 
 body{
 	 /*I think that not using a wallpaper works better */
@@ -23,9 +24,19 @@ body{
     /*background-position: 90px 0px;*/
 }
 
+h3 {
+    color: #FF0000;
+    font-family: 'Rubik';
+    font-size: 200%;
+}
+
+.field {
+    font-family: 'Rubik';
+}
+
 .img-logo img{
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     margin-top: 10px;
 }
 
@@ -38,7 +49,7 @@ body{
     width: 300px;
     height: 50px;
     text-align: center;
-    font-family: $rubik;
+    font-family: 'Rubik';
     font-size: 20px;
 }
 
