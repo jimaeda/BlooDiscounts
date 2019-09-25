@@ -15,6 +15,10 @@
         <br/>
         <br/>
         <% if current_user %>
+             <%= button_to "Resgatar pontos", :class => "custom-button ripple" %>
+             <br/>
+             <br/>
+              <%= button_to "Hospital mais próximo", :class => "custom-button ripple" %>
             <a>EU QUERO </a>
             <%= link_to  "SAIR.", destroy_user_session_path, :method => :delete %>    
         <% else %>
