@@ -9,19 +9,21 @@
 
 <body>
     <div align="center">     
-		<h1> BlooDiscounts </h1>
-        <div class="img-logo">
-            <a href="index.html">
-            	<%= image_tag "logo.png" %>    
-            </a>
+		<h1> BlooDiscounts </h1>        <div class="img-logo">
+            <%= image_tag "logo.png" %>    
         </div>
         <br/>
         <br/>
-        <%= button_to "Cadastrar", new_user_registration_path, :class => "custom-button ripple", :method => :get %>
-        <br/>
-        <br/>
-    	<a>Já possui cadastro? </a>
-    	<%= link_to  "Entre aqui.", new_user_session_path %>      
+        <% if current_user %>
+            <a>EU QUERO </a>
+            <%= link_to  "SAIR.", destroy_user_session_path, :method => :delete %>    
+        <% else %>
+            <%= button_to "Cadastrar", new_user_registration_path, :class => "custom-button ripple", :method => :get %>
+            <br/>
+            <br/>
+            <a>Já possui cadastro? </a>
+            <%= link_to  "Entre aqui.", new_user_session_path %> 
+        <% end %>      
     </div>
 </body>
 </html>

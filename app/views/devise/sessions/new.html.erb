@@ -14,8 +14,7 @@
       <h1> BlooDiscounts </h1>
       <div class="img-logo">
         <%= image_tag "logo.png" %>   
-      </div>
-        
+      </div>    
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <h3>Login</h3>
         <div class="field">
@@ -34,8 +33,7 @@
             <%= f.label :remember_me %>
           </div>
         <% end %>
-        <br/>                          
-        <a href="index.html">
+        <br/>                 
         <div class="actions">
           <%= f.submit "Entrar", :class => "custom-button ripple" %>
         </div>
