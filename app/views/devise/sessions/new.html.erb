@@ -2,43 +2,43 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>BlooDiscounts</title>
-    <!-- style CSS -->
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>BlooDiscounts</title>
+  <!-- style CSS -->
 </head>
 
 <body>
-    <div align="center">      
-      <h1> BlooDiscounts </h1>
-      <div class="img-logo">
-        <%= image_tag "logo.png" %>   
-      </div>    
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-        <h3>Login</h3>
-        <div class="field">
-          <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-        </div>
-        <br/> 
-        <div class="field">
-          <%= f.label :password %><br />
-          <%= f.password_field :password, autocomplete: "current-password" %>
-        </div>
-        <br/> 
-        <% if devise_mapping.rememberable? %>
-          <div class="field">
-            <%= f.check_box :remember_me %>
-            <%= f.label :remember_me %>
-          </div>
-        <% end %>
-        <br/>                 
-        <div class="actions">
-          <%= f.submit "Entrar", :class => "custom-button ripple" %>
-        </div>
-      <% end %> 
+  <div align="center">      
+    <h1> BlooDiscounts </h1>
+    <div class="img-logo">
+      <%= image_tag "logo.png" %>   
+    </div>    
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <h3>Login</h3>
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
     </div>
+    <br/> 
+    <div class="field">
+      <%= f.label :password %><br />
+      <%= f.password_field :password, autocomplete: "current-password" %>
+    </div>
+    <br/> 
+    <% if devise_mapping.rememberable? %>
+    <div class="field">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+    <% end %>
+    <br/>                 
+    <div class="actions">
+      <%= f.submit "Entrar", :class => "custom-button ripple" %>
+    </div>
+    <% end %> 
+  </div>
 </body>
 </html>
 

@@ -6,27 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>BlooDiscounts</title>
 </head>
-
 <body>
     <div align="center">     
-		<h1> BlooDiscounts </h1>        <div class="img-logo">
+        <h1> BlooDiscounts </h1>        
+        <div class="img-logo">
             <%= image_tag "logo.png" %>    
         </div>
         <br/>
         <br/>
         <% if current_user %>
-             <%= button_to "Resgatar pontos", :class => "custom-button ripple" %>
-             <br/>
-             <br/>
-              <%= button_to "Hospital mais próximo", :class => "custom-button ripple" %>
-            <a>EU QUERO </a>
-            <%= link_to  "SAIR.", destroy_user_session_path, :method => :delete %>    
+        <%= button_to "Resgatar pontos", :class => "custom-button ripple" %>
+        <br/>
+        <br/>
+        <%= button_to "Hospital mais próximo", :class => "custom-button ripple" %>
+        <a>EU QUERO </a>
+        <%= link_to  "SAIR.", destroy_user_session_path, :method => :delete %>    
         <% else %>
-            <%= button_to "Cadastrar", new_user_registration_path, :class => "custom-button ripple", :method => :get %>
-            <br/>
-            <br/>
-            <a>Já possui cadastro? </a>
-            <%= link_to  "Entre aqui.", new_user_session_path %> 
+        <%= button_to "Cadastrar", new_user_registration_path, :class => "custom-button ripple", :method => :get %>
+        <br/>
+        <br/>
+        <a>Já possui cadastro? </a>
+        <%= link_to  "Entre aqui.", new_user_session_path %> 
         <% end %>      
     </div>
 </body>
