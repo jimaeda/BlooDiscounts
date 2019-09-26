@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Username:</strong>
+  <%= @admin.username %>
+</p>
+
+<p>
+  <strong>Encrypted password:</strong>
+  <%= @admin.encrypted_password %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @admin.name %>
+</p>
+
+<p>
+  <strong>Cpf:</strong>
+  <%= @admin.cpf %>
+</p>
+
+<p>
+  <strong>Hospital name:</strong>
+  <%= @admin.hospital_name %>
+</p>
+
+<%= link_to 'Edit', edit_admin_path(@admin) %> |
+<%= link_to 'Back', admins_path %>
