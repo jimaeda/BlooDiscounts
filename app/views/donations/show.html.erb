@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User cpf:</strong>
+  <%= @donation.user_cpf %>
+</p>
+
+<p>
+  <strong>Hospital name:</strong>
+  <%= @donation.hospital_name %>
+</p>
+
+<p>
+  <strong>Donated amount:</strong>
+  <%= @donation.donated_amount %>
+</p>
+
+<p>
+  <strong>Donation date:</strong>
+  <%= @donation.donation_date %>
+</p>
+
+<%= link_to 'Edit', edit_donation_path(@donation) %> |
+<%= link_to 'Back', donations_path %>
