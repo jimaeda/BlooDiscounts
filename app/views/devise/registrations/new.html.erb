@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>BlooDiscounts</title>
+</head>
+
+<body>
+  <div align="center">
+    <h1> BlooDiscounts </h1>
+    <div class="img-logo">
+      <%= image_tag "logo.png" %>
+    </div>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+    <h3>Cadastro</h3>
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+    <br/>
+    <div class="field">
+      <%= f.label :bloodtype %><br />
+      <%= f.select(:bloodtype, User.bloodtypes.keys.map {|bloodtype| [bloodtype,bloodtype]}) %>
+    </div>
+    <br/>
+    <div class="field">
+      <%= f.label :birthdate %><br />
+      <%= f.date_field :birthdate  %>
+    </div>
+    <br/>
+    <div class="field">
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password" %>
+    </div>
+    <br/>
+    <div class="field">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
+    <br/>
+    <div class="actions">
+      <%= f.submit "Cadastrar", :class => "custom-button ripple" %>
+    </div>
+    <% end %>
+  </div>
+</body>
+</html>
+
+
+
+<%= render "devise/shared/links" %>
