@@ -1,0 +1,72 @@
+<%= form_with(model: hospital, local: true) do |form| %>
+  <% if hospital.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(hospital.errors.count, "error") %> prohibited this hospital from being saved:</h2>
+
+      <ul>
+        <% hospital.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :hosp_name %>
+    <%= form.text_field :hosp_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hosp_city %>
+    <%= form.text_field :hosp_city %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hosp_state %>
+    <%= form.text_field :hosp_state %>
+  </div>
+
+  <div class="field">
+    <%= form.label :a_plus %>
+    <%= form.text_field :a_plus %>
+  </div>
+
+  <div class="field">
+    <%= form.label :a_minus %>
+    <%= form.text_field :a_minus %>
+  </div>
+
+  <div class="field">
+    <%= form.label :b_plus %>
+    <%= form.text_field :b_plus %>
+  </div>
+
+  <div class="field">
+    <%= form.label :b_minus %>
+    <%= form.text_field :b_minus %>
+  </div>
+
+  <div class="field">
+    <%= form.label :o_plus %>
+    <%= form.text_field :o_plus %>
+  </div>
+
+  <div class="field">
+    <%= form.label :o_minus %>
+    <%= form.text_field :o_minus %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ab_plus %>
+    <%= form.text_field :ab_plus %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ab_minus %>
+    <%= form.text_field :ab_minus %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -10,10 +10,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_29_005421) do
+ActiveRecord::Schema.define(version: 2019_10_05_210214) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "admins", force: :cascade do |t|
+    t.string "adm_username", default: "", null: false
+    t.string "password", default: "", null: false
+    t.string "adm_name", default: "", null: false
+    t.string "adm_cpf", default: "", null: false
+    t.string "hospital_name", default: "", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "donations", force: :cascade do |t|
+    t.string "user_cpf", default: "", null: false
+    t.string "hospital_name", default: "", null: false
+    t.decimal "donated_amount", default: "0.0", null: false
+    t.datetime "donation_date", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "hospitals", force: :cascade do |t|
+    t.string "hosp_name", default: "", null: false
+    t.string "hosp_city", default: "", null: false
+    t.string "hosp_state", default: "", null: false
+    t.decimal "a_plus", default: "0.0", null: false
+    t.decimal "a_minus", default: "0.0", null: false
+    t.decimal "b_plus", default: "0.0", null: false
+    t.decimal "b_minus", default: "0.0", null: false
+    t.decimal "o_plus", default: "0.0", null: false
+    t.decimal "o_minus", default: "0.0", null: false
+    t.decimal "ab_plus", default: "0.0", null: false
+    t.decimal "ab_minus", default: "0.0", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false

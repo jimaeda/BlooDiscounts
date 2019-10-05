@@ -1,0 +1,37 @@
+<%= form_with(model: donation, local: true) do |form| %>
+  <% if donation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(donation.errors.count, "error") %> prohibited this donation from being saved:</h2>
+
+      <ul>
+        <% donation.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :user_cpf %>
+    <%= form.text_field :user_cpf %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hospital_name %>
+    <%= form.text_field :hospital_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :donated_amount %>
+    <%= form.text_field :donated_amount %>
+  </div>
+
+  <div class="field">
+    <%= form.label :donation_date %>
+    <%= form.datetime_select :donation_date %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

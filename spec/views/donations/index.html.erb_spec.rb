@@ -20,7 +20,6 @@ RSpec.describe "donations/index", type: :view do
 
   it "renders a list of donations" do
     render
-    assert_select "tr>td", :text => "2019-01-01".to_s, :count => 2
     assert_select "tr>td", :text => "User Cpf".to_s, :count => 2
     assert_select "tr>td", :text => "Hospital Name".to_s, :count => 2
     assert_select "tr>td", :text => "9.99".to_s, :count => 2
