@@ -19,6 +19,9 @@
         <br/>
         <br/>
         <%= button_to "Hospital mais próximo", :class => "custom-button ripple" %>
+        <br/>
+        <br/>
+        <%= button_to "Cadastrar Banco de sangue", new_bank_path, :class => "custom-button ripple", :method => :get %>
         <a>EU QUERO </a>
         <%= link_to  "SAIR.", destroy_user_session_path, :method => :delete %>
         <% else %>
