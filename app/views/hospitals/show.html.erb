@@ -1,0 +1,59 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Hosp name:</strong>
+  <%= @hospital.hosp_name %>
+</p>
+
+<p>
+  <strong>Hosp city:</strong>
+  <%= @hospital.hosp_city %>
+</p>
+
+<p>
+  <strong>Hosp state:</strong>
+  <%= @hospital.hosp_state %>
+</p>
+
+<p>
+  <strong>A plus:</strong>
+  <%= @hospital.a_plus %>
+</p>
+
+<p>
+  <strong>A minus:</strong>
+  <%= @hospital.a_minus %>
+</p>
+
+<p>
+  <strong>B plus:</strong>
+  <%= @hospital.b_plus %>
+</p>
+
+<p>
+  <strong>B minus:</strong>
+  <%= @hospital.b_minus %>
+</p>
+
+<p>
+  <strong>O plus:</strong>
+  <%= @hospital.o_plus %>
+</p>
+
+<p>
+  <strong>O minus:</strong>
+  <%= @hospital.o_minus %>
+</p>
+
+<p>
+  <strong>Ab plus:</strong>
+  <%= @hospital.ab_plus %>
+</p>
+
+<p>
+  <strong>Ab minus:</strong>
+  <%= @hospital.ab_minus %>
+</p>
+
+<%= link_to 'Edit', edit_hospital_path(@hospital) %> |
+<%= link_to 'Back', hospitals_path %>
