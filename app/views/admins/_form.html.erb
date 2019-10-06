@@ -1,0 +1,42 @@
+<%= form_with(model: admin, local: true) do |form| %>
+  <% if admin.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(admin.errors.count, "error") %> prohibited this admin from being saved:</h2>
+
+      <ul>
+        <% admin.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :adm_username %>
+    <%= form.text_field :adm_username %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password %>
+    <%= form.text_field :password %>
+  </div>
+
+  <div class="field">
+    <%= form.label :adm_name %>
+    <%= form.text_field :adm_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :adm_cpf %>
+    <%= form.text_field :adm_cpf %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hospital_name %>
+    <%= form.text_field :hospital_name %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
