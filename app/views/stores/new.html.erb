@@ -34,52 +34,8 @@
             <img src="/assets/logo-78c5fc74051f0f7f9b054f2e8c483325cd24b1cb3034222b6ef9d8708c4fe3d2.png" />
           </div>
 
-          <form class="new_store" id="new_store" action="/stores" accept-charset="UTF-8" method="post">
-
-            <input type="hidden" name="authenticity_token" value="HObRUzaml2bFW3035yF/qRjfXkaMEU6cNgu8cBuEbM6MR/x05Xv8t+4hR83+WJiONYCVIoXV6eTq4ptjbDXKLg==" />
-            <h3>Cadastro de Loja</h3>
-
-            <div class="field">
-              <label for="store-name">Nome</label><br />
-              <input autofocus="autofocus" autocomplete="name" type="text" value="" name="store[name]" id="store_name" />
-            </div>
-
-            <br/>
-
-
-            <div class="field">
-              <label for="store-name">Categoria</label><br />
-              <input autofocus="autofocus" autocomplete="Category" type="text" value="" name="store[category]" id="store_category" />
-            </div>
-
-            <br/>
-
-            <div class="field">
-              <label for="store_email">Endereço</label><br />
-              <input autofocus="autofocus" autocomplete="email" type="text" value="" name="store[email]" id="store_address" />
-            </div>
-
-            <br/>
-
-            <div class="field">
-              <label for="store_email">Email para contato</label><br />
-              <input autofocus="autofocus" autocomplete="email" type="email" value="" name="store[email]" id="store_email" />
-            </div>
-
-            <br/>
-
-            <div class="field">
-              <label for="store_email">Telefone para contato</label><br />
-              <input autofocus="autofocus" autocomplete="(11) 3636-4545" type="tel" value="" name="store[phone]" pattern="([0-9]{2}) [0-9]{4}-[0-9]{4}" id="store_phone" required>
-            </div>
-
-            <br/>
-
-            <div class="actions">
-              <input type="submit" name="commit" value="Cadastrar" class="custom-button ripple" data-disable-with="Cadastrar" />
-            </div>
-
-          </form>  
+         <%= render 'form', store: @store %>
+         
         </div>
       </body>
       </html>
