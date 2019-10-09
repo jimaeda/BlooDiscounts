@@ -18,10 +18,20 @@
         <%= "Email: " + current_user.email %>
         <br/>
         <br/>
+        <%= "Tipo sanguíneo: " + current_user.bloodtype %>
+        <br/>
+        <br/>
+        <p>Data de nascimento </p>
+        <%= current_user.birthdate %>
+        <br/>
+        <br/>
         <%= button_to "Resgatar pontos", user_pontos_path, :method => :get,
         :class => "custom-button ripple" %>
         <br/>
         <%= button_to "Hospitais próximos", :class => "custom-button ripple"  %>
+        <br/>
+        <%= button_to "Editar informações", edit_user_registration_path, :method => :get,
+        :class => "custom-button ripple" %>
         <br/>
         <%= button_to "Sair", destroy_user_session_path, :method => :delete,
         :class => "custom-button ripple" %>
