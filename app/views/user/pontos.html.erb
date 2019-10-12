@@ -14,11 +14,10 @@
         </div>
         <br/>
         <br/>
-        <%= button_to "Cadastrar", new_user_registration_path, :class => "custom-button ripple", :method => :get %>
+        <p>Não existem pontos por enquanto.</p>
         <br/>
         <br/>
-        <a>Já possui cadastro? </a>
-        <%= link_to  "Entre aqui.", new_user_session_path %>
+        <%= button_to "Voltar", user_profile_path, :method => :get,
+         :class => "custom-button ripple" %>
     </div>
 </body>
-</html>
