@@ -14,6 +14,7 @@ services:
 before_script:
   - psql -c 'create database BlooDiscounts_test' -U postgres
   - cp config/database.yml.travis config/database.yml
+  - RAILS_ENV=test ./bin/rails webpacker:compile
 
 after_success:
   - bundle exec codeclimate-test-reporter
