@@ -26,7 +26,7 @@ language: ruby
 
 script:
   # Used for reference don't know if we are going to use in the end
-  # - bundle install --jobs=3 --retry=3
+  - bundle install
   # - RAILS_ENV=test bundle exec rake db:migrate --trace
   # - RAILS_ENV=test bundle exec rails db:reset db:setup db:migrate 
   # - bundle exec rake:db:test:prepare
