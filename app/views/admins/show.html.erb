@@ -1,29 +1,20 @@
-<p id="notice"><%= notice %></p>
+<!DOCTYPE html>
+<html lang="en">
 
-<p>
-  <strong>Adm username:</strong>
-  <%= @admin.adm_username %>
-</p>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <title>BlooDiscounts</title>
+    <!-- style CSS -->
+</head>
 
-<p>
-  <strong>Password:</strong>
-  <%= @admin.password %>
-</p>
-
-<p>
-  <strong>Adm name:</strong>
-  <%= @admin.adm_name %>
-</p>
-
-<p>
-  <strong>Adm cpf:</strong>
-  <%= @admin.adm_cpf %>
-</p>
-
-<p>
-  <strong>Hospital name:</strong>
-  <%= @admin.hospital_name %>
-</p>
+<body>
+    <div align="center">
+        <h1> Bem vindo </h1>
+        <%= current_admin.adm_name %>
+    </div>
+</body>
+</html>
 
 <%= link_to 'Edit', edit_admin_path(@admin) %> |
 <%= link_to 'Back', admins_path %>
