@@ -14,7 +14,8 @@
         </div>
         <br/>
         <br/>
-        <p>Não existem pontos por enquanto.</p>
+        <% if current_user %>
+        <p><%= current_user.points %></p>
         <br/>
         <br/>
         <%= button_to "Voltar", user_profile_path, :method => :get,
