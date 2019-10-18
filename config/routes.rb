@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :places
   get 'user/profile'
   get 'user/pontos'
   resources :admins
