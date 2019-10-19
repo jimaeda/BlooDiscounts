@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
       @admin = Admin.find_by(adm_username: params[:session][:adm_username].downcase)
       if @admin && @admin.authenticate(params[:session][:password])
         sign_in(@admin)
-        redirect_to @admin
+        redirect_to current_admin
     else
         render 'new'
     end

@@ -10,11 +10,21 @@
 
 <body>
     <div align="center">
-        <h1> Bem vindo </h1>
-        <%= current_admin.adm_name %>
+        <% if current_admin %>
+            <h1> Bem vindo </h1>
+            <%= current_admin.adm_name %>
+            <%= button_to "Registrar doação", :method => :get,:class => "custom-button ripple" %>
+            <br/>
+            <%= button_to "Exibir estoque de sangue", :class => "custom-button ripple"  %>
+            <br/>
+             <%= button_to "Cadastrar lojas", :class => "custom-button ripple"  %>
+            <br/>
+             <%= button_to "Listar produtos de uma loja", :class => "custom-button ripple"  %>
+            <br/>
+            <%= button_to "Editar informações", edit_admin_path(current_admin), :method => :get,:class => "custom-button ripple" %>
+            <br/>
+            <%= button_to "Sair", quit_path ,:method => :delete,:class => "custom-button ripple" %>
+        <% end %>
     </div>
 </body>
 </html>
-
-<%= link_to 'Edit', edit_admin_path(@admin) %> |
-<%= link_to 'Back', admins_path %>

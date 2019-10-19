@@ -7,7 +7,7 @@ describe "Successfull Login" do
     fill_in "Adm username", with: 'alexandrefreire'
     fill_in "Password", with: '123456'
     find('input[name="commit"]').click
-    expect(page).to have_content('Alexandre Freire')
+    expect(page).to have_content('Bem Vindo')
   end
 end
 
@@ -18,6 +18,6 @@ describe "Unsuccessfull Login" do
     fill_in 'Adm username', with: 'alexandrefreire'
     fill_in 'Password', with: '111111'
     find('input[name="commit"]').click
-    expect(page).to have_no_content('Alexandre Freire')
+    expect(page).to have_no_content('Bem Vindo')
   end
 end
