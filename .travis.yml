@@ -16,12 +16,16 @@ services:
 before_script:
   - psql -c 'create database BlooDiscounts_test' -U postgres
   - cp config/database.yml.travis config/database.yml
-  - wget -N https://chromedriver.storage.googleapis.com/2.33/chromedriver_linux64.zip -P ~/Downloads
-  - unzip ~/Downloads/chromedriver_linux64.zip -d ~/Downloads
-  - sudo mv -f ~/Downloads/chromedriver /usr/local/share/
-  - sudo chmod +x /usr/local/share/chromedriver
-  - sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
-  - sudo ln -s /usr/local/share/chromedriver /usr/bin/chromedriver
+  
+  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
+
+  - export CHROME_BIN=/usr/bin/google-chrome
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+  - sudo apt-get update
+  - sudo apt-get install -y libappindicator1 fonts-liberation
+  - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+  - sudo dpkg -i google-chrome*.deb
   #- wget http://chromedriver.storage.googleapis.com/78.0.3904.11/chromedriver_linux64.zip
   #- unzip ~/Downloads/chromedriver_linux64.zip -d ~/Downloads
 # TODO: Fin if still userful this line
