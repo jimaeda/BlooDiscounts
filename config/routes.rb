@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'sessions/new'
+  get 'admins/profile'
   get 'user/profile'
   get 'user/pontos'
   get 'login' => 'sessions#new'

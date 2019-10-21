@@ -61,6 +61,18 @@ h3 {
     font-size: 20px;
 }
 
+.flex-layout {
+  display: flex;
+  justify-content: center;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.flex-cell {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 /* Ripple effect */
 .ripple {
   background-position: center;
