@@ -1,4 +1,6 @@
 addons:
+  # versão do chrome para testes
+  chrome: stable
   # Used for reference don't know if we are going to use in the end
   # postgresql: 9.4
   code_climate:
@@ -14,8 +16,15 @@ services:
 before_script:
   - psql -c 'create database BlooDiscounts_test' -U postgres
   - cp config/database.yml.travis config/database.yml
-
-# TODO: Fin if still userful this line 
+  - wget -N https://chromedriver.storage.googleapis.com/2.33/chromedriver_linux64.zip -P ~/Downloads
+  - unzip ~/Downloads/chromedriver_linux64.zip -d ~/Downloads
+  - sudo mv -f ~/Downloads/chromedriver /usr/local/share/
+  - sudo chmod +x /usr/local/share/chromedriver
+  - sudo ln -s /usr/local/share/chromedriver /usr/local/bin/chromedriver
+  - sudo ln -s /usr/local/share/chromedriver /usr/bin/chromedriver
+  #- wget http://chromedriver.storage.googleapis.com/78.0.3904.11/chromedriver_linux64.zip
+  #- unzip ~/Downloads/chromedriver_linux64.zip -d ~/Downloads
+# TODO: Fin if still userful this line
 # after_success:
   # - bundle exec codeclimate-test-reporter
 
@@ -29,12 +38,12 @@ script:
   # Used for reference don't know if we are going to use in the end
   - bundle install
   # - RAILS_ENV=test bundle exec rake db:migrate --trace
-  # - RAILS_ENV=test bundle exec rails db:reset db:setup db:migrate 
+  # - RAILS_ENV=test bundle exec rails db:reset db:setup db:migrate
   # - bundle exec rake:db:test:prepare
   - bundle exec rails db:drop RAILS_ENV=test
   - bundle exec rails db:create RAILS_ENV=test
   # - bundle exec rails db:migrate RAILS_ENV=test
-  - bundle exec rake db:test:prepare 
+  - bundle exec rake db:test:prepare
   - bundle exec rake webpacker:install
   - bundle exec rake webpacker:compile RAILS_ENV=test
   - bundle exec rspec
