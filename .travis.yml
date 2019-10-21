@@ -5,7 +5,8 @@ addons:
   # postgresql: 9.4
   code_climate:
       repo_token: f441fe719ff504f2afec737c2154eaece83bf6b04bbaa12c60b6b55981e70b61
-
+before_install:
+  google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost:3000 &
 # Used for reference don't know if we are going to use in the end
 # env:
   # - DB=postgresql
