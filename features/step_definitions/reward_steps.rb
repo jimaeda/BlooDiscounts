@@ -53,20 +53,3 @@ Quando("eu digitar {string}, {string}, {int} e {int}") do |nome, categoria, quan
   find('input[id=reward_cost]').set custo
 
 end
-
-#Texto na qtd
-Quando("eu digitar {string}, {string}, {string} e {int}") do |nome, categoria, quantidade, custo|
-  find('input[id=reward_category]').set categoria
-  find('input[id=reward_name]').set nome
-  find('input[id=reward_quantity]').set quantidade
-  find('input[id=reward_cost]').set custo
-end
-
-#Texto no valor
-Quando("eu digitar {string}, {string}, {int} e {string}") do |nome, categoria, quantidade, custo|
-  find('input[id=reward_category]').set categoria
-  find('input[id=reward_name]').set nome
-  find('input[id=reward_quantity]').set quantidade
-  find('input[id=reward_cost]').set custo
-end
-

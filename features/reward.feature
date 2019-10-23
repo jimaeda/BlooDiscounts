@@ -39,20 +39,6 @@
 		Quando eu digitar "Banana", "Alimentos", 10 e nada
 		Então devo clicar em create reward
 		E devo continuar na mesma tela
-		
-	Cenario: Texto em vez de valor
-
-		Dado que eu acesso o cadastro de recompensas
-		Quando eu digitar "Banana", "Alimentos", "t" e 100
-		Então devo clicar em create reward
-		E devo continuar na mesma tela
-
-	Cenario: Texto em vez de Custo
-
-		Dado que eu acesso o cadastro de recompensas
-		Quando eu digitar "Banana", "Alimentos", 10 e "t"
-		Então devo clicar em create reward
-		E devo continuar na mesma tela
 
 	Cenario: Quantidade negativo
 
