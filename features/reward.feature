@@ -53,3 +53,17 @@
 		Quando eu digitar "Banana", "Alimentos", 10 e "t"
 		Então devo clicar em create reward
 		E devo continuar na mesma tela
+
+	Cenario: Quantidade negativo
+
+		Dado que eu acesso o cadastro de recompensas
+		Quando eu digitar "Banana", "Alimentos", -10 e 100
+		Então devo clicar em create reward
+		E devo continuar na mesma tela
+
+	Cenario: Custo negativo
+
+		Dado que eu acesso o cadastro de recompensas
+		Quando eu digitar "Banana", "Alimentos", 10 e -100
+		Então devo clicar em create reward
+		E devo continuar na mesma tela
