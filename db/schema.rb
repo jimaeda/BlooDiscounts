@@ -58,8 +58,6 @@ ActiveRecord::Schema.define(version: 2019_10_17_175850) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "bloodtype"
-    t.date "birthdate"
     t.string "first_name", default: "", null: false
     t.string "last_name", default: "", null: false
     t.integer "weight", default: 0, null: false

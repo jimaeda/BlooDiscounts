@@ -4,4 +4,7 @@ class UserController < ApplicationController
 
   def pontos
   end
+
+  def edit
+  end
 end
