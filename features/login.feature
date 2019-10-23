@@ -14,14 +14,14 @@ Funcionalidade: Login do usuário
 	Cenario: Senha errada
 		Dado que eu entro na página de login
 		Quando eu faço login com "nathan@nathan.com" e "nath"
-		Então eu devo ver a mensagem "Email ou senha inválida"
+		Então eu devo ver a mensagem "Invalid Email or password."
 
 	Cenario: Email não cadastrado
 		Dado que eu entro na página de login
 		Quando eu faço login com "leo@nathan.com" e "nathan"
-		Então eu devo ver a mensagem "Email ou senha inválida"
+		Então eu devo ver a mensagem "Invalid Email or password."
 
 	Cenario: Email inválido
 		Dado que eu entro na página de login
 		Quando eu faço login com "leo" e "nathan"
-		Então eu devo ver a mensagem "Email ou senha inválida"
+		Então eu devo ver a mensagem "Invalid Email or password."

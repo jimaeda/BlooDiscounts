@@ -11,9 +11,9 @@ Quando('eu faço login com {string} e {string}') do |email,senha|
 end
 
 Então('eu devo ir para a página de perfil') do
-	expect(page).to have_content 'Login efetuado com sucesso!'
+	expect(page).to have_content 'Signed in successfully.'
 end
 
 Então('eu devo ver a mensagem {string}') do |mensagem|
 	expect(page).to have_content mensagem
-end
+end	
