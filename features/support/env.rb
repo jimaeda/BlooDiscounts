@@ -5,14 +5,10 @@
 # files.
 
 require 'cucumber/rails'
-require 'selenium-webdriver'
 require 'capybara'
 require 'capybara/cucumber'
 
 # configuração do capybara
-Capybara.configure do |config|
-  config.default_driver = :selenium_chrome  
-end
 
 # frozen_string_literal: true
 
@@ -33,7 +29,8 @@ end
 #
 # 1) Tag your scenario (or feature) with @allow-rescue
 #
-# 2) Set the value below to true. Beware that doing this globally is not
+# 2) Set the value below to tr
+# require 'selenium-webdriver'ue. Beware that doing this globally is not
 # recommended as it will mask a lot of errors for you!
 #
 ActionController::Base.allow_rescue = false
@@ -48,20 +45,8 @@ end
 
 # You may also want to configure DatabaseCleaner to use different strategies for certain features and scenarios.
 # See the DatabaseCleaner documentation for details. Example:
-#
-#   Before('@no-txn,@selenium,@culerity,@celerity,@javascript') do
-#     # { except: [:widgets] } may not do what you expect here
-#     # as Cucumber::Rails::Database.javascript_strategy overrides
-#     # this setting.
-#     DatabaseCleaner.strategy = :truncation
-#   end
-#
-#   Before('not @no-txn', 'not @selenium', 'not @culerity', 'not @celerity', 'not @javascript') do
-#     DatabaseCleaner.strategy = :transaction
-#   end
-#
 
 # Possible values are :truncation and :transaction
 # The :transaction strategy is faster, but might give you threading problems.
 # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
-Cucumber::Rails::Database.javascript_strategy = :truncation
+# Cucumber::Rails::Database.javascript_strategy = :truncation
