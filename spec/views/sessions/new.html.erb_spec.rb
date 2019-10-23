@@ -1,23 +1,12 @@
 require 'rails_helper'
-  
-describe "Successfull Login" do 
-  it "Sucessful administrator login" do
-    Admin.create(adm_username: "alexandrefreire", password: "123456", adm_name: "Alexandre Freire", adm_cpf: "123456", hospital_name: "Hospital")
-    visit login_path
-    fill_in "Admin Username", with: 'alexandrefreire'
-    fill_in "Password", with: '123456'
-    find('input[name="commit"]').click
-    expect(page).to have_no_field('Admin Username')
-  end
-end
 
-describe "Unsuccessfull Login" do 
-  it "Sucessful administrator login" do
-    Admin.create(adm_username: "alexandrefreire", password: "123456", adm_name: "Alexandre Freire", adm_cpf: "123456", hospital_name: "Hospital")
-    visit login_path
-    fill_in "Admin Username", with: 'alexandrefreire'
-    fill_in 'Password', with: '111111'
-    find('input[name="commit"]').click
-    expect(page).to have_field('Admin Username')
+RSpec.describe "sessions/new", type: :view do
+  it "renders the login admin form" do
+    render
+    expect(rendered).to have_text('Administradores')
+    assert_select "form[action=?][method=?]", login_path(@admin), "post" do
+      assert_select "input[name=?]", "session[adm_username]"
+      assert_select "input[name=?]", "session[password]"
+    end
   end
 end
