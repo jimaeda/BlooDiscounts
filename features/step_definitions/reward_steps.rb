@@ -20,7 +20,7 @@ Quando("eu digitar nada, {string}, {int} e {int}") do |categoria, quantidade, cu
 end
 
 #Categoria faltando 
-Quando("eu digitar  {string}, nada, {int} e {int}") do |nome, quantidade, custo|
+Quando("eu digitar {string}, nada, {int} e {int}") do |nome, quantidade, custo|
   find('input[id=reward_name]').set nome
   find('input[id=reward_quantity]').set quantidade
   find('input[id=reward_cost]').set custo
