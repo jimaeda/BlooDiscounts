@@ -18,8 +18,28 @@
     <%= render "devise/shared/error_messages", resource: resource %>
     <h3>Cadastro</h3>
     <div class="field">
+      <%= f.label :first_name %><br />
+      <%= f.text_field :first_name, autofocus: true %>
+    </div>
+    <div class="field">
+      <%= f.label :last_name %><br />
+      <%= f.text_field :last_name %>
+    </div>
+    <div class="field">
+      <%= f.label :age %><br />
+      <%= f.number_field :age %>
+    </div>
+    <div class="field">
+      <%= f.label :weight %><br />
+      <%= f.number_field :weight %>
+    </div>
+    <div class="field">
+      <%= f.label :height %><br />
+      <%= f.number_field :height, step: 0.01 %>
+    </div>
+    <div class="field">
       <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <%= f.email_field :email, autocomplete: "email" %>
     </div>
     <br/>
     <div class="field">
@@ -32,6 +52,18 @@
       <%= f.date_field :birthdate  %>
     </div>
     <br/>
+    <div class="field">
+      <%= f.label :city %><br />
+      <%= f.text_field :city %>
+    </div>
+    <div class="field">
+      <%= f.label :state %><br />
+      <%= f.text_field :state %>
+    </div>
+    <div class="field">
+      <%= f.label :country %><br />
+      <%= f.text_field :country %>
+    </div>
     <div class="field">
       <%= f.label :password %>
       <% if @minimum_password_length %>
