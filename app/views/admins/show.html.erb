@@ -1,29 +1,28 @@
 <p id="notice"><%= notice %></p>
+<div align="center">
+    <h1>Perfil</h1>
 
-<p>
-  <strong>Adm username:</strong>
-  <%= @admin.adm_username %>
-</p>
+    <p class="flex-layout">
+    <strong class="flex-cell">Nome do Admin:</strong>
+    <%= @admin.adm_name %>
+    </p>
 
-<p>
-  <strong>Password:</strong>
-  <%= @admin.password %>
-</p>
+    <p class="flex-layout">
+    <strong class="flex-cell">Admin Username:</strong>
+    <%= @admin.adm_username %>
+    </p>
 
-<p>
-  <strong>Adm name:</strong>
-  <%= @admin.adm_name %>
-</p>
+    <p class="flex-layout">
+    <strong class="flex-cell">Hospital responsável:</strong>
+    <%= @admin.hospital_name %>
+    </p>
 
-<p>
-  <strong>Adm cpf:</strong>
-  <%= @admin.adm_cpf %>
-</p>
+    <p class="flex-layout">
+    <strong class="flex-cell">CPF do Admin:</strong>
+    <%= @admin.adm_cpf %>
+    </p>
 
-<p>
-  <strong>Hospital name:</strong>
-  <%= @admin.hospital_name %>
-</p>
-
-<%= link_to 'Edit', edit_admin_path(@admin) %> |
-<%= link_to 'Back', admins_path %>
+    <%= button_to "Editar informações", edit_admin_path(@admin), :method => :get,:class => "custom-button ripple" %>
+    <br/>
+    <%= link_to 'Back', admins_profile_path %>
+</div>
