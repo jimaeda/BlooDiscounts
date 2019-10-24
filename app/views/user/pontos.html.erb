@@ -14,10 +14,13 @@
         </div>
         <br/>
         <br/>
-        <p>Não existem pontos por enquanto.</p>
-        <br/>
-        <br/>
+        <% if current_user %>
+            <p>Você tem <%= current_user.points %> pontos.</p>
+            <br/>
+            <br/>
+        <% end %>
         <%= button_to "Voltar", user_profile_path, :method => :get,
          :class => "custom-button ripple" %>
     </div>
 </body>
+</html>
