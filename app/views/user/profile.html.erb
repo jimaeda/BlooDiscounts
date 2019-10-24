@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>BlooDiscounts</title>
+</head>
+<body>
+    <div align="center">
+        <h1> BlooDiscounts </h1>
+        <div class="img-logo">
+            <%= image_tag "logo.png" %>
+        </div>
+        <br/>
+        <br/>
+        <div class= "center">
+            <% if current_user %>
+            <%= "Hoje é" %>
+            <%= Date.today.to_formatted_s(:rfc822) %>
+            <br/>
+            <br/>
+            <%= "Olá, " + current_user.first_name %>
+            <br/>
+            <hr>
+            <%= "Seu email: " + current_user.email %>
+            <br/>
+            <%= "Tipo sanguíneo: " + current_user.bloodtype %>
+            <br/>
+            <p>Data de nascimento: <%= current_user.birthdate.to_formatted_s(:rfc822) %></p>
+            <hr>
+            <%= button_to "Resgatar pontos", user_pontos_path, :method => :get,
+            :class => "custom-button ripple" %>
+            <br/>
+            <%= button_to "Hospitais próximos", :class => "custom-button ripple"  %>
+            <br/>
+            <%= button_to "Editar informações", edit_user_registration_path, :method => :get,
+            :class => "custom-button ripple" %>
+            <br/>
+            <%= button_to "Sair", destroy_user_session_path, :method => :delete,
+            :class => "custom-button ripple" %>
+            <% end %>
+            <br/>
+            <br/>
+        </div>
+    </div>
+</body>
