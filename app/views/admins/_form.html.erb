@@ -1,42 +1,50 @@
 <%= form_with(model: admin, local: true) do |form| %>
-  <% if admin.errors.any? %>
+   <% if admin.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(admin.errors.count, "error") %> prohibited this admin from being saved:</h2>
-
+      <h2><%= pluralize(admin.errors.count, "erro") %> impediram a atualização das informações:</h2>
       <ul>
         <% admin.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+          <%= message %><br/>
         <% end %>
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :adm_username %>
-    <%= form.text_field :adm_username %>
+  <div class="flex-layout">
+    <div class="field flex-cell">
+      <label class="pure-material-textfield-outlined">
+        <%= form.text_field :adm_username, autofocus: true, :placeholder => " " %>
+        <span>Admin Username</span>
+      </label>
+    </div>
+    <div class="field flex-cell">
+      <label class="pure-material-textfield-outlined">
+        <%= form.text_field :adm_name, autocomplete: "off", :placeholder => " " %>
+        <span>Nome</span>
+      </label>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :password %>
-    <%= form.text_field :password %>
+  <div class="flex-layout">
+    <div class="field flex-cell">
+      <label class="pure-material-textfield-outlined">
+        <%= form.text_field :adm_cpf, autocomplete: "off", :placeholder => " " %>
+        <span>CPF</span>
+      </label>
+    </div>
+    <div class="field flex-cell">
+      <label class="pure-material-textfield-outlined">
+        <%= form.text_field :hospital_name, autocomplete: "off", :placeholder => " " %>
+        <span>Hospital</span>
+      </label>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :adm_name %>
-    <%= form.text_field :adm_name %>
+  <div class="field flex-layout flex-cell">
+    <label class="pure-material-textfield-outlined">
+      <%= form.password_field :password, autocomplete: "off", :placeholder => " " %>
+      <span>Senha</span>
+    </label>
   </div>
-
-  <div class="field">
-    <%= form.label :adm_cpf %>
-    <%= form.text_field :adm_cpf %>
-  </div>
-
-  <div class="field">
-    <%= form.label :hospital_name %>
-    <%= form.text_field :hospital_name %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <br/>
+  <div class="actions flex-layout flex-cell">
+      <%= form.submit "Submeter", :class => "custom-button ripple" %>
   </div>
 <% end %>
