@@ -13,7 +13,6 @@
  *= require_tree .
  *= require_self
  */
-@import './bootstrap/dist/css/bootstrap.min.css';
 
 @font-face {
   font-family: 'Rubik', sans-serif;
