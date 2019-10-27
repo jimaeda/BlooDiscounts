@@ -1,80 +1,88 @@
+<div alignt="left">
+  <%= link_to "Voltar", :back, class: 'btn btn-primary' %>
+  </div>
 <div align="center">
-  <h2>Edit <%= resource_name.to_s.humanize %></h2>
+  <h2>Editar Dados Pessoais</h2>
 
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
+<div class="card" style="width:min-content">
+  <div class="card-body ">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
 
 
-  <div class="field">
-    <label>Nome</label><br />
-    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
-  </div>
-  <div class="field">
-    <label>Sobrenome</label><br />
-    <%= f.text_field :last_name, autocomplete: "last_name" %>
-  </div>
-  <div class="field">
-    <label>Idade</label><br />
-    <%= f.number_field :age %>
-  </div>
-  <div class="field">
-    <label>Peso (em Kg)</label><br />
-    <%= f.number_field :weight %>
-  </div>
-  <div class="field">
-    <label>Altura (em metros)</label><br />
-    <%= f.number_field :height, step: 0.01 %>
-  </div>
-  <div class="field">
-    <label>Cidade</label><br />
-    <%= f.text_field :city, autocomplete: "city" %>
-  </div>
-  <div class="field">
-    <label>Estado</label><br />
-    <%= f.text_field :state, autocomplete: "state" %>
-  </div>
-  <div class="field">
-    <label>País</label><br />
-    <%= f.text_field :country, autocomplete: "country" %>
-  </div>
-  <div class="field">
-    <label>E-Mail</label><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+    <div class="field">
+      <label>Nome</label><br />
+      <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", required: true %>
+    </div>
+    <div class="field">
+      <label>Sobrenome</label><br />
+      <%= f.text_field :last_name, autocomplete: "last_name", required: true %>
+    </div>
+    <div class="field">
+      <label>Idade</label><br />
+      <%= f.number_field :age, required: true %>
+    </div>
+    <div class="field">
+      <label>Peso (em Kg)</label><br />
+      <%= f.number_field :weight, required: true %>
+    </div>
+    <div class="field">
+      <label>Altura (em metros)</label><br />
+      <%= f.number_field :height, step: 0.01, required: true %>
+    </div>
+    <div class="field">
+      <label>Cidade</label><br />
+      <%= f.text_field :city, autocomplete: "city", required: true %>
+    </div>
+    <div class="field">
+      <label>Estado</label><br />
+      <%= f.text_field :state, autocomplete: "state", required: true %>
+    </div>
+    <div class="field">
+      <label>País</label><br />
+      <%= f.text_field :country, autocomplete: "country", required: true %>
+    </div>
+    <div class="field">
+      <label>E-Mail</label><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", required: true %>
+    </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Aguardando confirmação em: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <label>Senha Atual</label><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="field">
-    <label>Nova Senha</label><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em>Mínimo de <%= @minimum_password_length %> caracteres</em>
+    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div>Aguardando confirmação em: <%= resource.unconfirmed_email %></div>
     <% end %>
 
+    <div class="field">
+      <label>Senha Atual</label><br />
+      <%= f.password_field :current_password, autocomplete: "current-password" %>
+    </div>
 
-  <div class="field">
-    <label>Confirmar Senha</label><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    <div class="field">
+      <label>Nova Senha</label><br />
+      <%= f.password_field :password, autocomplete: "new-password" %>
+      <% if @minimum_password_length %>
+        <br />
+        <em>Mínimo de <%= @minimum_password_length %> caracteres</em>
+      <% end %>
+
+
+    <div class="field">
+      <label>Confirmar Senha</label><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
+
+    <div class="actions" style="padding-top:20px">
+      <%= f.submit "Salvar", class: 'btn btn-danger' %>
+    </div>
+  </div>
+  <% end %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Salvar" %>
-  </div>
-</div>
-<% end %>
 <hr>
 <div align="center">
-  <h3>Cancel my account</h3>
+  <h3>Cancelar Conta</h3>
 
-  <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+  <p><%= button_to "Fechar Conta", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger' %></p>
 
-  <%= link_to "Back", :back %>
+
 </div>
