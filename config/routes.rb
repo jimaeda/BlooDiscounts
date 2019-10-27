@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'user/profile'
   get 'user/pontos'
   get 'user/edit'
+  post 'user/salva_edit'
   resources :admins
   resources :donations
   resources :hospitals

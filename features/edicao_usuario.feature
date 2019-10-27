@@ -1,7 +1,7 @@
-#language pt
+#language: pt
+
 
 Funcionalidade: Editar informações de um usuário
-
 Eu como usuário
 Quero editar minhas informações cadastradas
 Para que eu possa mantê-las atualizadas
@@ -11,8 +11,8 @@ Cenário: Usuário altera sua senha
 
 Dado que esteja logado como Gabriel
 E que eu esteja na página de edição de usuário
-Quando preencher o campo Nova Senha com 123456
-E preencher o campo Confirmar Senha com 123456
+Quando preencher o campo Nova Senha como 123456
+E preencher o campo Confirmar Senha como 123456
 E acionar o botão Salvar
 Então devo receber a mensagem: Dados atualizados com sucesso!
 
@@ -20,15 +20,15 @@ Cenário: Usuário erra a Nova Senha
 
 Dado que eu esteja logado como Gabriel
 E que eu esteja na página de edição de usuário
-Quando preencher o campo Nova Senha com 123456
-E preencher o campo Confirmar Senha com 123
+Quando preencher o campo Nova Senha como 123456
+E preencher o campo Confirmar Senha como 123
 E acionar o botão Salvar
 Então devo receber a mensagem: As senhas não conferem!
 
 Cenário: Usuário atualiza informações pessoais
 
 Dado que eu esteja logado como Gabriel
-
+E que eu esteja na página de edição de usuário
 Quando preencher o campo Peso como 50
 E preencher o campo Altura como 164
 E preencher o campo Cidade como São Paulo

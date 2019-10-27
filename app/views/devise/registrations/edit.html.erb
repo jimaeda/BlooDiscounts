@@ -4,68 +4,69 @@
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
+
   <div class="field">
-    <%= f.label :first_name %><br />
+    <label>Nome</label><br />
     <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
   </div>
   <div class="field">
-    <%= f.label :last_name %><br />
+    <label>Sobrenome</label><br />
     <%= f.text_field :last_name, autocomplete: "last_name" %>
   </div>
   <div class="field">
-    <%= f.label :age %><br />
+    <label>Idade</label><br />
     <%= f.number_field :age %>
   </div>
   <div class="field">
-    <%= f.label :weight %><br />
+    <label>Peso (em Kg)</label><br />
     <%= f.number_field :weight %>
   </div>
   <div class="field">
-    <%= f.label :height %><br />
+    <label>Altura (em metros)</label><br />
     <%= f.number_field :height, step: 0.01 %>
   </div>
   <div class="field">
-    <%= f.label :city %><br />
+    <label>Cidade</label><br />
     <%= f.text_field :city, autocomplete: "city" %>
   </div>
   <div class="field">
-    <%= f.label :state %><br />
+    <label>Estado</label><br />
     <%= f.text_field :state, autocomplete: "state" %>
   </div>
   <div class="field">
-    <%= f.label :country %><br />
+    <label>País</label><br />
     <%= f.text_field :country, autocomplete: "country" %>
   </div>
   <div class="field">
-    <%= f.label :email %><br />
+    <label>E-Mail</label><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <div>Aguardando confirmação em: <%= resource.unconfirmed_email %></div>
   <% end %>
 
   <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+    <label>Senha Atual</label><br />
+    <%= f.password_field :current_password, autocomplete: "current-password" %>
+  </div>
+
+  <div class="field">
+    <label>Nova Senha</label><br />
     <%= f.password_field :password, autocomplete: "new-password" %>
     <% if @minimum_password_length %>
       <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
+      <em>Mínimo de <%= @minimum_password_length %> caracteres</em>
     <% end %>
 
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <label>Confirmar Senha</label><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
   <div class="actions">
-    <%= f.submit "Update" %>
+    <%= f.submit "Salvar" %>
   </div>
 </div>
 <% end %>
@@ -77,4 +78,3 @@
 
   <%= link_to "Back", :back %>
 </div>
-
