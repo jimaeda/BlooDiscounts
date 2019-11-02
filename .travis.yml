@@ -15,7 +15,7 @@ before_script:
   - psql -c 'create database BlooDiscounts_test' -U postgres
   - cp config/database.yml.travis config/database.yml
 
-# TODO: Fin if still userful this line 
+# TODO: Find if still userful this line 
 # after_success:
   # - bundle exec codeclimate-test-reporter
 
@@ -24,6 +24,7 @@ before_script:
 # bundler_args: --binstubs=./bundler_stubs
 
 language: ruby
+cache: bundler
 
 script:
   # Used for reference don't know if we are going to use in the end
