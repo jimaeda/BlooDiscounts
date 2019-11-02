@@ -33,8 +33,7 @@ Quando("preencher os campos com nome {string} e sobrenome {string}") do |nome, s
     find('#user_last_name').set sobrenome
   end
   
-Quando("idade {string} e peso {string}") do |idade, peso|
-    find('#user_age').set idade
+Quando("peso {string}") do |peso|
     find('#user_weight').set peso
 end
 
