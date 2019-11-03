@@ -1,3 +1,4 @@
+=begin
 require 'rails_helper'
 
 RSpec.describe "places/index", type: :view do
@@ -23,3 +24,4 @@ RSpec.describe "places/index", type: :view do
     assert_select "tr>td", :text => "9.99".to_s, :count => 2
   end
 end
+=end
