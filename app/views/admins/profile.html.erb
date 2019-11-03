@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>BlooDiscounts</title>
+</head>
+
+<body>
+    <div align="center">
+        <% if (current_admin) %>
+            <h1> Bem vindo </h1>
+            <h3><%= current_admin.adm_name %></h3>
+            <br/>
+            <%= button_to "Registrar doação", quit_path, :method => :get,:class => "custom-button ripple" %>
+            <br/>
+            <%= button_to "Exibir estoque de sangue", quit_path, :class => "custom-button ripple"  %>
+            <br/>
+             <%= button_to "Cadastrar lojas", quit_path, :class => "custom-button ripple"  %>
+            <br/>
+             <%= button_to "Listar produtos de uma loja", quit_path, :class => "custom-button ripple"  %>
+            <br/>
+            <%= button_to "Exibir perfil", current_admin, :method => :get,:class => "custom-button ripple" %>
+            <br/>
+            <%= button_to "Sair", quit_path ,:method => :delete,:class => "custom-button ripple" %>
+        <% end %>
+    </div>
+</body>
+</html>

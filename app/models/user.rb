@@ -4,4 +4,5 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable
   enum bloodtype: [:'A-',:'A+',:'B-',:'B+',:'AB-',:'AB+',:'O-',:'O+']
+  validates :email, uniqueness: true
 end
