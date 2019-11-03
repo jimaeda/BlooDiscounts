@@ -41,14 +41,6 @@ RSpec.describe AdminsController, type: :controller do
   # AdminsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
-  describe "GET #index" do
-    it "returns a success response" do
-      Admin.create! valid_attributes
-      get :index, params: {}, session: valid_session
-      expect(response).to be_successful
-    end
-  end
-
   describe "GET #show" do
     it "returns a success response" do
       admin = Admin.create! valid_attributes

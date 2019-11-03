@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 2019_10_17_175850) do
     t.string "hospital_name", default: "", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "password_digest"
   end
 
   create_table "donations", force: :cascade do |t|
