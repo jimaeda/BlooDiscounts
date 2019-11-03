@@ -16,7 +16,7 @@ after_success:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 
 language: ruby
-# cache: bundler
+cache: bundler
 
 script:
   - bundle install
