@@ -9,11 +9,11 @@ Dado /^.* logado como Gabriel$/ do
 
   click_button 'Entrar'
   expect(page).to have_content 'Signed in successfully.'
-  #sleep(4)
   save_and_open_page
 end
 
-Quando /^.*preencher o campo (.+) como (.*)$/ do |chave, valor|
+Quando /^.*preencher o campo (.+) como(.*)$/ do |chave, valor|
+  save_and_open_page
   case chave
   when 'Senha Atual'
     chave = '#user_current_password'
@@ -40,10 +40,13 @@ Quando /^.*preencher o campo (.+) como (.*)$/ do |chave, valor|
 end
 
 E /^.* página de edição de usuário$/ do
-  click_button('Editar Informações')
-  sleep(4)
+  click_button('Editar informações')
 end
 
-E /acionar o botão (.+)$/ do |botao:|
+E /acionar o botão (.+)$/ do |botao|
   click_button(botao)
+end
+
+Então /^devo receber a mensagem: (.+)$/ do |msg|
+  expect(page).to have_content msg
 end

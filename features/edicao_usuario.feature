@@ -39,7 +39,7 @@ Cenário: Usuário insere uma Data de Nascimento incorreta
 
 Dado que eu esteja logado como Gabriel
 E que eu esteja na página de edição de usuário
-Quando preencher o campo Data Nascimento como 27072200
+Quando preencher o campo Data Nascimento como 07272200
 E acionar o botão Salvar
 Então devo receber a mensagem: A Data de Nascimento incoerente.
 

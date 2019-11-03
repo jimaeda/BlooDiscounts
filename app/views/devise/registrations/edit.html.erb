@@ -1,89 +1,115 @@
+<script>
+  $(document).ready(function(){
+    $('#edit_user').submit(function(){
+      let dataNascimento = $('#user_birthdate').val();
+      dataNascimento = dataNascimento.split("-");
+      dataNascimento = new Date(dataNascimento[0], dataNascimento[1] - 1, dataNascimento[2]);
+      if(dataNascimento > $.now()){
+        alert("Data de Nascimento incoerente!");
+        return false;
+      }
+      return true;
+    });
+  });
+
+  </script>
 <div alignt="left">
   <%= link_to "Voltar", :back, class: 'btn btn-primary' %>
-  </div>
+</div>
 <div align="center">
   <h2>Editar Dados Pessoais</h2>
-
-<div class="card" style="width:min-content">
-  <div class="card-body ">
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <br/>
+  <div class="card" style="width:min-content">
+    <div class="card-body" style="width:350px">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= render "devise/shared/error_messages", resource: resource %>
 
-
-    <div class="field">
-      <label>Nome</label><br />
-      <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", required: true %>
-    </div>
-    <div class="field">
-      <label>Sobrenome</label><br />
-      <%= f.text_field :last_name, autocomplete: "last_name", required: true %>
-    </div>
-    <div class="field">
-      <label>Idade</label><br />
-      <%= f.number_field :age, required: true %>
-    </div>
-    <div class="field">
-      <label>Peso (em Kg)</label><br />
-      <%= f.number_field :weight, required: true %>
-    </div>
-    <div class="field">
-      <label>Altura (em metros)</label><br />
-      <%= f.number_field :height, step: 0.01, required: true %>
-    </div>
-    <div class="field">
-      <label>Cidade</label><br />
-      <%= f.text_field :city, autocomplete: "city", required: true %>
-    </div>
-    <div class="field">
-      <label>Estado</label><br />
-      <%= f.text_field :state, autocomplete: "state", required: true %>
-    </div>
-    <div class="field">
-      <label>País</label><br />
-      <%= f.text_field :country, autocomplete: "country", required: true %>
-    </div>
-    <div class="field">
-      <label>E-Mail</label><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", required: true %>
-    </div>
-
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+      <div class="field">
+        <label>Nome</label><br />
+        <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name", required: true, class: 'form-control' %>
+      </div>
+      <br/>
+      <div class="field">
+        <label>Sobrenome</label><br />
+        <%= f.text_field :last_name, autocomplete: "last_name", required: true, class: 'form-control' %>
+      </div>
+      <br/>
+      <div class="field">
+        <label>Data de Nascimento</label><br />
+        <%= f.date_field :birthdate, required: true, class: 'form-control', class: 'form-control' %>
+      </div>
+      <br/>
+      <div class="field">
+        <label>Idade</label><br />
+        <%= f.number_field :age, required: true, class: 'form-control' %>
+      </div>
+      <br/>
+      <div class="field">
+        <label>Peso (em Kg)</label><br />
+        <%= f.number_field :weight, required: true, class: 'form-control' %>
+      </div>
+      <br/>
+      <div class="field">
+        <label>Altura (em metros)</label><br />
+        <%= f.number_field :height, step: 0.01, required: true, class: 'form-control' %>
+      </div>
+      <br/>
+      <div class="field">
+        <label>Cidade</label><br />
+        <%= f.text_field :city, autocomplete: "city", required: true, class: 'form-control' %>
+      </div>
+      <br/>
+      <div class="field">
+        <label>Estado</label><br />
+        <%= f.text_field :state, autocomplete: "state", required: true, class: 'form-control' %>
+      </div>
+      <br/>
+      <div class="field">
+        <label>País</label><br />
+        <%= f.text_field :country, autocomplete: "country", required: true, class: 'form-control' %>
+      </div>
+      <br/>
+      <div class="field">
+        <label>E-Mail</label><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", required: true, class: 'form-control' %>
+      </div>
+      <br/>
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <div>Aguardando confirmação em: <%= resource.unconfirmed_email %></div>
-    <% end %>
-
-
-    <div class="field">
-      <label>Senha Atual</label><br />
-      <%= f.password_field :current_password, autocomplete: "current-password" %>
-    </div>
-
-    <div class="field">
-      <label>Nova Senha</label><br />
-      <%= f.password_field :password, autocomplete: "new-password" %>
-      <% if @minimum_password_length %>
-        <br />
-        <em>Mínimo de <%= @minimum_password_length %> caracteres</em>
       <% end %>
 
+      <div class="field">
+        <label>Senha Atual (Para autenticar suas mudanças)</label><br />
+        <%= f.password_field :current_password, autocomplete: "current-password", required: true, class: 'form-control' %>
+      </div>
 
-    <div class="field">
-      <label>Confirmar Senha</label><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-    </div>
+      <div class="field">
+        <label>Nova Senha (Opcional)</label><br />
+        <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
+        <% if @minimum_password_length %>
+        <br />
+        <em>Mínimo de <%= @minimum_password_length %> caracteres</em>
+        <% end %>
 
-    <div class="actions" style="padding-top:20px">
-      <%= f.submit "Salvar", class: 'btn btn-danger' %>
+
+        <div class="field">
+          <label>Confirmar Senha</label><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
+        </div>
+
+        <div class="actions" style="padding-top:20px">
+          <%= f.submit "Salvar", class: 'btn btn-danger' %>
+        </div>
+      </div>
+      <% end %>
     </div>
   </div>
-  <% end %>
-    </div>
+
+  <hr>
+  <div align="center">
+    <h3>Cancelar Conta</h3>
+
+    <p><%= button_to "Fechar Conta", registration_path(resource_name), data: { confirm: "Você tem certeza que deseja fechar sua conta? Esta operação não pode ser revertida!" }, method: :delete, class: 'btn btn-danger' %></p>
+
+
   </div>
-
-<hr>
-<div align="center">
-  <h3>Cancelar Conta</h3>
-
-  <p><%= button_to "Fechar Conta", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger' %></p>
-
-
-</div>
