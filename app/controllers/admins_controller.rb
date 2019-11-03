@@ -52,11 +52,6 @@ class AdminsController < ApplicationController
   # DELETE /admins/1
   # DELETE /admins/1.json
   def destroy
-    # @admin.destroy
-    # respond_to do |format|
-    #   format.html { redirect_to admins_url, notice: 'Admin was successfully destroyed.' }
-    #   format.json { head :no_content }
-    # end
     @user = User.find(params[:id])
     @user.destroy
     sign_out_admin
