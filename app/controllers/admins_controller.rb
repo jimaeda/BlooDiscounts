@@ -52,10 +52,28 @@ class AdminsController < ApplicationController
   # DELETE /admins/1
   # DELETE /admins/1.json
   def destroy
-    @user = User.find(params[:id])
-    @user.destroy
+    @admin = Admin.find(params[:id])
+    @admin.destroy
     sign_out_admin
     redirect_to quit_path
+  end
+
+  def register_donation
+    puts(params[:user][:id])
+
+    puts(params[:user][:amount_donated])
+    if params[:user][:id].nil? || params[:user][:amount_donated].nil?
+      puts(params[:user][:id])
+
+      puts(params[:user][:amount_donated])
+
+      return
+    end
+    puts("AAAAAAAAAAAAAA")
+    user = User.find_by(id: params[:donator_id])
+    if !user.nil?
+      puts("bla")
+    end
   end
 
   private
