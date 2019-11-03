@@ -1,14 +1,15 @@
 Dado /^.* logado como Gabriel$/ do
-  email= 'gabriel@bloodiscounts.com'
-  password = '123456'
+  email= "gabriel@bloodiscounts.com"
+  password = "123456"
 
   visit 'http://localhost:3000/users/sign_in'
-
+  FactoryBot.create(:user, email: email, password: password,first_name: 'Nathan')
   find('#user_email').set email
   find('#user_password').set password
 
   click_button 'Entrar'
-  sleep(4)
+  expect(page).to have_content 'Signed in successfully.'
+  #sleep(4)
   save_and_open_page
 end
 
