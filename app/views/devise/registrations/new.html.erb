@@ -43,7 +43,7 @@
         </div>
         <div class="field flex-cell">
           <label class="pure-material-textfield-outlined">
-            <%= form.number_field :height, autocomplete: "off", in: 1.0 .. 4.0 , :placeholder => " " %>
+            <%= form.number_field :height, step: :any, autocomplete: "off", in: 1.0 .. 4.0 , :placeholder => " " %>
             <span>Altura</span>
           </label>
         </div>
