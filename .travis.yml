@@ -1,7 +1,7 @@
 env:
   global:
     - CC_TEST_REPORTER_ID=f441fe719ff504f2afec737c2154eaece83bf6b04bbaa12c60b6b55981e70b61
-    
+
 services:
   - postgresql
 
@@ -20,7 +20,7 @@ cache: bundler
 
 script:
   - bundle install
-  - bundle exec rake db:test:prepare 
+  # - bundle exec rake db:test:prepare 
   - bundle exec rake webpacker:install
   - bundle exec rake webpacker:compile RAILS_ENV=test
   - bundle exec rspec
