@@ -63,21 +63,19 @@
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
     <% end %>
-    <div class="field flex-cell">
-      <label class="pure-material-textfield-outlined">
-        <%= f.password_field :password, autocomplete: "new-password", :placeholder => " " %>
-        <span>Nova senha</span>
-      </label>
-    </div>
-    <% if @minimum_password_length %>
-      <em><%= @minimum_password_length %> mínimo de caracteres</em>
-    <% end %>
-
-    <div class="field flex-cell">
-      <label class="pure-material-textfield-outlined">
-        <%= f.password_field :password_confirmation, autocomplete: "new-password", :placeholder => " " %>
+     <div class="flex-layout">
+      <div class="field flex-layout flex-cell">
+        <label class="pure-material-textfield-outlined">
+          <%= f.password_field :password, autocomplete: "new-password", :placeholder => " " %>
+          <span>Nova senha</span>
+        </label>
+      </div>
+      <div class="field flex-cell">
+        <label class="pure-material-textfield-outlined">
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", :placeholder => " " %>
         <span>Confirme a senha</span>
       </label>
+      </div>
     </div>
 
     <div class="field flex-cell">

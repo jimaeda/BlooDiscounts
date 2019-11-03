@@ -15,7 +15,20 @@ Dado("a página de cadastro do BlooDiscounts") do
 end
 
 # Quando/When
-   
+
+Quando('eu for para tela de edição de perfil') do
+    find('input[value="Exibir perfil"]').click
+    find('input[value="Editar informações"]').click
+end
+
+Quando('eu preencher os campos com senha antiga {string}') do |senha_antiga|
+    fill_in 'user[current_password]', with: senha_antiga
+end
+
+Quando("preencher o campo com senha {string}") do |senha|
+    fill_in 'admin[password]', with: senha
+end  
+
 Quando('eu faço login de admin com {string} e {string}') do |adm_username,password|
     fill_in "Admin Username", with: adm_username
     fill_in "Password", with: password
@@ -60,6 +73,14 @@ end
 Quando("senha {string} e confirmação {string}") do |senha, confirmaçao_senha|
     find('#user_password').set senha
     find('#user_password_confirmation').set confirmaçao_senha
+end
+
+Quando("clicar no botão Atualizar informações") do
+    find('input[value="Atualizar informações"]').click
+end
+
+Quando("clicar no botão Submeter") do
+    find('input[value="Submeter"]').click
 end
 
 Quando("acionar o botão cadastrar") do
