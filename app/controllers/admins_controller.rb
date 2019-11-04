@@ -27,7 +27,7 @@ class AdminsController < ApplicationController
     @admin = Admin.new(admin_params)
 
     if @admin.save
-      redirect_to @admin, notice: 'Usuário foi criado com sucesso!'
+      redirect_to @admin, notice: 'Admin foi criado com sucesso!'
       sign_in_admin
     else
       render action: :new
@@ -59,7 +59,9 @@ class AdminsController < ApplicationController
   end
 
   def register_donation
-    puts(params[:user][:id])
+    if params[:user].nil?
+      return
+    end
 
     puts(params[:user][:amount_donated])
     if params[:user][:id].nil? || params[:user][:amount_donated].nil?
@@ -69,10 +71,9 @@ class AdminsController < ApplicationController
 
       return
     end
-    puts("AAAAAAAAAAAAAA")
     user = User.find_by(id: params[:donator_id])
     if !user.nil?
-      puts("bla")
+      puts("Usuário não encontrado.")
     end
   end
 
