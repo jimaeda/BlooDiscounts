@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :stores
   get 'sessions/new'
   get 'admins/profile'
   get 'user/profile'
