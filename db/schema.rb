@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_21_111348) do
+
+ActiveRecord::Schema.define(version: 2019_10_17_175850) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +25,7 @@ ActiveRecord::Schema.define(version: 2019_10_21_111348) do
     t.string "hospital_name", default: "", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "password_digest"
   end
 
   create_table "donations", force: :cascade do |t|
@@ -67,6 +70,17 @@ ActiveRecord::Schema.define(version: 2019_10_21_111348) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "bloodtype"
+    t.date "birthdate"
+    t.string "first_name", default: "", null: false
+    t.string "last_name", default: "", null: false
+    t.integer "weight", default: 0, null: false
+    t.integer "age", default: 0, null: false
+    t.float "height", default: 0.0, null: false
+    t.string "city", default: "", null: false
+    t.string "state", default: "", null: false
+    t.string "country", default: "", null: false
+    t.integer "points", default: 0, null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
