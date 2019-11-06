@@ -10,6 +10,7 @@ class HospitalsController < ApplicationController
   # GET /hospitals/1
   # GET /hospitals/1.json
   def show
+    @hospitals = Hospital.find(params[:id])
   end
 
   # GET /hospitals/new

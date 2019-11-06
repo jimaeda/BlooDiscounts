@@ -17,6 +17,14 @@
     <%= f.number_field :age %>
   </div>
   <div class="field">
+    <%= f.label :birthdate %><br />
+    <%= f.date_field :birthdate %>
+  </div>
+  <div class="field">
+    <%= f.label :bloodtype %><br />
+    <%= f.select(:bloodtype, User.bloodtypes.keys.map {|bloodtype| [bloodtype,bloodtype]}) %>
+  </div>
+  <div class="field">
     <%= f.label :weight %><br />
     <%= f.number_field :weight %>
   </div>

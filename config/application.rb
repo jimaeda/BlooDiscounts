@@ -10,13 +10,11 @@ module BlooDiscounts
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
-<<<<<<< HEAD
-=======
     config.action_view.field_error_proc = Proc.new { |html_tag, instance| 
       html_tag
     }
 
->>>>>>> 6bf8179d230cc53f96f6ffc63edcbc68eaf42bc2
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
