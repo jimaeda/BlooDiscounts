@@ -49,8 +49,8 @@ ActiveRecord::Schema.define(version: 2019_11_06_002611) do
     t.decimal "ab_minus", default: "0.0", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.float "lattitude", null: false
-    t.float "longitude", null: false
+    t.float "lattitude"
+    t.float "longitude"
   end
 
   create_table "users", force: :cascade do |t|
