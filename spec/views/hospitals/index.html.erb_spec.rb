@@ -41,8 +41,8 @@ RSpec.describe "hospitals/index", type: :view do
     assert_select "tr>td", :text => "Hosp Name".to_s, :count => 2
     assert_select "tr>td", :text => "Hosp City".to_s, :count => 2
     assert_select "tr>td", :text => "Hosp State".to_s, :count => 2
-    assert_select "tr>td", :text => "9.0".to_s, :count => 2
-    assert_select "tr>td", :text => "9.9".to_s, :count => 2
+    assert_select "tr>td", :text => "99.99".to_s, :count => 4
+    assert_select "tr>td", :text => "99.99".to_s, :count => 4
     assert_select "tr>td", :text => "1.0".to_s, :count => 2
     assert_select "tr>td", :text => "2.0".to_s, :count => 2
     assert_select "tr>td", :text => "3.0".to_s, :count => 2
