@@ -7,6 +7,8 @@ RSpec.describe "hospitals/index", type: :view do
         :hosp_name => "Hosp Name",
         :hosp_city => "Hosp City",
         :hosp_state => "Hosp State",
+        :lattitude => "99.99",
+        :longitude => "99.99",
         :a_plus => "1.0",
         :a_minus => "2.0",
         :b_plus => "3.0",
@@ -20,6 +22,8 @@ RSpec.describe "hospitals/index", type: :view do
         :hosp_name => "Hosp Name",
         :hosp_city => "Hosp City",
         :hosp_state => "Hosp State",
+        :lattitude => "99.99",
+        :longitude => "99.99",
         :a_plus => "1.0",
         :a_minus => "2.0",
         :b_plus => "3.0",
@@ -37,6 +41,8 @@ RSpec.describe "hospitals/index", type: :view do
     assert_select "tr>td", :text => "Hosp Name".to_s, :count => 2
     assert_select "tr>td", :text => "Hosp City".to_s, :count => 2
     assert_select "tr>td", :text => "Hosp State".to_s, :count => 2
+    assert_select "tr>td", :text => "99.99".to_s, :count => 2
+    assert_select "tr>td", :text => "99.99".to_s, :count => 2
     assert_select "tr>td", :text => "1.0".to_s, :count => 2
     assert_select "tr>td", :text => "2.0".to_s, :count => 2
     assert_select "tr>td", :text => "3.0".to_s, :count => 2
