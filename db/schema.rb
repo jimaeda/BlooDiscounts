@@ -79,8 +79,6 @@ ActiveRecord::Schema.define(version: 2019_10_21_111348) do
     t.string "state", default: "", null: false
     t.string "country", default: "", null: false
     t.integer "points", default: 0, null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end

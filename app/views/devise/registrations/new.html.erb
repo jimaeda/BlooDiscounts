@@ -14,77 +14,107 @@
     <div class="img-logo">
       <%= image_tag "logo.png" %>
     </div>
-    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
-    <h3>Cadastro</h3>
-    <div class="field">
-      <%= f.label :first_name %><br />
-      <%= f.text_field :first_name, autofocus: true %>
-    </div>
-    <div class="field">
-      <%= f.label :last_name %><br />
-      <%= f.text_field :last_name %>
-    </div>
-    <div class="field">
-      <%= f.label :age %><br />
-      <%= f.number_field :age %>
-    </div>
-    <div class="field">
-      <%= f.label :weight %><br />
-      <%= f.number_field :weight %>
-    </div>
-    <div class="field">
-      <%= f.label :height %><br />
-      <%= f.number_field :height, step: 0.01 %>
-    </div>
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autocomplete: "email" %>
-    </div>
-    <br/>
-    <div class="field">
-      <%= f.label :bloodtype %><br />
-      <%= f.select(:bloodtype, User.bloodtypes.keys.map {|bloodtype| [bloodtype,bloodtype]}) %>
-    </div>
-    <br/>
-    <div class="field">
-      <%= f.label :birthdate %><br />
-      <%= f.date_field :birthdate  %>
-    </div>
-    <br/>
-    <div class="field">
-      <%= f.label :city %><br />
-      <%= f.text_field :city %>
-    </div>
-    <div class="field">
-      <%= f.label :state %><br />
-      <%= f.text_field :state %>
-    </div>
-    <div class="field">
-      <%= f.label :country %><br />
-      <%= f.text_field :country %>
-    </div>
-    <div class="field">
-      <%= f.label :password %>
-      <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %><br />
-      <%= f.password_field :password, autocomplete: "new-password" %>
-    </div>
-    <br/>
-    <div class="field">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-    </div>
-    <br/>
-    <div class="actions">
-      <%= f.submit "Cadastrar", :class => "custom-button ripple" %>
-    </div>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |form| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+      <br/>
+      <h3>Cadastro</h3>
+      <br/>
+      <div class="flex-layout">
+        <div class="field flex-cell">
+          <label class="pure-material-textfield-outlined">
+            <%= form.text_field :first_name, autofocus: true, :placeholder => " " %>
+            <span>Nome</span>
+          </label>
+        </div>
+        <div class="field flex-cell">
+          <label class="pure-material-textfield-outlined">
+            <%= form.text_field :last_name, autocomplete: "off", :placeholder => " " %>
+            <span>Sobrenome</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="flex-layout">
+        <div class="field flex-cell">
+          <label class="pure-material-textfield-outlined">
+            <%= form.number_field :weight, autocomplete: "off", min: 0, :placeholder => " " %>
+            <span>Peso</span>
+          </label>
+        </div>
+        <div class="field flex-cell">
+          <label class="pure-material-textfield-outlined">
+            <%= form.number_field :height, step: :any, autocomplete: "off", in: 1.0 .. 4.0 , :placeholder => " " %>
+            <span>Altura</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="flex-layout">
+        <div class="field flex-cell">
+          <label class="pure-material-textfield-outlined">
+            <%= form.text_field :city, autocomplete: "off", :placeholder => " " %>
+            <span>Cidade</span>
+          </label>
+        </div>
+        <div class="field flex-cell">
+          <label class="pure-material-textfield-outlined">
+            <%= form.text_field :state, autocomplete: "off", :placeholder => " " %>
+            <span>Estado</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="flex-layout">
+        <div class="field flex-cell">
+          <label class="pure-material-textfield-outlined">
+            <%= form.text_field :country, autocomplete: "off", :placeholder => " " %>
+            <span>País</span>
+          </label>
+        </div>
+        <div class="field flex-cell">
+          <label class="pure-material-textfield-outlined">
+            <%= form.date_field :birthdate, autocomplete: "off", :placeholder => " " %>
+            <span>Data de nascimento</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="flex-layout">
+        <div class="field flex-cell">
+          <label class="pure-material-textfield-outlined">
+            <%= form.password_field :password, autocomplete: "new-password", :placeholder => " " %>
+            <span>Senha</span>
+          </label>
+        </div>
+        <div class="field flex-cell">
+          <label class="pure-material-textfield-outlined">
+            <%= form.password_field :password_confirmation, autocomplete: "new-password", :placeholder => " " %>
+            <span>Confirmar senha</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="flex-layout">
+        <label class="pure-material-textfield-outlined">
+          <%= form.text_field :email, autocomplete: "off", :placeholder => " " %>
+          <span>Email</span>
+        </label>
+      </div>
+
+      <span>Tipo Sanguíneo</span>
+      <%= form.select(:bloodtype, User.bloodtypes.keys.map {|bloodtype| [bloodtype,bloodtype]}) %>
+
+      <br/>
+      <br/>
+
+      <div class="actions flex-layout flex-cell">
+        <%= form.submit "Cadastrar", :class => "custom-button ripple" %>
+      </div>
+
+      <br/>
+  
+      <%= link_to 'Voltar', root_path %>  
     <% end %>
   </div>
 </body>
 </html>
-
-
-
-<%= render "devise/shared/links" %>

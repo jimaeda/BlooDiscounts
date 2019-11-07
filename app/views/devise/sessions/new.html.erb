@@ -2,11 +2,9 @@
 <html lang="en">
 
 <head>
-  <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>BlooDiscounts</title>
-  <!-- style CSS -->
 </head>
 
 <body>
@@ -15,31 +13,36 @@
     <div class="img-logo">
       <%= image_tag "logo.png" %>
     </div>
-    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <br />
     <h3>Login</h3>
+    <br />
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <label class="pure-material-textfield-outlined">
+        <%= f.email_field :email, autocomplete: "email" ,autofocus: true, :placeholder => " " %>
+        <span>Email</span>
+      </label>
     </div>
-    <br/>
     <div class="field">
-      <%= f.label :password %><br />
-      <%= f.password_field :password, autocomplete: "current-password" %>
+      <label class="pure-material-textfield-outlined">
+        <%= f.password_field :password, autocomplete: "current-password", :placeholder => " " %>
+        <span>Senha</span>
+      </label>
     </div>
-    <br/>
     <% if devise_mapping.rememberable? %>
     <div class="field">
       <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+      <%= f.label 'Lembre de mim' %>
     </div>
     <% end %>
-    <br/>
+    <br />
     <div class="actions">
       <%= f.submit "Entrar", :class => "custom-button ripple" %>
     </div>
+    <br />
+    <%= link_to 'Voltar', root_path %>
     <% end %>
   </div>
 </body>
-</html>
 
-<%= render "devise/shared/links" %>
+</html>
