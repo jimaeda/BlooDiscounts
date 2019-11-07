@@ -1,59 +1,72 @@
-<p id="notice"><%= notice %></p>
+<div align="center">
+
 
 <p>
-  <strong>Hosp name:</strong>
+  <strong>Hospital name:</strong>
   <%= @hospital.hosp_name %>
 </p>
 
 <p>
-  <strong>Hosp city:</strong>
+  <strong>Hospital city:</strong>
   <%= @hospital.hosp_city %>
 </p>
 
 <p>
-  <strong>Hosp state:</strong>
+  <strong>Hospital state:</strong>
   <%= @hospital.hosp_state %>
 </p>
 
 <p>
-  <strong>A plus:</strong>
+  <strong>Lattitude:</strong>
+  <%= @hospital.lattitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @hospital.longitude %>
+</p>
+
+<p>
+  <strong>Level A+:</strong>
   <%= @hospital.a_plus %>
 </p>
 
 <p>
-  <strong>A minus:</strong>
+  <strong>Level A-:</strong>
   <%= @hospital.a_minus %>
 </p>
 
 <p>
-  <strong>B plus:</strong>
+  <strong>Level B+:</strong>
   <%= @hospital.b_plus %>
 </p>
 
 <p>
-  <strong>B minus:</strong>
+  <strong>Level B-:</strong>
   <%= @hospital.b_minus %>
 </p>
 
 <p>
-  <strong>O plus:</strong>
+  <strong>Level O+:</strong>
   <%= @hospital.o_plus %>
 </p>
 
 <p>
-  <strong>O minus:</strong>
+  <strong>Level O-:</strong>
   <%= @hospital.o_minus %>
 </p>
 
 <p>
-  <strong>Ab plus:</strong>
+  <strong>Level AB+:</strong>
   <%= @hospital.ab_plus %>
 </p>
 
 <p>
-  <strong>Ab minus:</strong>
+  <strong>Level AB-:</strong>
   <%= @hospital.ab_minus %>
 </p>
 
 <%= link_to 'Edit', edit_hospital_path(@hospital) %> |
 <%= link_to 'Back', hospitals_path %>
+
+</div>

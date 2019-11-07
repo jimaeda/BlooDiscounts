@@ -22,7 +22,7 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'	
-gem 'bcrypt'
+gem 'bcrypt' 
 
 
 # Use Active Storage variant
@@ -37,6 +37,7 @@ group :development, :test do
   # RSpec
   gem 'rspec-rails', '~> 4.0.0.beta2'
   gem 'factory_bot_rails'
+  
   # Can be useful for testing
   # gem 'rspec-activemodel-mocks'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
