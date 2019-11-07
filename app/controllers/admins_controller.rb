@@ -59,21 +59,7 @@ class AdminsController < ApplicationController
   end
 
   def register_donation
-    puts(params[:user][:id])
-
-    puts(params[:user][:amount_donated])
-    if params[:user][:id].nil? || params[:user][:amount_donated].nil?
-      puts(params[:user][:id])
-
-      puts(params[:user][:amount_donated])
-
-      return
-    end
-    puts("AAAAAAAAAAAAAA")
-    user = User.find_by(id: params[:donator_id])
-    if !user.nil?
-      puts("bla")
-    end
+    
   end
 
   private
