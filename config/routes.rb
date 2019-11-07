@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+resources :rewards
   get 'sessions/new'
   get 'admins/profile'
   get 'register_donation' => 'admins#register_donation'
