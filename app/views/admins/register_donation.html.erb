@@ -8,27 +8,27 @@
 
 <body>
     <div align="center">
-        <h1> Administradores </h1>
-        <br/>
-        <h3>Login</h3>
-        <%= form_for :session, url: login_path do |f| %>
+        <% if (current_admin) %>
+            <h3> Registrar doação </h3>
+           <%= form_for :user, url: register_donation_path do |f| %>
             <br/>
             <div class="field">
                 <label class="pure-material-textfield-outlined">
-                    <%= f.text_field :adm_username, autofocus: true, :placeholder => " " %>
-                    <span>Admin Username</span>
+                    <%= f.number_field :id, autofocus: true,  min: 1,:placeholder => " " %>
+                    <span>Id do doador</span>
                 </label>
             </div>
              <div class="field">
                 <label class="pure-material-textfield-outlined">
-                    <%= f.password_field :password, autocomplete: "off", :placeholder => " " %>
-                    <span>Password</span>
+                    <%= f.number_field :amount_donated, autocomplete: "off", min: 1,:placeholder => " " %>
+                    <span>Quantidade doada</span>
                 </label>
             </div>
             <br/>
             <div class="actions">
-                <%= f.submit "Log in", :class => "custom-button ripple" %>
+                <%= f.submit "Registrar", :class => "custom-button ripple" %>
             </div>
+        <% end %>
         <% end %>
     </div>
 </body>

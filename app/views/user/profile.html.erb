@@ -16,29 +16,16 @@
         <br/>
         <div class= "center">
             <% if current_user %>
-            <%= "Hoje é" %>
-            <%= Date.today.to_formatted_s(:rfc822) %>
-            <br/>
-            <br/>
-            <%= "Olá, " + current_user.first_name %>
-            <br/>
-            <hr>
-            <%= "Seu email: " + current_user.email %>
-            <br/>
-            <%= "Tipo sanguíneo: " + current_user.bloodtype %>
-            <br/>
-            <p>Data de nascimento: <%= current_user.birthdate.to_formatted_s(:rfc822) %></p>
-            <hr>
-            <%= button_to "Resgatar pontos", user_pontos_path, :method => :get,
-            :class => "custom-button ripple" %>
-            <br/>
-            <%= button_to "Hospitais próximos", :class => "custom-button ripple"  %>
-            <br/>
-            <%= button_to "Editar informações", edit_user_registration_path, :method => :get,
-            :class => "custom-button ripple" %>
-            <br/>
-            <%= button_to "Sair", destroy_user_session_path, :method => :delete,
-            :class => "custom-button ripple" %>
+                <h3><%="Olá, " +  current_user.first_name + " " + +  current_user.last_name %></h3>
+                <br/>
+                <%= button_to "Resgatar pontos", user_points_path, :method => :get,
+                :class => "custom-button ripple" %>
+                <%# <%= button_to "Hospitais próximos", :class => "custom-button ripple"  %>
+                <br/>
+                <%= button_to "Exibir perfil", user_show_path, :method => :get, :class => "custom-button ripple" %>
+                <br/>
+                <%= button_to "Sair", destroy_user_session_path, :method => :delete,
+                :class => "custom-button ripple" %>
             <% end %>
             <br/>
             <br/>
