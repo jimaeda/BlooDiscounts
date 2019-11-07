@@ -6,6 +6,8 @@ RSpec.describe "hospitals/edit", type: :view do
       :hosp_name => "MyString",
       :hosp_city => "MyString",
       :hosp_state => "MyString",
+      :lattitude => "9.99",
+      :longitude => "9.99",
       :a_plus => "9.99",
       :a_minus => "9.99",
       :b_plus => "9.99",
@@ -27,6 +29,10 @@ RSpec.describe "hospitals/edit", type: :view do
       assert_select "input[name=?]", "hospital[hosp_city]"
 
       assert_select "input[name=?]", "hospital[hosp_state]"
+
+      assert_select "input[name=?]", "hospital[lattitude]"
+
+      assert_select "input[name=?]", "hospital[longitude]"
 
       assert_select "input[name=?]", "hospital[a_plus]"
 

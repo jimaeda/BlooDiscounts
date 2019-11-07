@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_21_111348) do
+ActiveRecord::Schema.define(version: 2019_11_06_002611) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,8 @@ ActiveRecord::Schema.define(version: 2019_10_21_111348) do
     t.decimal "ab_minus", default: "0.0", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.float "lattitude"
+    t.float "longitude"
   end
 
   create_table "rewards", force: :cascade do |t|
