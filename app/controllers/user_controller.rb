@@ -2,7 +2,7 @@ class UserController < ApplicationController
   def profile
   end
 
-  def pontos
+  def points
   end
 
   def edit

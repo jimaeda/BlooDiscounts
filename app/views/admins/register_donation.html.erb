@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>BlooDiscounts</title>
+</head>
+
+<body>
+    <div align="center">
+        <% if (current_admin) %>
+            <h3> Registrar doação </h3>
+           <%= form_for :user, url: register_donation_path do |f| %>
+            <br/>
+            <div class="field">
+                <label class="pure-material-textfield-outlined">
+                    <%= f.number_field :id, autofocus: true,  min: 1,:placeholder => " " %>
+                    <span>Id do doador</span>
+                </label>
+            </div>
+             <div class="field">
+                <label class="pure-material-textfield-outlined">
+                    <%= f.number_field :amount_donated, autocomplete: "off", min: 1,:placeholder => " " %>
+                    <span>Quantidade doada</span>
+                </label>
+            </div>
+            <br/>
+            <div class="actions">
+                <%= f.submit "Registrar", :class => "custom-button ripple" %>
+            </div>
+        <% end %>
+        <% end %>
+    </div>
+</body>
+</html>

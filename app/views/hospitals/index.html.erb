@@ -1,22 +1,27 @@
+
+<div align="center">
 <p id="notice"><%= notice %></p>
 
 <h1>Hospitals</h1>
 
-<table>
+<%= link_to 'Add New Hospital', new_hospital_path %>
+
+<table width="1200">
   <thead>
     <tr>
-      <th>Hosp name</th>
-      <th>Hosp city</th>
-      <th>Hosp state</th>
-      <th>A plus</th>
-      <th>A minus</th>
-      <th>B plus</th>
-      <th>B minus</th>
-      <th>O plus</th>
-      <th>O minus</th>
-      <th>Ab plus</th>
-      <th>Ab minus</th>
-      <th colspan="3"></th>
+      <th>Name</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Lattitude</th>
+      <th>Longitude</th>
+      <th>Level A+</th>
+      <th>Level A-</th>
+      <th>Level B+</th>
+      <th>Level B-</th>
+      <th>Level O+</th>
+      <th>Level O-</th>
+      <th>Level AB+</th>
+      <th>Level AB-</th>
     </tr>
   </thead>
 
@@ -26,6 +31,8 @@
         <td><%= hospital.hosp_name %></td>
         <td><%= hospital.hosp_city %></td>
         <td><%= hospital.hosp_state %></td>
+        <td><%= hospital.lattitude %></td>
+        <td><%= hospital.longitude %></td>
         <td><%= hospital.a_plus %></td>
         <td><%= hospital.a_minus %></td>
         <td><%= hospital.b_plus %></td>
@@ -44,4 +51,4 @@
 
 <br>
 
-<%= link_to 'New Hospital', new_hospital_path %>
+</div>
