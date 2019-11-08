@@ -1,3 +1,21 @@
+<script>
+  $(document).ready(function(){
+    $('#edit_user').submit(function(){
+      let dataNascimento = $('#user_birthdate').val();
+      dataNascimento = dataNascimento.split("-");
+      dataNascimento = new Date(dataNascimento[0], dataNascimento[1] - 1, dataNascimento[2]);
+      if(dataNascimento > $.now()){
+        alert("Data de Nascimento incoerente!");
+        return false;
+      }
+
+
+      return true;
+    });
+  });
+
+  </script>
+
 <div align="center">
    <h1>Editar Informações</h1>
 
