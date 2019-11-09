@@ -9,7 +9,9 @@ class User < ApplicationRecord
   validates :email, uniqueness: true
 
   def set_age
-    self.age = Time.now.year - self.birthdate.year
+    self.age = (Time.now.year - self.birthdate.year) + (Time.now.month >
+      self.birthdate.month || Time.now.month == self.birthdate.month &&
+      Time.now.day > self.birthdate.day ? 0 : -1)
   end
 
 end
