@@ -68,6 +68,17 @@ class AdminsController < ApplicationController
       puts(params[:user][:id])
 
       puts(params[:user][:amount_donated])
+    
+      user = User.find(params[:id])
+ 
+      user.points = @user.points + 1
+
+      if user.update user_params
+        puts("funfou")
+      else
+        puts("nao funfou")
+        render :edit
+      end
 
       return
     end
