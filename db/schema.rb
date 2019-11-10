@@ -53,14 +53,6 @@ ActiveRecord::Schema.define(version: 2019_11_06_002611) do
     t.float "longitude"
   end
 
-  create_table "places", force: :cascade do |t|
-    t.string "name"
-    t.decimal "latitude"
-    t.decimal "longitude"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "rewards", force: :cascade do |t|
     t.string "name"
     t.string "category"

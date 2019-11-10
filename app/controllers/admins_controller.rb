@@ -67,24 +67,27 @@ class AdminsController < ApplicationController
 
     puts(params[:user][:amount_donated])
     if params[:user][:id].nil? || params[:user][:amount_donated].nil?
+      puts("parametro vazio")
       puts(params[:user][:id])
 
       puts(params[:user][:amount_donated])
 
       return
     end
-    user = User.find_by(id: params[:donator_id])
-    user.points = user.points + 1
+    user = User.find_by(id: params[:id])
+    if !user.nil?
+      user.points = user.points + 1
 
-    if user.update user_params
-      puts("funfou")
-    else
-      puts("nao funfou")
-      render :edit
-    end
+      if user.update user_params
+        puts("funfou")
+      else
+        puts("nao funfou")
+        render :edit
+      end
     if !user.nil?
       puts("Usuário não encontrado.")
     end
+  end
   end
 
   private
