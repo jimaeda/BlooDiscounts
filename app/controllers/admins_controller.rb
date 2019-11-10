@@ -65,20 +65,17 @@ class AdminsController < ApplicationController
       return
     end
 
-    puts(params[:user][:amount_donated])
-    if params[:user][:id].nil? || params[:user][:amount_donated].nil?
+    puts(params[:user][:id])
+    #if params[:user][:id].nil? || params[:user][:amount_donated].nil?
+    if params[:user][:id].nil?
       puts("parametro vazio")
-      puts(params[:user][:id])
-
-      puts(params[:user][:amount_donated])
-
       return
     end
     user = User.find_by(id: params[:user][:id])
     if !user.nil?
       user.points = user.points + 1
 
-      if user.update user_params
+      if user.update(registerdonation_params)
         puts("funfou")
       else
         puts("nao funfou")
@@ -87,6 +84,10 @@ class AdminsController < ApplicationController
     else
       puts("Usuário não encontrado.")
     end
+  end
+
+  def registerdonation_params
+    params.require(:user).permit(:id, :points)
   end
 
   private
