@@ -4,7 +4,7 @@ class AdminsController < ApplicationController
   def profile; end
 
   def index
-    if @admin.nil? || current_admin.nil?
+    if @admin.nil? && current_admin.nil?
       redirect_to new_admin_path
     else
       redirect_to admins_profile_path

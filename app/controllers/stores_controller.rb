@@ -15,6 +15,7 @@ class StoresController < ApplicationController
   # GET /stores/new
   def new
     @store = Store.new
+    @store.rewards.build
   end
 
   # GET /stores/1/edit
@@ -25,13 +26,44 @@ class StoresController < ApplicationController
   # POST /stores.json
   def create
     @store = Store.new(store_params)
+    if params[:add_reward]
+      # add empty reward associated with @store
+      puts("AAAAAAAAAAAAAAAAAAAA")
+      @store.rewards.build
+      @store.rewards.build
+      @store.rewards.build
 
-    if @store.save
-      redirect_to new_reward_path
+      @store.rewards.build
+      @store.rewards.build
+
+      @store.rewards.build
+
+      @store.rewards.build
+      @store.rewards.build
+
+
+      @store.rewards.build
+      @store.rewards.build
+      @store.rewards.build
+      @store.rewards.build
+      @store.rewards.build
+      @store.rewards.build
+      @store.rewards.build
+      @store.rewards.build
+
+      @store.rewards.build
+      @store.rewards.build
+    elsif params[:remove_reward]
+      # nested model that have _destroy attribute = 1 automatically deleted by rails
     else
-      render action: :new
-      render json: @store.errors, status: :unprocessable_entity
+      # save goes like usual
+      if @store.save
+        redirect_to @store and return
+      else
+        render action: :new
+      end
     end
+    render action: :new
   end
 
   # PATCH/PUT /stores/1
