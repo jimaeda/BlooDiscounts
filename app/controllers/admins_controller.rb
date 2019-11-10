@@ -74,7 +74,7 @@ class AdminsController < ApplicationController
 
       return
     end
-    user = User.find_by(id: params[:id])
+    user = User.find_by(id: params[:user][:id])
     if !user.nil?
       user.points = user.points + 1
 
@@ -84,10 +84,9 @@ class AdminsController < ApplicationController
         puts("nao funfou")
         render :edit
       end
-    if !user.nil?
+    else
       puts("Usuário não encontrado.")
     end
-  end
   end
 
   private
