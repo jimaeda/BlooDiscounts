@@ -23,10 +23,6 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'	
 gem 'bcrypt' 
-<<<<<<< HEAD
-=======
-
->>>>>>> e62a583b698a2e95b981af4a517060d7e10cc15a
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
