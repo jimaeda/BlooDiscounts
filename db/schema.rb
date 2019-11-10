@@ -53,14 +53,6 @@ ActiveRecord::Schema.define(version: 2019_11_06_002611) do
     t.float "longitude"
   end
 
-  create_table "places", force: :cascade do |t|
-    t.string "name"
-    t.decimal "latitude"
-    t.decimal "longitude"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "rewards", force: :cascade do |t|
     t.string "name"
     t.string "category"
@@ -99,17 +91,6 @@ ActiveRecord::Schema.define(version: 2019_11_06_002611) do
     t.integer "points", default: 0, null: false
     t.integer "bloodtype"
     t.date "birthdate"
-    t.string "first_name", default: "", null: false
-    t.string "last_name", default: "", null: false
-    t.integer "weight", default: 0, null: false
-    t.integer "age", default: 0, null: false
-    t.float "height", default: 0.0, null: false
-    t.string "city", default: "", null: false
-    t.string "state", default: "", null: false
-    t.string "country", default: "", null: false
-    t.integer "points", default: 0, null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end
