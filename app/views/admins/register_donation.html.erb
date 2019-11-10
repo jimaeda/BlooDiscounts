@@ -6,11 +6,11 @@
     <title>BlooDiscounts</title>
 </head>
 
-<body>
+<body> 
     <div align="center">
         <% if (current_admin) %>
             <h3> Registrar doação </h3>
-           <%= form_for :user, url: register_donation_path do |f| %>
+           <%= form_for :donor, url: register_donation_path do |f| %>
             <br/>
             <div class="field">
                 <label class="pure-material-textfield-outlined">
@@ -23,6 +23,8 @@
             <div class="actions">
                 <%= f.submit "Registrar", :class => "custom-button ripple" %>
             </div>
+            <br/>
+            <%= button_to "Voltar", :back, :class => "custom-button ripple" %>
         <% end %>
         <% end %>
     </div>

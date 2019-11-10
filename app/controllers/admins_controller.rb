@@ -59,35 +59,33 @@ class AdminsController < ApplicationController
   end
 
   def register_donation
-    puts("entrou na funcao")
-    if params[:user].nil?
-      puts("Form vazio")      
+    if params[:donor].nil?
       return
     end
+    #if params[:donor][:id].nil? || params[:donor][:amount_donated].nil?
+    donor = User.find_by(id: params[:donor][:id])
+    if !donor.nil?
+      donor.points = donor.points + 1
 
-    puts(params[:user][:id])
-    #if params[:user][:id].nil? || params[:user][:amount_donated].nil?
-    if params[:user][:id].nil?
-      puts("parametro vazio")
-      return
-    end
-    user = User.find_by(id: params[:user][:id])
-    if !user.nil?
-      user.points = user.points + 1
-
-      if user.update(registerdonation_params)
-        puts("funfou")
+      if donor.update(registerdonation_params)
+        redirect_to admins_profile_path
+        flash[:notice] = 'Doação registrada.'
       else
-        puts("nao funfou")
-        render :edit
+        redirect_to admins_profile_path
+        flash[:alert] = 'Doação  não registrada.'
       end
     else
-      puts("Usuário não encontrado.")
+      if !params[:donor][:id].blank?
+        redirect_to admins_profile_path
+        flash[:alert] = 'Usuário não encontrado.'
+      else
+        redirect_to admins_profile_path
+      end
     end
   end
 
   def registerdonation_params
-    params.require(:user).permit(:id, :points)
+    params.require(:donor).permit(:id, :points)
   end
 
   private
