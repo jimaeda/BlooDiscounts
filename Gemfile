@@ -23,17 +23,24 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'	
 gem 'bcrypt' 
+<<<<<<< HEAD
+=======
+
+>>>>>>> e62a583b698a2e95b981af4a517060d7e10cc15a
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'execjs'
+gem 'therubyracer'
 
 group :development, :test do
   # RSpec
   gem 'rspec-rails', '~> 4.0.0.beta2'
   gem 'factory_bot_rails'
+  
   # Can be useful for testing
   # gem 'rspec-activemodel-mocks'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

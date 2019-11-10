@@ -1,0 +1,49 @@
+<%= form_with(model: reward, local: true) do |form| %>
+  <% if reward.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(reward.errors.count, "error") %> prohibited this reward from being saved:</h2>
+
+      <ul>
+        <% reward.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+     <label for="name">Nome</label>
+      <br/>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+     <label for="category">Categoria</label>
+      <br/>
+    <%= form.text_field :category %>
+  </div>
+
+  <div class="field">
+     <label for="quantity">Quantidade</label>
+      <br/>
+    <%= form.number_field :quantity %>
+  </div>
+
+  <div class="field">
+     <label for="cost">Valor</label>
+      <br/>
+    <%= form.number_field :cost %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+
+  <script>
+      $(document).ready(function () {
+        setInputFilter(document.getElementById(reward_cost), function (value) {
+          return /[0-9]/.test(value);
+        });
+      })
+    </script>
+<% end %>

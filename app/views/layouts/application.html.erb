@@ -7,10 +7,21 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!--google maps-->
+    <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key='+'AIzaSyA9OXC-tCO1_qWGcP6v-TZgE2Dz9PWonb4' %>
+    <%= yield(:head_tags) %>
   </head>
 
   <body>
     <%= render 'layouts/alerts' %>
+    <div align="center">
+      <% if notice %>
+        <p class="alert alert-success"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
+    </div>
     <%= yield %>
   </body>
 </html>

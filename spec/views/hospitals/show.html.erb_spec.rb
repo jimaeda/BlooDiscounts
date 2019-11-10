@@ -6,6 +6,8 @@ RSpec.describe "hospitals/show", type: :view do
       :hosp_name => "Hosp Name",
       :hosp_city => "Hosp City",
       :hosp_state => "Hosp State",
+      :lattitude => "99.99",
+      :longitude => "99.99",
       :a_plus => "9.99",
       :a_minus => "9.99",
       :b_plus => "9.99",
@@ -22,6 +24,8 @@ RSpec.describe "hospitals/show", type: :view do
     expect(rendered).to match(/Hosp Name/)
     expect(rendered).to match(/Hosp City/)
     expect(rendered).to match(/Hosp State/)
+    expect(rendered).to match(/99.99/)
+    expect(rendered).to match(/99.99/)
     expect(rendered).to match(/9.99/)
     expect(rendered).to match(/9.99/)
     expect(rendered).to match(/9.99/)
