@@ -2,7 +2,6 @@
   <% if store.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(store.errors.count, "error") %> prohibited this store from being saved:</h2>
-
       <ul>
         <% store.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -10,40 +9,42 @@
       </ul>
     </div>
   <% end %>
-  <div>
-    <div class="field">
-      <label for="name">Nome</label>
-      <br/>
-      <%= form.text_field :name %>
+  <div class="flex-layout">
+    <div class="field flex-cell">
+      <label class="pure-material-textfield-outlined">
+        <%= form.text_field :name, autofocus: true, :placeholder => " " %>
+        <span>Nome</span>
+      </label>
     </div>
-
-    <div class="field">
-      <label for="category">Categoria</label>
-      <br/>
-      <%= form.text_field :category %>
+    <div class="field flex-cell">
+      <label class="pure-material-textfield-outlined">
+        <%= form.text_field :category, autocomplete: "off", :placeholder => " " %>
+        <span>Categoria</span>
+      </label>
     </div>
-
-    <div class="field">
-      <label for="address">Endereço</label>
-      <br/>
-      <%= form.text_field :address %>
+  </div>
+  <div class="flex-layout">
+    <div class="field flex-cell">
+      <label class="pure-material-textfield-outlined">
+        <%= form.text_field :address, autocomplete: "off", :placeholder => " " %>
+        <span>Endereço</span>
+      </label>
     </div>
-
-    <div class="field">
-      <label for="email">Email para contato</label>
-      <br/>
-      <%= form.text_field :email %>
+    <div class="field flex-cell">
+      <label class="pure-material-textfield-outlined">
+        <%= form.text_field :email, autocomplete: "off", :placeholder => " " %>
+        <span>Email para contato</span>
+      </label>
     </div>
-
-    <div class="field">
-      <label for="phone">Telefone para contato</label>
-      <br/>
-      <%= form.text_field :phone %>
-    </div>
-
-    <div class="actions">
-      <br/>
-      <%= form.submit %>
-    </div>
+  </div>
+  <div class="field flex-layout flex-cell">
+    <label class="pure-material-textfield-outlined">
+      <%= form.text_field :phone, autocomplete: "off", :placeholder => " " %>
+      <span>Telefone para contato</span>
+    </label>
+  </div>
+  <br/>
+  <div class="actions flex-layout flex-cell">
+      <%= form.submit "Submeter", :class => "custom-button ripple" %>
   </div>
 <% end %>

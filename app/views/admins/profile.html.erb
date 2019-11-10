@@ -16,9 +16,9 @@
             <br/>
             <%= button_to "Exibir estoque de sangue", quit_path, :class => "custom-button ripple"  %>
             <br/>
-             <%= button_to "Cadastrar lojas", quit_path, :class => "custom-button ripple"  %>
+            <%= button_to "Cadastrar lojas", new_store_path, :method => :get, :class => "custom-button ripple"  %>
             <br/>
-             <%= button_to "Listar produtos de uma loja", quit_path, :class => "custom-button ripple"  %>
+            <%= button_to "Listar produtos de uma loja", quit_path, :class => "custom-button ripple"  %>
             <br/>
             <%= button_to "Exibir perfil", current_admin, :method => :get,:class => "custom-button ripple" %>
             <br/>
