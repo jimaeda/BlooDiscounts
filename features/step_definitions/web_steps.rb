@@ -1,5 +1,9 @@
 # Dado/Given
 
+Dado("que eu entro na página de cadastro de hospitais") do
+	visit '/hospitals/new'
+end
+
 Dado('que eu entro na página de login do admin') do
     Admin.create(adm_username: "alexandrefreire", password: "123456", adm_name: "Alexandre Freire", adm_cpf: "123456", hospital_name: "Hospital")
     visit login_path
@@ -14,7 +18,65 @@ Dado("a página de cadastro do BlooDiscounts") do
     visit 'http://localhost:3000/users/sign_up'
 end
 
+Dado("que eu acesso o cadastro de recompensas") do
+    visit 'http://localhost:3000/rewards/new'
+end
+
 # Quando/When
+
+Quando("eu adiciono as informações {string} e {string} e {string} e {string} e {string} e {string} e {string} e {string} e {string} e {string} e {string} e {string} e {string}") do 
+|hosp_name, hosp_city, hosp_state, lattitude, longitude, a_plus, a_minus, b_plus, b_minus, o_plus, o_minus, ab_plus, ab_minus|
+  fill_in 'hospital[hosp_name]', with: hosp_name
+  fill_in 'hospital[hosp_city]', with: hosp_city
+  fill_in 'hospital[hosp_state]', with: hosp_state
+  fill_in 'hospital[lattitude]', with: lattitude
+  fill_in 'hospital[longitude]', with: longitude
+  fill_in 'hospital[a_plus]', with: a_plus
+  fill_in 'hospital[a_minus]', with: a_minus
+  fill_in 'hospital[b_plus]', with: b_plus
+  fill_in 'hospital[b_minus]', with: b_minus
+  fill_in 'hospital[o_plus]', with: o_plus
+  fill_in 'hospital[o_minus]', with: o_minus
+  fill_in 'hospital[ab_plus]', with: ab_plus
+  fill_in 'hospital[ab_minus]', with: ab_minus
+  click_button 'Create Hospital'
+end
+
+# Nome faltando 
+Quando("eu digitar nada, {string}, {int} e {int}") do |categoria, quantidade, custo|
+    find('input[id=reward_category]').set categoria
+    find('input[id=reward_quantity]').set quantidade
+    find('input[id=reward_cost]').set custo
+end
+  
+# Categoria faltando 
+Quando("eu digitar {string}, nada, {int} e {int}") do |nome, quantidade, custo|
+    find('input[id=reward_name]').set nome
+    find('input[id=reward_quantity]').set quantidade
+    find('input[id=reward_cost]').set custo
+end
+
+# Quantidade faltando
+Quando("eu digitar {string}, {string}, nada e {int}") do |nome, categoria, custo|
+    find('input[id=reward_category]').set categoria
+    find('input[id=reward_name]').set nome
+    find('input[id=reward_cost]').set custo
+end
+  
+# Valor faltando
+Quando("eu digitar {string}, {string}, {int} e nada") do |nome, categoria, quantidade|
+    find('input[id=reward_category]').set categoria
+    find('input[id=reward_name]').set nome
+    find('input[id=reward_quantity]').set quantidade
+end
+  
+# Caso perfeito
+Quando("eu digitar {string}, {string}, {int} e {int}") do |nome, categoria, quantidade, custo|
+    find('input[id=reward_category]').set categoria
+    find('input[id=reward_name]').set nome
+    find('input[id=reward_quantity]').set quantidade
+    find('input[id=reward_cost]').set custo  
+end
 
 Quando('eu for para tela de edição de perfil') do
     find('input[value="Exibir perfil"]').click
@@ -89,6 +151,21 @@ end
   
 # Então/Then
 
+# Clicar no botão cadastrar
+Então("devo clicar em create reward") do
+    click_button "Create Reward"
+end
+
+# Cadastro com sucesso
+Então("devo ir para a tela com os dados cadastrados e a mensagem {string}") do |string|
+    expect(page).to have_content 'Recompensa cadastrada com sucesso.'
+end
+
+# Não houve cadastro
+Então("devo continuar na mesma tela") do
+    expect(page).to have_content 'Cadastro de Recompensa'    
+end
+
 Então('eu devo ir para a página de admin') do
     expect(page).to have_no_field('Admin Username')
 end
@@ -113,4 +190,3 @@ end
 Então("devo ter a seguinte mensagem {string}") do |mensagem|
     expect(page).to have_content mensagem
 end
-  

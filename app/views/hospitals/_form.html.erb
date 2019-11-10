@@ -1,72 +1,96 @@
-<%= form_with(model: hospital, local: true) do |form| %>
-  <% if hospital.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(hospital.errors.count, "error") %> prohibited this hospital from being saved:</h2>
+<!DOCTYPE html>
+<html lang="pt-br">
 
-      <ul>
-        <% hospital.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+</head>
+<body>
+  <div align="center">
+    <%= form_with(model: hospital, local: true) do |form| %>
+      <% if hospital.errors.any? %>
+        <div id="error_explanation"  align="center">
+          <h2><%= pluralize(hospital.errors.count, "error") %> prohibited this hospital from being saved:</h2>  
+          <ul>
+            <% hospital.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
 
-  <div class="field">
-    <%= form.label :hosp_name %>
-    <%= form.text_field :hosp_name %>
+      <div class="field">
+        <%= form.label :hosp_name, "Hospital Name" %>
+        <%= form.text_field :hosp_name %>
+      </div>
+
+      <div class="field">
+        <%= form.label :hosp_city, "Hospital City"%>
+        <%= form.text_field :hosp_city %>
+      </div>
+
+      <div class="field">
+        <%= form.label :hosp_state, "Hospital State"%>
+        <%= form.text_field :hosp_state %>
+      </div>
+
+      <div class="field">
+        <%= form.label :lattitude, "Lattitude" %>
+        <%= form.text_field :lattitude %>
+      </div>
+
+      <div class="field">
+        <%= form.label :longitude, "Longitude" %>
+        <%= form.text_field :longitude %>
+      </div>
+
+      <div class="field">
+        <%= form.label :a_plus, "Level A+" %>
+        <%= form.text_field :a_plus, :max => 100, :min => 0 %>
+      </div>
+
+      <div class="field">
+        <%= form.label :a_minus, "Level A-" %>
+        <%= form.text_field :a_minus, :max => 100, :min => 0  %>
+      </div>
+
+      <div class="field">
+        <%= form.label :b_plus, "Level B+" %>
+        <%= form.text_field :b_plus %>
+      </div>
+
+      <div class="field">
+        <%= form.label :b_minus, "Level B-" %>
+        <%= form.text_field :b_minus %>
+      </div>
+
+      <div class="field">
+        <%= form.label :o_plus, "Level O+" %>
+        <%= form.text_field :o_plus %>
+      </div>
+
+      <div class="field">
+        <%= form.label :o_minus, "Level O-" %>
+        <%= form.text_field :o_minus %>
+      </div>
+
+      <div class="field">
+        <%= form.label :ab_plus, "Level AB+" %>
+        <%= form.text_field :ab_plus %>
+      </div>
+
+      <div class="field">
+        <%= form.label :ab_minus, "Level AB-" %>
+        <%= form.text_field :ab_minus %>
+      </div>
+
+      <br/>
+
+      <div class="actions">
+        <%= form.submit %>
+      </div>
+
+    <% end %>
   </div>
-
-  <div class="field">
-    <%= form.label :hosp_city %>
-    <%= form.text_field :hosp_city %>
-  </div>
-
-  <div class="field">
-    <%= form.label :hosp_state %>
-    <%= form.text_field :hosp_state %>
-  </div>
-
-  <div class="field">
-    <%= form.label :a_plus %>
-    <%= form.text_field :a_plus %>
-  </div>
-
-  <div class="field">
-    <%= form.label :a_minus %>
-    <%= form.text_field :a_minus %>
-  </div>
-
-  <div class="field">
-    <%= form.label :b_plus %>
-    <%= form.text_field :b_plus %>
-  </div>
-
-  <div class="field">
-    <%= form.label :b_minus %>
-    <%= form.text_field :b_minus %>
-  </div>
-
-  <div class="field">
-    <%= form.label :o_plus %>
-    <%= form.text_field :o_plus %>
-  </div>
-
-  <div class="field">
-    <%= form.label :o_minus %>
-    <%= form.text_field :o_minus %>
-  </div>
-
-  <div class="field">
-    <%= form.label :ab_plus %>
-    <%= form.text_field :ab_plus %>
-  </div>
-
-  <div class="field">
-    <%= form.label :ab_minus %>
-    <%= form.text_field :ab_minus %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</body>
+</html>
