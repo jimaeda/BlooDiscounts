@@ -42,7 +42,7 @@ Então devo receber a mensagem: Your account has been updated successfully
 #E que eu esteja na página de edição de usuário
 #Quando preencher o campo Data Nascimento como 07272200
 #E clicar em Atualizar informações
-#Então devo receber a mensagem: Verifique sua Data de Nascimento
+#Então devo receber a mensagem: Birthdate is invalid
 
 Cenário: Usuário deixa um campo obrigatório embranco
 
@@ -52,4 +52,4 @@ Quando preencher o campo País como
 E preencher o campo Estado como
 E preencher o campo Cidade como
 E clicar em Atualizar informações
-Então devo receber a mensagem: Os campos com (*) são obrigatórios
+Então devo receber a mensagem: can't be blank
