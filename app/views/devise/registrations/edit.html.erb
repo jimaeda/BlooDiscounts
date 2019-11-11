@@ -17,7 +17,7 @@
     $("input[type='text'][required]").each(function()
     {
       valido = valido && this.value.trim() !== "";
-      erro.msg += valido ? '' : 'Verifique o campo ' + $(this).parent().find("span").html() + '\n';
+      erro.msg +=  this.value.trim() !== "" ? '' : 'Verifique o campo ' + $(this).parent().find("span").html() + '\n';
     });
     return valido;
   }
@@ -27,7 +27,7 @@
     $("input[type='number'][required]").each(function()
     {
       valido = valido && this.value > 0;
-      erro.msg += valido ? '' : 'Verifique o campo ' + $(this).parent().find("span").html() + '\n';
+      erro.msg += this.value > 0 ? '' : 'Verifique o campo ' + $(this).parent().find("span").html() + '\n';
     });
     return valido;
   }
@@ -36,7 +36,7 @@
     let dataNascimento = $('#user_birthdate').val();
     dataNascimento = dataNascimento.split("-");
     dataNascimento = new Date(dataNascimento[0], dataNascimento[1] - 1, dataNascimento[2]);
-    if(dataNascimento > $.now()){
+    if(dataNascimento > $.now() || dataNascimento.getYear() == $.now().getYear()){
       erro.msg += "Verifique sua Data de Nascimento \n";
       return false;
     }
