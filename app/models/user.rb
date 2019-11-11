@@ -21,6 +21,10 @@ class User < ApplicationRecord
     self.age = (Time.now.year - self.birthdate.year) + (Time.now.month >
       self.birthdate.month || Time.now.month == self.birthdate.month &&
       Time.now.day > self.birthdate.day ? 0 : -1)
+      if(self.age <= 0)
+        errors[:birthdate] << "is invalid."
+        false
+      end
   end
 
 end
