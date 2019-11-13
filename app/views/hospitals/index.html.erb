@@ -1,3 +1,43 @@
+<% provide :head_tags do %>
+  <meta name='turbolinks-visit-control' content='reload'>
+  <script>
+    var posicao;
+    //localização do user
+    function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(initMap);
+      }else {
+        alert("Geolocation is not supported by this browser.");
+      }
+    }
+    //inicia google maps
+    function initMap(pos) {
+      posicao = pos;
+      var myCoords = new google.maps.LatLng(posicao.coords.latitude, posicao.coords.longitude);
+      var mapOptions = {
+        center: myCoords,
+        zoom: 14
+      };
+      var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+      var marker = new google.maps.Marker({
+        position: myCoords,
+        map: map
+      });
+    }
+    //var lat = 0, lng = 0;
+    function showPosition(position) {
+     lat = position.coords.latitude;
+     lng = position.coords.longitude;
+    }
+    document.addEventListener("DOMContentLoaded", function(){
+      getLocation();
+      //initMap(lat, lng);
+    });
+
+  </script>
+<% end %>
+
+
 
 <div align="center">
 <p id="notice"><%= notice %></p>
@@ -52,3 +92,7 @@
 <br>
 
 </div>
+<button onclick="getLocation()">Aperta</button>
+<p>
+    <div id="map"></div>
+</p>
