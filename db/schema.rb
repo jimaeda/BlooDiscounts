@@ -70,6 +70,16 @@ ActiveRecord::Schema.define(version: 2019_11_06_002611) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "stores", force: :cascade do |t|
+    t.string "name"
+    t.string "category"
+    t.string "address"
+    t.string "email"
+    t.string "phone"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
