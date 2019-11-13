@@ -72,15 +72,13 @@ class AdminsController < ApplicationController
         flash[:notice] = 'Doação registrada.'
       else
         redirect_to admins_profile_path
-        flash[:alert] = 'Doação  não registrada.'
+        flash[:alert] = 'Não foi possível registrar a doação.'
       end
-    else
-      if !params[:donor][:id].blank?
-        redirect_to admins_profile_path
-        flash[:alert] = 'Usuário não encontrado.'
-      else
-        redirect_to admins_profile_path
-      end
+      return
+    end
+    if donor.nil? && !params[:donor][:id].blank?
+      flash[:alert] = 'Usuário não encontrado.'
+      render
     end
   end
 
