@@ -68,8 +68,8 @@ class AdminsController < ApplicationController
       donor.points = donor.points + 1
 
       if donor.update(registerdonation_params)
-        redirect_to admins_profile_path
         flash[:notice] = 'Doação registrada.'
+        render
       else
         redirect_to admins_profile_path
         flash[:alert] = 'Não foi possível registrar a doação.'
