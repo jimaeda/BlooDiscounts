@@ -1,6 +1,5 @@
 <%= content_for :head_tags do %>
-  <%= javascript_include_tag 'edicao_usuario.js'%>
-  <!-- AAA -->
+<%= javascript_include_tag 'edicao_usuario.js'%>
 <% end %>
 
 <div align="center">
@@ -68,11 +67,19 @@
   <div class="flex-layout">
     <div class="field flex-cell">
       <label class="pure-material-textfield-outlined">
+        <span>Tipo Sanguíneo</span>
+        <%= f.select(:bloodtype, User.bloodtypes.keys.map {|bloodtype| [bloodtype,bloodtype]})%>
+      </label>
+    </div>
+    <div class="field flex-cell">
+      <label class="pure-material-textfield-outlined">
         <%= f.text_field :email, autocomplete: "email", :placeholder => " ", required: true %>
         <span>Email</span>
       </label>
     </div>
   </div>
+
+
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
   <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
