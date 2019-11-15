@@ -1,5 +1,10 @@
-var posicao;
-var geocoder = null;
+var coorUser;
+var coorHospitals;
+var distancias;
+//array de coordenadas dos hospitais
+function addDistance(coor){
+  coorHospitals.push(coor);
+}
 //localização do usuario
 function getLocation() {
   if (navigator.geolocation) {
@@ -10,21 +15,32 @@ function getLocation() {
 }
 //inicia google maps
 function initMap(pos) {
-  //geocoder = new google.maps.Geocoder();
-  // coordenadas
-  posicao = pos;
-  var myCoords = new google.maps.LatLng(posicao.coords.latitude, posicao.coords.longitude);
+  // coordenadas do usuario
+  coorUser = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
   var mapOptions = {
-    center: myCoords,
+    center: coorUser,
     zoom: 16
   };
-  // marcador vermelho no mapa
+  //array de distancias
+  for(var i = 0;i < coorHospitals.length;i++){
+    distancias.push(google.maps.geometry.spherical.computeDistanceBetween(coorUser, coorHospitals[i]));
+  }
+  distancias.sort();
+  // marcadores vermelhos no mapa
   var map = new google.maps.Map(document.getElementById('map'), mapOptions);
-  var marker = new google.maps.Marker({
-    position: myCoords,
+  var marker;
+  marker[i] = new google.maps.Marker({
+    position: coorUser,
     map: map
   });
+  for(var i = 0;i < distancias.length;i++){
+    marker[i] = new google.maps.Marker({
+      position: distancias[i],
+      map: map
+    });
+  }
 }
+//açoes pra fazer ao carregar a página
 document.addEventListener("DOMContentLoaded", function(){
   getLocation();
 });
