@@ -28,42 +28,18 @@ class StoresController < ApplicationController
     @store = Store.new(store_params)
     if params[:add_reward]
       # add empty reward associated with @store
-      puts("AAAAAAAAAAAAAAAAAAAA")
       @store.rewards.build
-      @store.rewards.build
-      @store.rewards.build
-
-      @store.rewards.build
-      @store.rewards.build
-
-      @store.rewards.build
-
-      @store.rewards.build
-      @store.rewards.build
-
-
-      @store.rewards.build
-      @store.rewards.build
-      @store.rewards.build
-      @store.rewards.build
-      @store.rewards.build
-      @store.rewards.build
-      @store.rewards.build
-      @store.rewards.build
-
-      @store.rewards.build
-      @store.rewards.build
+      render action: :new
     elsif params[:remove_reward]
-      # nested model that have _destroy attribute = 1 automatically deleted by rails
+      render action: :new
     else
       # save goes like usual
       if @store.save
-        redirect_to @store and return
+        redirect_to admins_profile_path and return
       else
         render action: :new
       end
     end
-    render action: :new
   end
 
   # PATCH/PUT /stores/1
@@ -98,6 +74,6 @@ class StoresController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def store_params
-      params.require(:store).permit(:name, :category, :address, :email, :phone)
+      params.require(:store).permit(:name, :category, :address, :email, :phone, { rewards_attributes: [:_destroy, :name, :category, :quantity, :cost] } )
     end
 end

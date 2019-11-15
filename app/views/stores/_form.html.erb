@@ -38,7 +38,7 @@
   <%= form.fields_for :rewards do |re| %>
     <p>
       <%= re.check_box :_destroy %>
-      <%= re.label :_destroy, 'delete' %>
+      <%= re.label :_destroy, 'Remover' %>
       <div class="flex-layout">
         <div class="field flex-cell">
           <label class="pure-material-textfield-outlined">
@@ -70,8 +70,11 @@
     </p>
   <% end %>
   <p>
-    <%= form.submit 'Adicionar outra recompensa', :name => "add_reward" %>
-    <%= form.submit 'Remover checked ingredients', :name => "remove_reward" %>
-    <%= form.submit %>
+    <%= form.submit 'Adicionar outra recompensa', :name => "add_reward", :class => "custom-button ripple" %>
+    <%= form.submit 'Remover recompensas', :name => "remove_reward", :class => "custom-button ripple" %>
   </p>
+  <%= form.submit 'Criar loja' ,:class => "custom-button ripple" %>
+  <br/>
+  <br/>
+  <%= link_to 'Voltar', :back %>
 <% end %>
