@@ -5,16 +5,16 @@ class HospitalsController < ApplicationController
   # GET /hospitals.json
   def index
     @hospitals = Hospital.all
-    @hospitals.each do |hospital|
-      respond_to do |format|
-        format.js { render :js => "
-          var coor = new google.maps.LatLng(hospital.lattitude, hospital.longitude);
-          addDistance(coor);
-          " }
-      end
-
   end
 
+  def info
+    respond_to do |format|
+      hospitals = Hospital.all
+      msg = hospitals.to_json
+      format.json {render :json => msg}
+      format.html {render :json => msg}
+    end
+  end
   # GET /hospitals/1
   # GET /hospitals/1.json
   def show
