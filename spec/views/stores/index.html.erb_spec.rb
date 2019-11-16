@@ -4,18 +4,18 @@ RSpec.describe "stores/index", type: :view do
   before(:each) do
     assign(:stores, [
       Store.create!(
-        :name => "Name",
-        :category => "Category",
-        :address => "Address",
+        :name => "Nome",
+        :category => "Categoria",
+        :address => "Endereço",
         :email => "Email",
-        :phone => "Phone"
+        :phone => "Contato"
       ),
       Store.create!(
-        :name => "Name",
-        :category => "Category",
-        :address => "Address",
+        :name => "Nome",
+        :category => "Categoria",
+        :address => "Endereço",
         :email => "Email",
-        :phone => "Phone"
+        :phone => "Contato"
       )
     ])
   end
