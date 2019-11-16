@@ -46,17 +46,18 @@ function tratarDados(obj){
 }
 //requisição para pegar as informações dos hospitais
 function pegarDadosHopitais(){
-  console.log("oi");
   $.ajax({
-    url: 'localhost:3000/hospitals/info',
+    url: '/hospitals/info',
     type:'GET',
     success: function(data){
 
       var obj = JSON.parse(data);
+      console.log("tchau");
       tratarDados(obj);
       getLocation();
     }
-  });
+  }
+  );
 }
 //açoes pra fazer ao carregar a página
 document.addEventListener("DOMContentLoaded", function(){
