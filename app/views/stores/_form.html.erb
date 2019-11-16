@@ -56,13 +56,13 @@
       <div class="flex-layout">
         <div class="field flex-cell">
           <label class="pure-material-textfield-outlined">
-            <%= re.number_field :quantity, autofocus: true, :placeholder => " " %>
+            <%= re.number_field :quantity, autofocus: true, step: 0, min: 1, :placeholder => " " %>
             <span>Quantidade</span>
           </label>
         </div>
         <div class="field flex-cell">
           <label class="pure-material-textfield-outlined">
-            <%= re.text_field :cost, autocomplete: "off", :placeholder => " " %>
+            <%= re.number_field :cost, autocomplete: "off", step: 0, min: 1, :placeholder => " " %>
             <span>Valor</span>
           </label>
         </div>
