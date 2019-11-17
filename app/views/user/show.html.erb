@@ -1,58 +1,61 @@
 <p id="notice"><%= notice %></p>
 <div align="center">
-    <h1>Perfil</h1>
+  <h1>Perfil</h1>
+  <div class="card" style="width: 21rem; background-color: #f5f5f5">
+    <div class="card-body">
+      <p class="flex-layout">
+        <strong class="flex-cell">Nome:</strong>
+        <%= current_user.first_name + " " + current_user.last_name%>
+      </p>
 
-    <p class="flex-layout">
-    <strong class="flex-cell">Nome:</strong>
-    <%= current_user.first_name + " " + current_user.last_name%>
-    </p>
+      <p class="flex-layout">
+        <strong class="flex-cell">Email:</strong>
+        <%= current_user.email %>
+      </p>
 
-    <p class="flex-layout">
-    <strong class="flex-cell">Email:</strong>
-    <%= current_user.email %>
-    </p>
+      <p class="flex-layout">
+        <strong class="flex-cell">Tipo sanguíneo:</strong>
+        <%= current_user.bloodtype %>
+      </p>
 
-    <p class="flex-layout">
-    <strong class="flex-cell">Tipo sanguíneo:</strong>
-    <%= current_user.bloodtype %>
-    </p>
+      <p class="flex-layout">
+        <strong class="flex-cell">Data de nascimento:</strong>
+        <%= current_user.birthdate %>
+      </p>
 
-    <p class="flex-layout">
-    <strong class="flex-cell">Data de nascimento:</strong>
-    <%= current_user.birthdate %>
-    </p>
+      <p class="flex-layout">
+        <strong class="flex-cell">Idade:</strong>
+        <%= current_user.age %>
+      </p>
 
-    <p class="flex-layout">
-    <strong class="flex-cell">Idade:</strong>
-    <%= current_user.age %>
-    </p>
+      <p class="flex-layout">
+        <strong class="flex-cell">Peso:</strong>
+        <%= current_user.weight %>
+      </p>
 
-    <p class="flex-layout">
-    <strong class="flex-cell">Peso:</strong>
-    <%= current_user.weight %>
-    </p>
+      <p class="flex-layout">
+        <strong class="flex-cell">Altura:</strong>
+        <%= current_user.height %>
+      </p>
 
-    <p class="flex-layout">
-    <strong class="flex-cell">Altura:</strong>
-    <%= current_user.height %>
-    </p>
+      <p class="flex-layout">
+        <strong class="flex-cell">Cidade:</strong>
+        <%= current_user.city %>
+      </p>
 
-    <p class="flex-layout">
-    <strong class="flex-cell">Cidade:</strong>
-    <%= current_user.city %>
-    </p>
+      <p class="flex-layout">
+        <strong class="flex-cell">Estado:</strong>
+        <%= current_user.state %>
+      </p>
 
-    <p class="flex-layout">
-    <strong class="flex-cell">Estado:</strong>
-    <%= current_user.state %>
-    </p> 
-
-    <p class="flex-layout">
-    <strong class="flex-cell">País:</strong>
-    <%= current_user.country %>
-    </p>
-
-    <%= button_to "Editar informações", edit_user_registration_path, :method => :get,:class => "custom-button ripple" %>
-    <br/>
-    <%= link_to 'Voltar', user_profile_path %>
+      <p class="flex-layout">
+        <strong class="flex-cell">País:</strong>
+        <%= current_user.country %>
+      </p>
+    </div>
+  </div>
+  <br/>
+  <%= button_to "Editar informações", edit_user_registration_path, :method => :get,:class => "custom-button ripple" %>
+  <br/>
+  <%= link_to 'Voltar', user_profile_path %>
 </div>
