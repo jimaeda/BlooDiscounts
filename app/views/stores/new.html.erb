@@ -6,11 +6,11 @@
     <p class="notice"></p>
     <p class="alert"></p>
   </head>
-    <body>
-      <div align="center">
-        <h1>Cadastrar Loja</h1>
-        <%= render 'form', store: @store %>
-      </div>
-    </body>
+  <body>
+    <div align="center">
+      <h1>Cadastrar Loja</h1>
+      <%= render 'form', store: @store %>
+      <%= link_to 'Voltar', admins_profile_path %>
+    </div>
   </body>
 </html>

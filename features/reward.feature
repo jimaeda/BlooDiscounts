@@ -1,55 +1,26 @@
 #language:pt
-
-	Funcionalidade: login
-	Para que minha loja seja visualizada pelos doadores.
-	Sendo um dono de loja.
+Funcionalidade: Cadastro de Recompensa
+	Para que minha loja seja visualizada pelos doadores
+	Sendo um dono de loja
 	Posso cadastrar recompensas que serão oferecidas aos doadores.
 
-	Cenario: Recompensa cadastrada
+	Contexto:
+		Dado que eu entro na página de login do admin
+		Quando eu faço login de admin com "alexandrefreire" e "123456"
+		E eu for para tela de listagem de lojas e produtos
+	
+	Esquema do Cenário: Tentativas de cadastro de recompensa
+		Quando eu clicar em adicionar recompensa
+		E eu preencher os campos na nova recompensa com nome "<nome>", categoria "<categoria>", quantidade "<quantidade>" e custo "<custo>"
+		E clicar no botão Submeter
+		Então eu devo ver a mensagem "<mensagem>"
 
-		Dado que eu acesso o cadastro de recompensas
-		Quando eu digitar "Banana", "Alimentos", 10 e 100
-		Então devo clicar em create reward
-		E devo ir para a tela com os dados cadastrados e a mensagem "Recompensa cadastrada com sucesso"
-
-	Cenario: Nome incompleto
-
-		Dado que eu acesso o cadastro de recompensas
-		Quando eu digitar nada, "Alimentos", 10 e 100
-		Então devo clicar em create reward
-		E devo continuar na mesma tela
-
-	Cenario: Categoria incompleto
-
-		Dado que eu acesso o cadastro de recompensas
-		Quando eu digitar "Banana", nada, 10 e 100
-		Então devo clicar em create reward
-		E devo continuar na mesma tela
-
-	Cenario: Quantidade incompleto
-
-		Dado que eu acesso o cadastro de recompensas
-		Quando eu digitar "Banana", "Alimentos", nada e 100
-		Então devo clicar em create reward
-		E devo continuar na mesma tela
-
-	Cenario: Valor incompleto
-
-		Dado que eu acesso o cadastro de recompensas
-		Quando eu digitar "Banana", "Alimentos", 10 e nada
-		Então devo clicar em create reward
-		E devo continuar na mesma tela
-
-	Cenario: Quantidade negativo
-
-		Dado que eu acesso o cadastro de recompensas
-		Quando eu digitar "Banana", "Alimentos", -10 e 100
-		Então devo clicar em create reward
-		E devo continuar na mesma tela
-
-	Cenario: Custo negativo
-
-		Dado que eu acesso o cadastro de recompensas
-		Quando eu digitar "Banana", "Alimentos", 10 e -100
-		Então devo clicar em create reward
-		E devo continuar na mesma tela
+Exemplos: 
+	|nome|categoria|quantidade|custo|mensagem|
+	|Nome|Categoria|5|5|Atualizado loja e produtos com sucesso.|
+	||Categoria|5|5||
+	|Nome||5|5||
+	|Nome|Categoria||5||
+	|Nome|Categoria|5|||
+	|Nome|Categoria|-5|5||
+	|Nome|Categoria|5|-5||

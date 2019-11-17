@@ -22,10 +22,10 @@ RSpec.describe "stores/index", type: :view do
 
   it "renders a list of stores" do
     render
-    assert_select "tr>td", :text => "Name".to_s, :count => 2
-    assert_select "tr>td", :text => "Category".to_s, :count => 2
-    assert_select "tr>td", :text => "Address".to_s, :count => 2
+    assert_select "tr>td", :text => "Nome".to_s, :count => 2
+    assert_select "tr>td", :text => "Categoria".to_s, :count => 2
+    assert_select "tr>td", :text => "Endereço".to_s, :count => 2
     assert_select "tr>td", :text => "Email".to_s, :count => 2
-    assert_select "tr>td", :text => "Phone".to_s, :count => 2
+    assert_select "tr>td", :text => "Contato".to_s, :count => 2
   end
 end

@@ -59,6 +59,14 @@ RSpec.describe StoresController, type: :controller do
 
   describe "GET #new" do
     it "returns a success response" do
+      @admin = Admin.create!(
+        :adm_username => "Freire",
+        :password => "123456",
+        :adm_name => "Freire Alexandre",
+        :adm_cpf => "123456789",
+        :hospital_name => "Freirospital"
+      )
+      allow(controller).to receive(:current_admin) { @admin }
       get :new, params: {}, session: valid_session
       expect(response).to be_successful
     end

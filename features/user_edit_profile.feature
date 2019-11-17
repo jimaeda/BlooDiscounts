@@ -14,7 +14,7 @@ Funcionalidade: Editar informações do usuário
         E eu preencher os campos com senha antiga "<senha_antiga>"
         E senha "<senha>" e confirmação "<confirmação_senha>"
         E clicar no botão Atualizar informações
-        Então devo ter a seguinte mensagem "<mensagem>"
+        Então eu devo ver a mensagem "<mensagem>"
 
     Exemplos:
         |senha|confirmação_senha|senha_antiga|mensagem|
