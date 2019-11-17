@@ -5,6 +5,4 @@ class UserController < ApplicationController
   def points
   end
 
-  def edit
-  end
 end
