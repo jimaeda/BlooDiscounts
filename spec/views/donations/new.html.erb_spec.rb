@@ -13,11 +13,8 @@ RSpec.describe "donations/new", type: :view do
     render
 
     assert_select "form[action=?][method=?]", donations_path, "post" do
-
       assert_select "input[name=?]", "donation[user_cpf]"
-
       assert_select "input[name=?]", "donation[hospital_name]"
-
       assert_select "input[name=?]", "donation[donated_amount]"
     end
   end

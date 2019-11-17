@@ -1,5 +1,29 @@
+
 <div align="center">
 
+
+
+<% provide :head_tags do %>
+  <meta name='turbolinks-visit-control' content='reload'>
+  <script>
+    function initMap(lat, lng) {
+      var myCoords = new google.maps.LatLng(lat, lng);
+      var mapOptions = {
+        center: myCoords,
+        zoom: 14
+      };
+      var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+      var marker = new google.maps.Marker({
+        position: myCoords,
+        map: map
+      });
+    }
+    document.addEventListener("DOMContentLoaded", function(){
+      initMap(<%=@hospital.lattitude%>, <%=@hospital.longitude%>)
+    });
+  </script>
+  <% end %>
+<div align="center">
 
 <p>
   <strong>Hospital name:</strong>
@@ -65,7 +89,10 @@
   <strong>Level AB-:</strong>
   <%= @hospital.ab_minus %>
 </p>
-
+<!-- div para o google maps -->
+<p>
+    <div id="map"></div>
+</p>
 <%= link_to 'Edit', edit_hospital_path(@hospital) %> |
 <%= link_to 'Back', hospitals_path %>
 

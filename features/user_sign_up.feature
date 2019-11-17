@@ -10,7 +10,7 @@ Contexto:
 
 Esquema do Cenário: Tentativas de Cadastro
   Quando preencher os campos com nome "<nome>" e sobrenome "<sobrenome>"
-  E idade "<idade>" e peso "<peso>"
+  E peso "<peso>"
   E altura "<altura>" e email "<email>"
   E tipo de sangue "<sangue>" e nascimento "<dt_nascimento>"
   E cidade "<cidade>" e estado "<estado>"
@@ -20,9 +20,9 @@ Esquema do Cenário: Tentativas de Cadastro
   Então devo ter a seguinte mensagem "<mensagem>"
 
   Exemplos:
-  |nome|sobrenome|idade|peso|altura|email|sangue|dt_nascimento|cidade|estado|pais|senha|confirmação_senha|mensagem|
-  |Denise|Silva|45|70|1,70|email@pontocom|A-|1999-06-29|São Paulo|São Paulo|Brasil|123|123|Password is too short (minimum is 6 characters)|
-  |Denise|Silva|45|70|1,70|email@pontocom|A-|1999-06-29|São Paulo|São Paulo|Brasil|987654|123456|Password confirmation doesn't match Password|
-  |Denise|Silva|45|70|1,70|email@pontocom|A-|1999-06-29|São Paulo|São Paulo|Brasil|||Password can't be blank|
-  |Denise|Silva|45|70|1,70||A-|1999-06-29|São Paulo|São Paulo|Brasil|123456|123456|Email can't be blank|
-  |Denise|Silva|45|70|1,70|email@pontocom|A-|1999-06-29|São Paulo|São Paulo|Brasil|123456|123456|Welcome! You have signed up successfully.|
+  |nome|sobrenome|peso|altura|email|sangue|dt_nascimento|cidade|estado|pais|senha|confirmação_senha|mensagem|
+  |Denise|Silva|70|1,70|email@pontocom|A-|1999-06-29|São Paulo|São Paulo|Brasil|123|123|Password is too short (minimum is 6 characters)|
+  |Denise|Silva|70|1,70|email@pontocom|A-|1999-06-29|São Paulo|São Paulo|Brasil|987654|123456|Password confirmation doesn't match Password|
+  |Denise|Silva|70|1,70|email@pontocom|A-|1999-06-29|São Paulo|São Paulo|Brasil|||Password can't be blank|
+  |Denise|Silva|70|1,70||A-|1999-06-29|São Paulo|São Paulo|Brasil|123456|123456|Email can't be blank|
+  |Denise|Silva|70|1,70|email@pontocom|A-|1999-06-29|São Paulo|São Paulo|Brasil|123456|123456|Welcome! You have signed up successfully.|

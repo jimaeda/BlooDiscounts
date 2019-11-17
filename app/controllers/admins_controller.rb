@@ -1,16 +1,15 @@
 class AdminsController < ApplicationController
   before_action :set_admin, only: [:show, :edit, :update, :destroy]
 
-  def profile
-  end
+  def profile; end
 
   def index
     @admins = Admin.all
   end
+
   # GET /admins/1
   # GET /admins/1.json
-  def show
-  end
+  def show; end
 
   # GET /admins/new
   def new
@@ -19,18 +18,18 @@ class AdminsController < ApplicationController
 
   # GET /admins/1/edit
   def edit
-    @admin = Admin.find(params[:id]) 
+    @admin = Admin.find(params[:id])
   end
 
   # POST /admins
   # POST /admins.json
   def create
     @admin = Admin.new(admin_params)
-    
+
     if @admin.save
-      redirect_to @admin, notice: "Usuário foi criado com sucesso!"
+      redirect_to @admin, notice: 'Usuário foi criado com sucesso!'
       sign_in_admin
-    else 
+    else
       render action: :new
     end
   end
@@ -38,19 +37,10 @@ class AdminsController < ApplicationController
   # PATCH/PUT /admins/1
   # PATCH/PUT /admins/1.json
   def update
-    # respond_to do |format|
-      # if @admin.update(admin_params)
-      #   format.html { redirect_to @admin, notice: 'Admin was successfully updated.' }
-      #   format.json { render :show, status: :ok, location: @admin }
-      # else
-      #   format.html { render :edit }
-      #   format.json { render json: @admin.errors, status: :unprocessable_entity }
-      # end
-    # end
-    @admin = Admin.find(params[:id]) 
+    @admin = Admin.find(params[:id])
     puts admin_params
     if admin_params[:password].blank?
-      
+
     end
     if @admin.update_attributes(admin_params)
       redirect_to @admin
@@ -62,25 +52,25 @@ class AdminsController < ApplicationController
   # DELETE /admins/1
   # DELETE /admins/1.json
   def destroy
-    # @admin.destroy
-    # respond_to do |format|
-    #   format.html { redirect_to admins_url, notice: 'Admin was successfully destroyed.' }
-    #   format.json { head :no_content }
-    # end
-    @user = User.find(params[:id]) 
-    @user.destroy
+    @admin = Admin.find(params[:id])
+    @admin.destroy
     sign_out_admin
     redirect_to quit_path
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_admin
-      @admin = Admin.find(params[:id])
-    end
+  def register_donation
+    
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def admin_params
-      params.require(:admin).permit(:adm_username, :password, :adm_name, :adm_cpf, :hospital_name)
-    end
+  private
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_admin
+    @admin = Admin.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def admin_params
+    params.require(:admin).permit(:adm_username, :password, :adm_name, :adm_cpf, :hospital_name)
+  end
 end

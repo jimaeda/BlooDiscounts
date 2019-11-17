@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
 @import './bootstrap/dist/css/bootstrap.min.css';
 
 @font-face {
@@ -91,6 +92,7 @@ h3 {
 .pure-material-textfield-outlined {
   --pure-material-safari-helper1: rgb(var(--pure-material-primary-rgb, 255, 0, 0));
   position: relative;
+  width: 250px;
   display: inline-block;
   padding-top: 6px;
   font-family: var(--pure-material-font, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
