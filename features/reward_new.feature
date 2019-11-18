@@ -11,7 +11,7 @@ Funcionalidade: Cadastro de Recompensa
 	
 	Esquema do Cenário: Tentativas de cadastro de recompensa
 		Quando eu clicar em adicionar recompensa
-		E eu preencher os campos na nova recompensa com nome "<nome>", categoria "<categoria>", quantidade "<quantidade>" e custo "<custo>"
+		E eu preencher os campos da nova recompensa com nome "<nome>", categoria "<categoria>", quantidade "<quantidade>" e custo "<custo>"
 		E clicar no botão Submeter
 		Então eu devo ver a mensagem "<mensagem>"
 

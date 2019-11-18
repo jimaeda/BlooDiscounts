@@ -39,6 +39,7 @@ class StoresController < ApplicationController
     else
       # save goes like usual
       if @store.save
+        flash[:notice] = "Loja e produtos cadastrados com sucesso."
         redirect_to admins_profile_path and return
       else
         render action: :new

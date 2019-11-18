@@ -51,11 +51,19 @@ Quando("eu adiciono as informações {string} e {string} e {string} e {string} e
   click_button 'Create Hospital'
 end
 
-Quando('eu preencher os campos na nova recompensa com nome {string}, categoria {string}, quantidade {string} e custo {string}') do |nome, categoria, quantidade, custo|
+Quando('eu preencher os campos da nova recompensa com nome {string}, categoria {string}, quantidade {string} e custo {string}') do |nome, categoria, quantidade, custo|
     find('input[id=store_rewards_attributes_0_category]').set categoria
     find('input[id=store_rewards_attributes_0_name]').set nome
     find('input[id=store_rewards_attributes_0_quantity]').set quantidade
     find('input[id=store_rewards_attributes_0_cost]').set custo 
+end
+
+Quando('eu preencher os campos da nova loja com nome {string}, categoria {string}, email {string}, endereço {string} e telefone {string}') do |nome, categoria, email, endereco, telefone|
+    find('input[id=store_category]').set categoria
+    find('input[id=store_name]').set nome
+    find('input[id=store_email]').set email
+    find('input[id=store_address]').set endereco
+    find('input[id=store_phone]').set telefone 
 end
 
 Quando('eu for para tela de edição de perfil') do
@@ -65,10 +73,11 @@ end
 
 Quando('eu for para tela de listagem de lojas e produtos') do
     find('input[value="Listar produtos de uma loja"]').click
-    # Clicks on the first store
     click_on "Mostrar/Editar loja e seus produtos"
-    # link = page.find(:css, 'a[href="/stores/1/edit"]')
-    # find('a[href="/stores/1/edit"]').click
+end
+
+Quando('eu for para tela de cadastro de lojas e produtos') do
+    find('input[value="Cadastrar lojas"]').click
 end
 
 Quando('eu clicar em adicionar recompensa') do
