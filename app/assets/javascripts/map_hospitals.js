@@ -30,7 +30,6 @@ function constroiHeap(tamanho, vetor){
     while (elemento > 1 && vetor[pai] < vetor[elemento]) {  // 5
        troca (elemento/2, elemento, vetor);          // 6
        troca (elemento/2, elemento, coorHospitals);
-       console.log("constroiHeap: ", vetor);console.log("teste");
        elemento = elemento/2;                        //xxx 7
      }
    }
@@ -61,14 +60,12 @@ function initMap(pos) {
   }
 
   heapsort(distancias.length,distancias);
-  console.log("sorted: ", distancias);
   // marcadores vermelhos no mapa
   var map = new google.maps.Map(document.getElementById('map'), mapOptions);
   var userMarker = new google.maps.Marker({
     position: coorUser,
     map: map
   });
-  console.log("teste");
   var hospitalMarker = [];
   var km = 3000.0
   for(var i = 1; distancias[i] < km && i < coorHospitals.length; i++){
@@ -92,7 +89,6 @@ function tratarDados(obj){
   for(var i = 0; i < obj.length; i++){
     coorHospitals.push(new google.maps.LatLng(obj[i].lattitude, obj[i].longitude));
   }
-  console.log("tratar dados: ", coorHospitals);
 }
 //requisição para pegar as informações dos hospitais
 function pegarDadosHopitais(){
