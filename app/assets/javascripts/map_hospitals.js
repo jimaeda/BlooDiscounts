@@ -70,8 +70,8 @@ function initMap(pos) {
   });
   console.log("teste");
   var hospitalMarker = [];
-  var qtd = 2;
-  for(var i = 1; i <= qtd && i < coorHospitals.length; i++){
+  var km = 3000.0
+  for(var i = 1; distancias[i] < km && i < coorHospitals.length; i++){
     hospitalMarker.push(new google.maps.Marker({
       position: coorHospitals[i],
       map: map
