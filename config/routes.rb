@@ -14,7 +14,12 @@ Rails.application.routes.draw do
   resources :donations
   resources :hospitals
   resources :stores
-  resources :rewards
+  resources :rewards do
+    member do
+      patch :retrieve
+      put :retrieve
+    end
+  end
   devise_for :users
   as :user do
     get 'user/profile', :to => 'devise/registrations#edit', :as => :user_root

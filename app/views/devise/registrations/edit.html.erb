@@ -1,161 +1,108 @@
 <div align="center">
-   <h1>Editar Informações</h1>
+ <h1>Editar Informações</h1>
+</div>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<%= render "devise/shared/error_messages", resource: resource %>
 
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
-
-
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name" %>
+<div class="field">
+  <div class="flex-layout">
+    <div class="field flex-cell">
+      <label class="pure-material-textfield-outlined">
+        <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name",:placeholder => " " %>
+        <span>Nome</span>
+      </label>
+    </div>
+    <div class="field flex-cell">
+      <label class="pure-material-textfield-outlined">
+        <%= f.text_field :last_name, autocomplete: "last_name", :placeholder => " " %>
+        <span>Sobrenome</span>
+      </label>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, autocomplete: "last_name" %>
+  <div class="flex-layout">
+    <div class="field flex-cell">
+      <label class="pure-material-textfield-outlined">
+        <%= f.number_field :weight, :placeholder => " " %>
+        <span>Peso</span>
+      </label>
+    </div>
+    <div class="field flex-cell">
+      <label class="pure-material-textfield-outlined">
+        <%= f.number_field :height, step: 0.01, :placeholder => " " %>
+        <span>Altura</span>
+      </label>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :age %><br />
-    <%= f.number_field :age %>
+  <div class="flex-layout">
+    <div class="field flex-layout flex-cell">
+      <label class="pure-material-textfield-outlined">
+        <%= f.text_field :city, autocomplete: "city", :placeholder => " " %>
+        <span>Cidade</span>
+      </label>
+    </div>
+    <div class="field flex-cell">
+      <label class="pure-material-textfield-outlined">
+        <%= f.text_field :state, autocomplete: "state", :placeholder => " " %>
+        <span>Estado</span>
+      </label>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :birthdate %><br />
-    <%= f.date_field :birthdate %>
-  </div>
-  <div class="field">
-    <%= f.label :bloodtype %><br />
-    <%= f.select(:bloodtype, User.bloodtypes.keys.map {|bloodtype| [bloodtype,bloodtype]}) %>
-  </div>
-  <div class="field">
-    <%= f.label :weight %><br />
-    <%= f.number_field :weight %>
-  </div>
-  <div class="field">
-    <%= f.label :height %><br />
-    <%= f.number_field :height, step: 0.01 %>
-  </div>
-  <div class="field">
-    <%= f.label :city %><br />
-    <%= f.text_field :city, autocomplete: "city" %>
-  </div>
-  <div class="field">
-    <%= f.label :state %><br />
-    <%= f.text_field :state, autocomplete: "state" %>
-  </div>
-  <div class="field">
-    <%= f.label :country %><br />
-    <%= f.text_field :country, autocomplete: "country" %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="flex-layout">
+    <div class="field flex-layout flex-cell">
+      <label class="pure-material-textfield-outlined">
+        <%= f.text_field :country, autocomplete: "country", :placeholder => " " %>
+        <span>País</span>
+      </label>
+    </div>
+    <div class="field flex-cell">
+      <label class="pure-material-textfield-outlined">
+        <%= f.text_field :email, autocomplete: "email", :placeholder => " " %>
+        <span>Email</span>
+      </label>
+    </div>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+  <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+
   <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-
-    <div class="flex-layout">
-      <div class="field flex-cell">
-        <label class="pure-material-textfield-outlined">
-          <%= f.text_field :first_name, autofocus: true, autocomplete: "first_name",:placeholder => " " %>
-          <span>Nome</span>
-        </label>
-      </div>
-      <div class="field flex-cell">
-        <label class="pure-material-textfield-outlined">
-          <%= f.text_field :last_name, autocomplete: "last_name", :placeholder => " " %>
-          <span>Sobrenome</span>
-        </label>
-      </div>
+  <div class="flex-layout">
+    <div class="field flex-layout flex-cell">
+      <label class="pure-material-textfield-outlined">
+        <%= f.password_field :password, autocomplete: "new-password", :placeholder => " " %>
+        <span>Nova senha</span>
+      </label>
     </div>
-    <div class="flex-layout">
-      <div class="field flex-cell">
-        <label class="pure-material-textfield-outlined">
-          <%= f.number_field :weight, :placeholder => " " %>
-          <span>Peso</span>
-        </label>
-      </div>
-      <div class="field flex-cell">
-        <label class="pure-material-textfield-outlined">
-          <%= f.number_field :height, step: 0.01, :placeholder => " " %>
-          <span>Altura</span>
-        </label>
-      </div>
-    </div>
-    <div class="flex-layout">
-      <div class="field flex-layout flex-cell">
-        <label class="pure-material-textfield-outlined">
-          <%= f.text_field :city, autocomplete: "city", :placeholder => " " %>
-          <span>Cidade</span>
-        </label>
-      </div>
-      <div class="field flex-cell">
-        <label class="pure-material-textfield-outlined">
-          <%= f.text_field :state, autocomplete: "state", :placeholder => " " %>
-          <span>Estado</span>
-        </label>
-      </div>
-    </div>
-    <div class="flex-layout">
-      <div class="field flex-layout flex-cell">
-        <label class="pure-material-textfield-outlined">
-          <%= f.text_field :country, autocomplete: "country", :placeholder => " " %>
-          <span>País</span>
-        </label>
-      </div>
-      <div class="field flex-cell">
-        <label class="pure-material-textfield-outlined">
-          <%= f.text_field :email, autocomplete: "email", :placeholder => " " %>
-          <span>Email</span>
-        </label>
-      </div>
-    </div>
-  
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-
-    <% end %>
-     <div class="flex-layout">
-      <div class="field flex-layout flex-cell">
-        <label class="pure-material-textfield-outlined">
-          <%= f.password_field :password, autocomplete: "new-password", :placeholder => " " %>
-          <span>Nova senha</span>
-        </label>
-      </div>
-      <div class="field flex-cell">
-        <label class="pure-material-textfield-outlined">
-          <%= f.password_field :password_confirmation, autocomplete: "new-password", :placeholder => " " %>
+    <div class="field flex-cell">
+      <label class="pure-material-textfield-outlined">
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", :placeholder => " " %>
         <span>Confirme a senha</span>
       </label>
-      </div>
     </div>
-
-    <div class="field flex-cell">
+  </div>
+  <div class="flex-layout">
+    <div class="field flex-layout flex-cell">
       <label class="pure-material-textfield-outlined">
         <%= f.password_field :current_password, autocomplete: "current-password", :placeholder => " " %>
         <span>Senha antiga</span>
       </label>
     </div>
-  
+  </div>
+  <div align="center">
     <div class="actions">
       <%= f.submit "Atualizar informações", :class => "custom-button ripple" %>
     </div>
-  <% end %>
+    <% end %>
 
-  <hr>
+    <hr>
 
-  <div class=flex-cell>
-    <%= link_to 'Cancelar minha conta', registration_path(resource_name), data: { confirm: "Tem certeza?" }, method: :delete%>
+    <div class=flex-cell>
+      <%= link_to 'Cancelar minha conta', registration_path(resource_name), data: { confirm: "Tem certeza?" }, method: :delete%>
+    </div>
+    <div class=flex-cell>
+      <%= link_to "Voltar", :back %>
+    </div>
   </div>
-  <div class=flex-cell>
-    <%= link_to "Voltar", :back %>
-  </div>
+
 </div>
 

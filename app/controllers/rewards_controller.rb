@@ -1,5 +1,5 @@
 class RewardsController < ApplicationController
-  before_action :set_reward, only: [:show, :edit, :update, :destroy]
+  before_action :set_reward, only: [:show, :edit, :update, :destroy, :retrieve]
 
   # GET /rewards
   # GET /rewards.json
@@ -21,6 +21,15 @@ class RewardsController < ApplicationController
   def edit
   end
 
+  def retrieve
+    @reward = Reward.find(params[:id])
+    @user = current_user
+    @reward.update_attribute(:quantity, @reward.quantity - 1)
+    @user.update_attribute(:points, @user.points - @reward.cost)
+    redirect_to @reward
+  end
+
+  end
   # POST /rewards
   # POST /rewards.json
   def create
@@ -42,7 +51,7 @@ class RewardsController < ApplicationController
   def update
     respond_to do |format|
       if @reward.update(reward_params)
-        format.html { redirect_to @reward, notice: 'Reward was successfully updated.' }
+        format.html { redirect_to @reward, notice: 'Recompensa atualizada com sucesso.' }
         format.json { render :show, status: :ok, location: @reward }
       else
         format.html { render :edit }
@@ -56,7 +65,7 @@ class RewardsController < ApplicationController
   def destroy
     @reward.destroy
     respond_to do |format|
-      format.html { redirect_to rewards_url, notice: 'Reward was successfully destroyed.' }
+      format.html { redirect_to rewards_url, notice: 'Recompensa excluída com sucesso.' }
       format.json { head :no_content }
     end
   end
@@ -71,4 +80,3 @@ class RewardsController < ApplicationController
     def reward_params
       params.require(:reward).permit(:name, :category, :quantity, :cost)
     end
-end

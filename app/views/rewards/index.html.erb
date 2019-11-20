@@ -1,14 +1,14 @@
-<p id="notice"><%= notice %></p>
 
+<div align="center">
 <h1>Rewards</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Category</th>
-      <th>Quantity</th>
-      <th>Cost</th>
+      <th><h2>Name</h2></th>
+      <th><h2>Category</h2></th>
+      <th><h2>Quantity</h2></th>
+      <th><h2>Cost</h2></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,13 +16,11 @@
   <tbody>
     <% @rewards.each do |reward| %>
       <tr>
-        <td><%= reward.name %></td>
-        <td><%= reward.category %></td>
-        <td><%= reward.quantity %></td>
-        <td><%= reward.cost %></td>
-        <td><%= link_to 'Show', reward %></td>
-        <td><%= link_to 'Edit', edit_reward_path(reward) %></td>
-        <td><%= link_to 'Destroy', reward, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><p><%= reward.name %></p></td>
+        <td><p><%= reward.category %></p></td>
+        <td><p><%= reward.quantity %></p></td>
+        <td><p><%= reward.cost %></p></td>
+        <td><%= link_to 'Retrieve', reward %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +28,5 @@
 
 <br>
 
-<%= link_to 'New Reward', new_reward_path %>
+<%= button_to "Voltar", user_points_path, :method => :get,:class => "custom-button ripple" %>
+</div>

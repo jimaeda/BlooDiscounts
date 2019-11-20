@@ -15,10 +15,14 @@
         <br/>
         <br/>
         <% if current_user %>
-            <p>Você tem <%= current_user.points %> pontos.</p>
+            <h3>Você tem <%= current_user.points %> pontos</h3>
             <br/>
             <br/>
         <% end %>
+        <%= button_to "Use seus pontos", rewards_path, :method => :get, :class => "custom-button ripple" %>
+        <br/>
+        <%= button_to "Lojas participantes", stores_path, :method => :get, :class => "custom-button ripple" %>
+        <br/>
         <%= button_to "Voltar", user_profile_path, :method => :get,
          :class => "custom-button ripple" %>
     </div>
