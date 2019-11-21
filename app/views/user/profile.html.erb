@@ -7,6 +7,9 @@
     <title>BlooDiscounts</title>
 </head>
 <body>
+
+    
+
     <div align="center">
         <h1> BlooDiscounts </h1>
         <div class="img-logo">
@@ -29,6 +32,14 @@
             <% end %>
             <br/>
             <br/>
+
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <h3> Bancos de sangue que precisam de seu tipo sanguíneo: <%=  nivelsangue(current_user.bloodtype, current_user.city, current_user.state)  %> </h3>
+
         </div>
+
     </div>
 </body>
