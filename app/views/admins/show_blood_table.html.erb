@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>BlooDiscounts</title>
+</head>
+
+<body>
+    <div align="center">
+        <% if (current_admin) %>
+        <h1> Estoque de Sangue </h1>
+            <% if (admin_hospital) %>
+                <p>A+: <%= admin_hospital.a_plus %></p>
+                <br/>
+                <p>A-: <%= admin_hospital.a_minus %></p>
+                <br/>
+                <p>B+: <%= admin_hospital.b_plus %></p>
+                <br/>
+                <p>B-: <%= admin_hospital.b_minus %></p>
+                <br/>
+                <p>O+: <%= admin_hospital.o_plus %></p>
+                <br/>
+                <p>O-: <%= admin_hospital.o_minus %></p>
+                <br/>
+                <p>AB+: <%= admin_hospital.ab_plus %></p>
+                <br/>
+                <p>AB-: <%= admin_hospital.ab_minus %></p>
+                <br/>
+
+            <% end %>
+             <br/>
+            <%= link_to 'Voltar', admins_profile_path %>
+        <% end %>
+    </div>
+</body>
+</html>

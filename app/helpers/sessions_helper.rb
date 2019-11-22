@@ -7,6 +7,10 @@ module SessionsHelper
         @current_admin ||= Admin.find_by(id: session[:admin_id])
     end
 
+    def admin_hospital
+        @admin_hospital ||= Hospital.find_by(hosp_name: current_admin.hospital_name)
+    end
+
     def block_access
         if current_admin.present?
             redirect_to admins_profile_path

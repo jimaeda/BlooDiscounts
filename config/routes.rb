@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get 'admins/profile'
   get 'register_donation' => 'admins#register_donation'
   post 'register_donation' => 'admins#register_donation'
+  get 'show_blood_table' => 'admins#show_blood_table'
+  post 'show_blood_table' => 'admins#show_blood_table'
   get 'user/profile'
   get 'user/points'
   get 'user/show'
