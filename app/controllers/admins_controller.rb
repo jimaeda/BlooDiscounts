@@ -62,7 +62,6 @@ class AdminsController < ApplicationController
     if params[:donor].nil?
       return
     end
-    #if params[:donor][:id].nil? || params[:donor][:amount_donated].nil?
     donor = User.find_by(id: params[:donor][:id])
     if !donor.nil?
       donor.points = donor.points + 1
@@ -75,11 +74,12 @@ class AdminsController < ApplicationController
         flash[:alert] = 'Não foi possível registrar a doação.'
       end
       return
-    end
-    if donor.nil? && !params[:donor][:id].blank?
-      flash[:alert] = 'Usuário não encontrado.'
-      render
-    end
+    else
+      if donor.nil? && !params[:donor][:id].blank?
+        flash[:alert] = 'Usuário não encontrado.'
+        render
+      end
+    end 
   end
 
   def registerdonation_params
