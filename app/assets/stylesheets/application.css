@@ -15,7 +15,7 @@
  */
 
 @import './bootstrap/dist/css/bootstrap.min.css';
-@import './iconic/open-iconic-bootstrap.css';
+@import './@icon/open-iconic/open-iconic.css';
 
 @font-face {
   font-family: 'Rubik', sans-serif;
@@ -26,6 +26,12 @@ body{
 	 /*I think that not using a wallpaper works better */
     /*background-image: url(backg.png); */
     /*background-position: 90px 0px;*/
+}
+
+button
+{
+  font-family: 'Rubik';
+  font-size: 20px;
 }
 
 h1 {
@@ -48,6 +54,10 @@ h3 {
     width: 150px;
     height: 150px;
     margin-top: 10px;
+}
+
+.edit-btn-danger{
+  background-color: #FF0000;
 }
 
 .custom-button{
