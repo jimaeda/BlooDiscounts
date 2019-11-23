@@ -1,55 +1,54 @@
 var coorUser;
 var coorHospitals = [""];
 var distancias = [""];
-function peneira (tamanho, vetor) {
+//faz elemento vetor[1] descer até sua posição "certa"
+function maxHeap (tamanhoVetor, vetor) {
    var filho = 2;
    var pai;
-   while (filho <= tamanho) {
-      if (filho < tamanho && vetor[filho] < vetor[filho+1]) ++filho;
-      // f é o filho mais valioso de f/2
+   while (filho <= tamanhoVetor) {
+      if (filho < tamanhoVetor && vetor[filho] < vetor[filho+1]) ++filho;
+      // pega o filho de pai(filho/2) com maior elemento
       pai = filho/2;
       if (vetor[pai] >= vetor[filho]) break;
-      troca (pai, filho, vetor);
-      troca (pai, filho, coorHospitals);
-      filho = filho*2;//filho do filho
+      trocaElementosVetor (pai, filho, vetor);
+      trocaElementosVetor (pai, filho, coorHospitals);
+      filho = filho*2; //filho do filho
    }
 }
-//troca 2 posições
-function troca(a,b,vetor){
+// Troca elementos de duas posições de um vetor
+function trocaElementosVetor(a,b,vetor){
   var aux = vetor[a];
   vetor[a] = vetor[b];
   vetor[b] = aux;
 }
-//troca pais menores que os filhos
-function constroiHeap(tamanho, vetor){
-  var aux;
-  for (var i = 1; i < tamanho; i++) {
-    // v[1..k] é um heap
+// Rearranja um vetor v[1..tamanhoVetor] de modo a
+// transformá-lo em heap
+function constroiHeap(tamanhoVetor, vetor){
+  for (var i = 1; i < tamanhoVetor; i++) {
+    // v[1..i] é um heap
     var elemento = i+1;
     var pai = elemento/2
-    while (elemento > 1 && vetor[pai] < vetor[elemento]) {  // 5
-       troca (elemento/2, elemento, vetor);          // 6
-       troca (elemento/2, elemento, coorHospitals);
-       elemento = elemento/2;                        //xxx 7
+    while (elemento > 1 && vetor[pai] < vetor[elemento]) {
+       trocaElementosVetor (elemento/2, elemento, vetor);
+       trocaElementosVetor (elemento/2, elemento, coorHospitals);
+       elemento = elemento/2;
      }
    }
 }
 
-//heap para ordenar as coordenadas de acordo com a distancia
-function heapsort(tamanho, vetor){
-  constroiHeap (tamanho, vetor);
-   for (var i = tamanho-1; i >= 2; --i) {
-      troca (1, i, vetor);
-      troca (1, i, coorHospitals);
-      peneira (i-1, vetor);
+//heap para ordenar as coordenadas de acordo com a distancia em ordem crescente
+function heapsort(vetor){
+  constroiHeap (vetor.length, vetor);
+   for (var i = vetor.length-1; i >= 2; --i) {
+      trocaElementosVetor (1, i, vetor);
+      trocaElementosVetor (1, i, coorHospitals);
+      maxHeap (i-1, vetor);
    }
 }
 //inicia google maps
 function initMap(pos) {
-
   // coordenadas do usuario
   coorUser = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
-
   var mapOptions = {
     center: coorUser,
     zoom: 12
@@ -58,17 +57,17 @@ function initMap(pos) {
   for(var i = 1;i < coorHospitals.length;i++){
     distancias.push(google.maps.geometry.spherical.computeDistanceBetween(coorUser, coorHospitals[i]));
   }
-
-  heapsort(distancias.length,distancias);
-  // marcadores vermelhos no mapa
+  // ordena as distancias
+  heapsort(distancias);
+  // marcadores vermelhos no mapa para os endereços
   var map = new google.maps.Map(document.getElementById('map'), mapOptions);
   var userMarker = new google.maps.Marker({
     position: coorUser,
     map: map
   });
   var hospitalMarker = [];
-  var km = 3000.0
-  for(var i = 1; distancias[i] < km && i < coorHospitals.length; i++){
+  var distanciaMaxima = 3000.0
+  for(var i = 1; distancias[i] < distanciaMaxima && i < coorHospitals.length; i++){
     hospitalMarker.push(new google.maps.Marker({
       position: coorHospitals[i],
       map: map
@@ -84,7 +83,7 @@ function getLocation() {
   }
 }
 //vetor de coordenadas dos hospitais
-function tratarDados(obj){
+function addCoorHospitals(obj){
   var lat, lng;
   for(var i = 0; i < obj.length; i++){
     coorHospitals.push(new google.maps.LatLng(obj[i].lattitude, obj[i].longitude));
@@ -98,7 +97,7 @@ function pegarDadosHopitais(){
     success: function(data){
       var obj;
       obj = JSON.parse(JSON.stringify(data));
-      tratarDados(obj);
+      addCoorHospitals(obj);
       getLocation();
     }
   }
