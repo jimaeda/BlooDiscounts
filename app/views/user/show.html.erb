@@ -57,5 +57,7 @@
   <br/>
   <%= button_to "Editar informações", edit_user_registration_path, :method => :get,:class => "custom-button ripple" %>
   <br/>
-  <%= link_to 'Voltar', user_profile_path %>
+  <button onclick="<%= user_profile_path %>" class = "btn btn-danger">
+    </button>
+  <!--<%= link_to 'Voltar', user_profile_path,  :class => "btn btn-danger" %>-->
 </div>
