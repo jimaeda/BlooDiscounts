@@ -5,7 +5,20 @@ Dado("que eu entro na página de cadastro de hospitais") do
 end
 
 Dado('que eu entro na página de login do admin') do
-    Admin.create(adm_username: "alexandrefreire", password: "123456", adm_name: "Alexandre Freire", adm_cpf: "123456", hospital_name: "Hospital")
+    Admin.create(
+        adm_username: "alexandrefreire",
+        password: "123456",
+        adm_name: "Alexandre Freire",
+        adm_cpf: "123456",
+        hospital_name: "Hospital"
+    )
+    Store.create(
+        name: "Wallmart",
+        category: "Comidas",
+        address: "Rua dos Pinheiros",
+        email: "email@email.com",
+        phone: "1199999999"
+    )
     visit login_path
 end
 
@@ -16,10 +29,6 @@ end
 
 Dado("a página de cadastro do BlooDiscounts") do
     visit 'http://localhost:3000/users/sign_up'
-end
-
-Dado("que eu acesso o cadastro de recompensas") do
-    visit 'http://localhost:3000/rewards/new'
 end
 
 # Quando/When
@@ -42,45 +51,37 @@ Quando("eu adiciono as informações {string} e {string} e {string} e {string} e
   click_button 'Create Hospital'
 end
 
-# Nome faltando
-Quando("eu digitar nada, {string}, {int} e {int}") do |categoria, quantidade, custo|
-    find('input[id=reward_category]').set categoria
-    find('input[id=reward_quantity]').set quantidade
-    find('input[id=reward_cost]').set custo
+Quando('eu preencher os campos da nova recompensa com nome {string}, categoria {string}, quantidade {string} e custo {string}') do |nome, categoria, quantidade, custo|
+    find('input[id=store_rewards_attributes_0_category]').set categoria
+    find('input[id=store_rewards_attributes_0_name]').set nome
+    find('input[id=store_rewards_attributes_0_quantity]').set quantidade
+    find('input[id=store_rewards_attributes_0_cost]').set custo 
 end
 
-# Categoria faltando
-Quando("eu digitar {string}, nada, {int} e {int}") do |nome, quantidade, custo|
-    find('input[id=reward_name]').set nome
-    find('input[id=reward_quantity]').set quantidade
-    find('input[id=reward_cost]').set custo
-end
-
-# Quantidade faltando
-Quando("eu digitar {string}, {string}, nada e {int}") do |nome, categoria, custo|
-    find('input[id=reward_category]').set categoria
-    find('input[id=reward_name]').set nome
-    find('input[id=reward_cost]').set custo
-end
-
-# Valor faltando
-Quando("eu digitar {string}, {string}, {int} e nada") do |nome, categoria, quantidade|
-    find('input[id=reward_category]').set categoria
-    find('input[id=reward_name]').set nome
-    find('input[id=reward_quantity]').set quantidade
-end
-
-# Caso perfeito
-Quando("eu digitar {string}, {string}, {int} e {int}") do |nome, categoria, quantidade, custo|
-    find('input[id=reward_category]').set categoria
-    find('input[id=reward_name]').set nome
-    find('input[id=reward_quantity]').set quantidade
-    find('input[id=reward_cost]').set custo
+Quando('eu preencher os campos da nova loja com nome {string}, categoria {string}, email {string}, endereço {string} e telefone {string}') do |nome, categoria, email, endereco, telefone|
+    find('input[id=store_category]').set categoria
+    find('input[id=store_name]').set nome
+    find('input[id=store_email]').set email
+    find('input[id=store_address]').set endereco
+    find('input[id=store_phone]').set telefone 
 end
 
 Quando('eu for para tela de edição de perfil') do
     find('input[value="Exibir perfil"]').click
     find('input[value="Editar informações"]').click
+end
+
+Quando('eu for para tela de listagem de lojas e produtos') do
+    find('input[value="Listar produtos de uma loja"]').click
+    click_on "Mostrar/Editar loja e seus produtos"
+end
+
+Quando('eu for para tela de cadastro de lojas e produtos') do
+    find('input[value="Cadastrar lojas"]').click
+end
+
+Quando('eu clicar em adicionar recompensa') do
+    find('input[name="add_reward"]').click
 end
 
 Quando('eu preencher os campos com senha antiga {string}') do |senha_antiga|
@@ -162,8 +163,8 @@ Então("devo ir para a tela com os dados cadastrados e a mensagem {string}") do 
 end
 
 # Não houve cadastro
-Então("devo continuar na mesma tela") do
-    expect(page).to have_content 'Cadastro de Recompensa'
+Então("devo continuar na tela de edição de loja e recompensas") do
+    expect(page).to have_content 'Editar loja e suas recompensas'
 end
 
 Então('eu devo ir para a página de admin') do

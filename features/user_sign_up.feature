@@ -17,7 +17,7 @@ Esquema do Cenário: Tentativas de Cadastro
   E país "<pais>"
   E senha "<senha>" e confirmação "<confirmação_senha>"
   E acionar o botão cadastrar
-  Então devo ter a seguinte mensagem "<mensagem>"
+  Então eu devo ver a mensagem "<mensagem>"
 
   Exemplos:
   |nome|sobrenome|peso|altura|email|sangue|dt_nascimento|cidade|estado|pais|senha|confirmação_senha|mensagem|
