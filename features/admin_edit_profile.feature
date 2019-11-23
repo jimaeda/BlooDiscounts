@@ -7,13 +7,13 @@ Funcionalidade: Editar informações do admin
 
     Contexto:
         Dado que eu entro na página de login do admin
-
-    Esquema do Cenário: Tentativas de editar informações
         Quando eu faço login de admin com "alexandrefreire" e "123456"
         E eu for para tela de edição de perfil
-        E preencher o campo com senha "<senha>"
+
+    Esquema do Cenário: Tentativas de editar informações
+        Quando preencher o campo com senha "<senha>"
         E clicar no botão Submeter
-        Então devo ter a seguinte mensagem "<mensagem>"
+        Então eu devo ver a mensagem "<mensagem>"
 
     Exemplos:
         |senha|mensagem|
