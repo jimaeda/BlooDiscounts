@@ -1,32 +1,37 @@
 
 <div align="center">
-<h1>Rewards</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th><h2>Name</h2></th>
-      <th><h2>Category</h2></th>
-      <th><h2>Quantity</h2></th>
-      <th><h2>Cost</h2></th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @rewards.each do |reward| %>
+  <h1> BlooDiscounts </h1>
+  <h3>Resgatar recompensas</h3>
+  <br/>
+	<% if current_user %>
+		<h3>Você tem <%= current_user.points %> pontos</h3>
+	<% end %>
+	<br/>
+  <table>
+    <thead>
       <tr>
-        <td><p><%= reward.name %></p></td>
-        <td><p><%= reward.category %></p></td>
-        <td><p><%= reward.quantity %></p></td>
-        <td><p><%= reward.cost %></p></td>
-        <td><%= link_to 'Retrieve', reward %></td>
+        <th>Nome</th>
+        <th>Categoria</th>
+        <th>Quantidade</th>
+        <th>Custo</th>
+        <th colspan="1"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @rewards.each do |reward| %>
+        <tr>
+          <td><%= reward.name %></td>
+          <td><%= reward.category %></td>
+          <td><%= reward.quantity %></td>
+          <td><%= reward.cost %></td>
+          <td><%= link_to 'Retrieve', reward %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= button_to "Voltar", user_points_path, :method => :get,:class => "custom-button ripple" %>
+  <br>
+
+  <%= button_to "Voltar", user_profile_path, :method => :get,:class => "custom-button ripple" %>
 </div>

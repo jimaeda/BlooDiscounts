@@ -17,10 +17,9 @@
 	</h4>
 
 	<% if current_user.points < @reward.cost %>
-	<h5>Você não possui pontos o suficiente para obter essa recompensa.</h5>
+		<h5>Você não possui pontos o suficiente para obter essa recompensa.</h5>
 	<% else %>
-	<%= button_to 'Retrieve', retrieve_reward_path(@reward), method: :put, data: { confirm: 'This reward is gonna be retrieved. Are you sure about that?' }  %>
+		<%= button_to 'Retrieve', retrieve_reward_path(@reward), method: :put, data: { confirm: 'This reward is gonna be retrieved. Are you sure about that?' }  %>
 	<% end %>
-	<%= link_to 'Back', rewards_path %>
-
+	<%= button_to "Voltar", user_profile_path, :method => :get,:class => "custom-button ripple" %>
 </div>
