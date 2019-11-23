@@ -39,6 +39,25 @@ h3 {
     font-size: 200%;
 }
 
+th {
+  color: #FF0000;
+  font-family: 'Rubik';
+  text-align: center;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+td {
+  font-family: 'Rubik';
+  padding: 10px;
+  font-size: 15px;
+}
+
+table { 
+  border-spacing: 10px;
+  border-collapse: separate;
+}
+
 .field {
     font-family: 'Rubik';
 }
