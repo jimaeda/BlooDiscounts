@@ -95,12 +95,6 @@ function pegarDadosHopitais(/*data*/){
     url: '/hospitals/info',
     type:'GET',
     success: function(data){
-      /*var obj;
-      console.log("antes de parse: ", data);
-      obj = JSON.parse(data);
-      console.log("depois de parse: ", obj);
-      addCoorHospitals(obj);
-      getLocation();*/
     }
   }
   );
