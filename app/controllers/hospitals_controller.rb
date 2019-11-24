@@ -12,7 +12,7 @@ class HospitalsController < ApplicationController
       hospitals = Hospital.all
       msg = hospitals.to_json
       format.json {render :json => msg}
-      format.html {render :json => msg}
+      # format.html {render :json => msg}
     end
   end
   # GET /hospitals/1
