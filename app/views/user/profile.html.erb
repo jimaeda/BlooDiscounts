@@ -18,14 +18,25 @@
             <% if current_user %>
                 <h3><%="Olá, " +  current_user.first_name + " " + +  current_user.last_name %></h3>
                 <br/>
-                <%= button_to "Resgatar pontos", user_points_path, :method => :get,
-                :class => "custom-button ripple" %>
+
+                <button onclick="window.location ='<%=  user_points_path %>'" class = "btn btn-danger edit-btn-danger btn-medium">
+                    Resgatar pontos
+                  </button>
+                <!--<%= button_to "Resgatar pontos", user_points_path, :method => :get,
+                :class => "custom-button ripple" %> -->
                 <%# <%= button_to "Hospitais próximos", :class => "custom-button ripple"  %>
                 <br/>
-                <%= button_to "Exibir perfil", user_show_path, :method => :get, :class => "custom-button ripple" %>
+                <button onclick="window.location ='<%=  user_show_path %>'" class = "btn btn-danger edit-btn-danger btn-medium">
+                    Exibir perfil
+                  </button>
+              <!--  <%= button_to "Exibir perfil", user_show_path, :method => :get, :class => "custom-button ripple" %> -->
                 <br/>
-                <%= button_to "Sair", destroy_user_session_path, :method => :delete,
-                :class => "custom-button ripple" %>
+
+                <button onclick="window.location ='<%=  destroy_user_session_path %>'" class = "btn btn-danger edit-btn-danger btn-medium">
+                    Sair
+                  </button>
+                <!-- <%= button_to "Sair", destroy_user_session_path, :method => :delete,
+                :class => "custom-button ripple" %> -->
             <% end %>
             <br/>
             <br/>
