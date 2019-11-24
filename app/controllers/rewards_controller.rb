@@ -1,9 +1,12 @@
 class RewardsController < ApplicationController
-  before_action :set_reward, only: [:show, :edit, :update, :destroy, :retrieve]
+  before_action :set_reward, only: [:show, :edit, :update, :destroy]
 
   # GET /rewards
   # GET /rewards.json
   def index
+    if current_user.nil?
+      redirect_to root_path and return
+    end
     @rewards = Reward.all
   end
 
@@ -22,11 +25,21 @@ class RewardsController < ApplicationController
   end
 
   def retrieve
-    @reward = Reward.find(params[:id])
+    @reward = Reward.find(params[:reward_id])
     @user = current_user
-    @reward.update_attribute(:quantity, @reward.quantity - 1)
-    @user.update_attribute(:points, @user.points - @reward.cost)
-    redirect_to @reward
+
+    if @user.points < @reward.cost
+      flash[:alert] = "Voce não tem pontos suficientes"
+    else
+      if @reward.quantity <= 0
+        flash[:alert] = "O item selecionado está indisponível no momento, pedimos desculpas"
+      else
+        @reward.update_attribute(:quantity, @reward.quantity - 1)
+        @user.update_attribute(:points, @user.points - @reward.cost)
+        redirect_to user_profile_path
+        flash[:notice] = "Recompensa resgatada com sucesso!"
+      end
+    end
   end
 
   end
