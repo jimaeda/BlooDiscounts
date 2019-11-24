@@ -1,6 +1,7 @@
 class StoresController < ApplicationController
   before_action :set_store, only: [:show, :edit, :update, :destroy]
-  
+  before_action :validate_admin, except: [:show, :index]
+
   # GET /stores
   # GET /stores.json
   def index
@@ -14,10 +15,6 @@ class StoresController < ApplicationController
 
   # GET /stores/new
   def new
-    if current_admin.nil?
-      redirect_to login_path
-      return
-    end
     @store = Store.new
     @store.rewards.build
   end
