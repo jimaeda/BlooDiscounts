@@ -1,0 +1,20 @@
+Acesso:
+
+  -Admins
+    .Caminho /admins redireciona para criação de novo Admin.
+    .Login não salva a sessão.
+    .Cadastro precisa ser feito por um Admin?
+    .Registro de doação não retorna resposta.
+    .Cadastro de Hospital não se relaciona com hospitais pré-existentes
+    .CPF não está sendo validado (quantidade de dígitos, validação de dígitos
+      verificadores é irrelevante aqui)
+    .Devise não está entendendo que eu quero autenticar o ADMIN e não o USUÁRIO (my fault)
+    .Username não é único (Veja foto).
+
+  - Doações
+    .Quem deveria ver o /donations ?
+    .Validação de Campos
+      *Inserindo com campos vazios.
+
+  -Lojas
+    .Qualquer admin pode alterar o /stores?
