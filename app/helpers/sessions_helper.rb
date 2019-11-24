@@ -17,4 +17,11 @@ module SessionsHelper
 		session.delete(:admin_id)
 		@current_admin = nil
 	end
+
+  def validate_admin
+    if current_admin.nil?
+      redirect_to login_path
+      return
+    end
+  end
 end
