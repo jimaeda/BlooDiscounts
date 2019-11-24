@@ -23,6 +23,8 @@ RSpec.describe "user/show", type: :view do
     expect(rendered).to have_text('Perfil')
     expect(rendered).to have_text('Nome:')
     expect(rendered).to match(/Alexandre Freire/)
+    expect(rendered).to have_text('Id:')
+    expect(rendered).to match(/1/)
     expect(rendered).to have_text('Email:')
     expect(rendered).to match(/alexandrefreire@ime.br/)
     expect(rendered).to have_text('Tipo sanguíneo:')

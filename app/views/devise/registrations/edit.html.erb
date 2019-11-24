@@ -111,14 +111,16 @@
   </div>
   <% end %>
 
-  <hr>
+    <hr>
 
-  <div class=flex-cell>
-    <%= link_to 'Cancelar minha conta', registration_path(resource_name), data: { confirm: "Tem certeza?" }, method: :delete%>
+    <div class=flex-cell>
+      <%= link_to 'Cancelar minha conta', registration_path(resource_name), data: { confirm: "Tem certeza?" }, method: :delete%>
+    </div>
+    <div class=flex-cell>
+      <%= link_to "Voltar", :back %>
+    </div>
   </div>
-  <div class=flex-cell>
-    <%= link_to "Voltar", :back %>
-  </div>
+
 </div>
 
 
