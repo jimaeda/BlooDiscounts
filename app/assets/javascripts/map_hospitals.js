@@ -90,20 +90,32 @@ function addCoorHospitals(obj){
   }
 }
 //requisição para pegar as informações dos hospitais
-function pegarDadosHopitais(){
-  $.ajax({
+function pegarDadosHopitais(/*data*/){
+  return $.ajax({
     url: '/hospitals/info',
     type:'GET',
     success: function(data){
-      var obj;
-      obj = JSON.parse(JSON.stringify(data));
+      /*var obj;
+      console.log("antes de parse: ", data);
+      obj = JSON.parse(data);
+      console.log("depois de parse: ", obj);
       addCoorHospitals(obj);
-      getLocation();
+      getLocation();*/
     }
   }
   );
 }
+function mainMapa(){
+  var data;
+  $.when(pegarDadosHopitais(data)).done(
+    function(data){
+      addCoorHospitals(data);
+      getLocation();
+    }
+  );
+}
 //açoes pra fazer ao carregar a página
 document.addEventListener("DOMContentLoaded", function(){
-  pegarDadosHopitais();
+  mainMapa();
+  //pegarDadosHopitais();
 });
