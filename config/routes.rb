@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'quit'  => 'sessions#destroy'
+  get 'hospitals/info' => 'hospitals#info'
   resources :admins
   resources :donations
   resources :hospitals
