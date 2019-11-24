@@ -1,0 +1,37 @@
+
+<div align="center">
+  <h1> BlooDiscounts </h1>
+  <h3>Resgatar recompensas</h3>
+  <br/>
+	<% if current_user %>
+		<h3>Você tem <%= current_user.points %> pontos</h3>
+	<% end %>
+	<br/>
+  <table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Categoria</th>
+        <th>Quantidade</th>
+        <th>Custo</th>
+        <th colspan="1"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @rewards.each do |reward| %>
+        <tr>
+          <td><%= reward.name %></td>
+          <td><%= reward.category %></td>
+          <td><%= reward.quantity %></td>
+          <td><%= reward.cost %></td>
+          <td><%= link_to 'Retrieve', reward %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= button_to "Voltar", user_profile_path, :method => :get,:class => "custom-button ripple" %>
+</div>
