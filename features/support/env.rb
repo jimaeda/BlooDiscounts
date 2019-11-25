@@ -4,7 +4,6 @@
 # instead of editing this one. Cucumber will automatically load all features/**/*.rb
 # files.
 
-
 require 'cucumber/rails'
 require 'factory_bot_rails'
 World(FactoryBot::Syntax::Methods)

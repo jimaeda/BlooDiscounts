@@ -1,10 +1,14 @@
 class AdminsController < ApplicationController
-  before_action :set_admin, only: [:show, :edit, :update, :destroy]
+  before_action :set_admin, only: %i[show edit update destroy]
 
   def profile; end
 
   def index
-    @admins = Admin.all
+    if @admin.nil? && current_admin.nil?
+      redirect_to new_admin_path
+    else
+      redirect_to admins_profile_path
+    end
   end
 
   # GET /admins/1
@@ -27,7 +31,11 @@ class AdminsController < ApplicationController
     @admin = Admin.new(admin_params)
 
     if @admin.save
+<<<<<<< HEAD
       redirect_to @admin, notice: 'Admin foi criado com sucesso!'
+=======
+      redirect_to admins_profile_path, notice: 'Admin criado com sucesso!'
+>>>>>>> 51b4fac813a917b2219adcb7eeb86a1e419d7767
       sign_in_admin
     else
       render action: :new
@@ -58,6 +66,7 @@ class AdminsController < ApplicationController
     redirect_to quit_path
   end
 
+<<<<<<< HEAD
   def register_donation
     if params[:donor].nil?
       return
@@ -85,6 +94,9 @@ class AdminsController < ApplicationController
   def registerdonation_params
     params.require(:donor).permit(:id, :points)
   end
+=======
+  def register_donation; end
+>>>>>>> 51b4fac813a917b2219adcb7eeb86a1e419d7767
 
   private
 
@@ -95,6 +107,7 @@ class AdminsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def admin_params
-    params.require(:admin).permit(:adm_username, :password, :adm_name, :adm_cpf, :hospital_name)
+    params.require(:admin)
+          .permit(:adm_username, :password, :adm_name, :adm_cpf, :hospital_name)
   end
 end
