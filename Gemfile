@@ -22,7 +22,7 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 gem 'bcrypt'
 # User validation and sign up
-gem 'devise'	
+gem 'devise'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
@@ -63,6 +63,8 @@ group :test do
   gem 'cucumber-rails', require: false
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
+  # tests in JavaScript
+  gem 'jasmine'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
