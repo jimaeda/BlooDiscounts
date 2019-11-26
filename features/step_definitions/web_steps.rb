@@ -55,7 +55,7 @@ Quando('eu preencher os campos da nova recompensa com nome {string}, categoria {
     find('input[id=store_rewards_attributes_0_category]').set categoria
     find('input[id=store_rewards_attributes_0_name]').set nome
     find('input[id=store_rewards_attributes_0_quantity]').set quantidade
-    find('input[id=store_rewards_attributes_0_cost]').set custo 
+    find('input[id=store_rewards_attributes_0_cost]').set custo
 end
 
 Quando('eu preencher os campos da nova loja com nome {string}, categoria {string}, email {string}, endereço {string} e telefone {string}') do |nome, categoria, email, endereco, telefone|
@@ -63,7 +63,7 @@ Quando('eu preencher os campos da nova loja com nome {string}, categoria {string
     find('input[id=store_name]').set nome
     find('input[id=store_email]').set email
     find('input[id=store_address]').set endereco
-    find('input[id=store_phone]').set telefone 
+    find('input[id=store_phone]').set telefone
 end
 
 Quando('eu for para tela de edição de perfil') do
@@ -209,6 +209,7 @@ end
 
 Quando /^.*preencher o campo (.+) como(.*)$/ do |chave, valor|
 
+save_and_open_page
   case chave
   when 'Senha Atual'
     chave = '#user_current_password'

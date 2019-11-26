@@ -19,24 +19,17 @@
                 <h3><%="Olá, " +  current_user.first_name + " " + +  current_user.last_name %></h3>
                 <br/>
 
-                <button onclick="window.location ='<%=  user_points_path %>'" class = "btn btn-danger edit-btn-danger btn-medium">
-                    Resgatar pontos
-                  </button>
-                <!--<%= button_to "Resgatar pontos", user_points_path, :method => :get,
-                :class => "custom-button ripple" %> -->
-                <%# <%= button_to "Hospitais próximos", :class => "custom-button ripple"  %>
-                <br/>
-                <button onclick="window.location ='<%=  user_show_path %>'" class = "btn btn-danger edit-btn-danger btn-medium">
-                    Exibir perfil
-                  </button>
-              <!--  <%= button_to "Exibir perfil", user_show_path, :method => :get, :class => "custom-button ripple" %> -->
+                <%= button_to "Resgatar pontos", user_points_path, :method => :get,
+                :class => "btn btn-danger edit-btn-danger btn-medium" %>
+
+                <%# <%= button_to "Hospitais próximos", :class => "btn btn-danger edit-btn-danger btn-medium"  %>
                 <br/>
 
-                <button onclick="window.location ='<%=  destroy_user_session_path %>'" class = "btn btn-danger edit-btn-danger btn-medium">
-                    Sair
-                  </button>
-                <!-- <%= button_to "Sair", destroy_user_session_path, :method => :delete,
-                :class => "custom-button ripple" %> -->
+                <%= button_to "Exibir perfil", user_show_path, :method => :get, :class => "btn btn-danger edit-btn-danger btn-medium" %>
+                <br/>
+
+                <%= button_to "Sair", destroy_user_session_path, :method => :delete,
+                :class => "btn btn-danger edit-btn-danger btn-medium" %>
             <% end %>
             <br/>
             <br/>

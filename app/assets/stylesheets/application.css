@@ -28,7 +28,7 @@ body{
     /*background-position: 90px 0px;*/
 }
 
-button
+a
 {
   font-family: 'Rubik';
   font-size: 20px;
@@ -48,11 +48,13 @@ h3 {
 }
 
 th {
-  color: #FF0000;
+  color: white;
   font-family: 'Rubik';
   text-align: center;
   font-weight: bold;
   font-size: 25px;
+  background: #BF0000;
+  vertical-align: middle !important;
 }
 
 td {
@@ -61,9 +63,13 @@ td {
   font-size: 15px;
 }
 
+
 table {
+
+/*
   border-spacing: 10px;
   border-collapse: separate;
+*/
 }
 
 .field {
@@ -78,6 +84,9 @@ table {
 
 .edit-btn-danger{
   background-color: #FF0000;
+  font-family: 'Rubik';
+  font-size: 20px;
+  margin-bottom:10px;
 }
 
 .btn-medium{

@@ -17,13 +17,11 @@
         <button onclick="window.location ='<%=  new_user_registration_path %>'" class = "btn btn-danger edit-btn-danger btn-medium">
             Cadastrar
           </button>
-      <!--  <%= button_to "Cadastrar", new_user_registration_path, :class => "custom-button ripple", :method => :get %> -->
+      <!--  <%= button_to "Cadastrar", new_user_registration_path, :class => "btn btn-danger edit-btn-danger btn-medium", :method => :get %> -->
         <br/>
         <a>Já possui cadastro? </a>
-        <button onclick="window.location ='<%=  new_user_session_path %>'" class = "btn btn-primary">
-            Entre Aqui
-          </button>
-      <!--  <%= link_to  "Entre aqui.", new_user_session_path %> -->
+        <br/>
+      <%= link_to  "Entre aqui", new_user_session_path, class: "btn btn-danger edit-btn-danger"%>
     </div>
 </body>
 </html>

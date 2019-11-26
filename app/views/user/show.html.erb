@@ -55,14 +55,8 @@
     </div>
   </div>
   <br/>
-  <button onclick="window.location ='<%=  edit_user_registration_path %>'" class = "btn btn-danger edit-btn-danger">
-      Editar informações
-    </button>
-  <!--<%= button_to "Editar informações", edit_user_registration_path, :method => :get,:class => "custom-button ripple" %>-->
+  <%= button_to "Editar informações", edit_user_registration_path, :method => :get,:class => "btn btn-danger edit-btn-danger" %>
   <br/>
-  <button onclick="window.location ='<%= user_profile_path %>'" class = "btn btn-danger edit-btn-danger">
-    <span class="oi oi-arrow-left"></span>
-      Voltar
-    </button>
-  <!--<%= link_to 'Voltar', user_profile_path,  :class => "btn btn-danger" %>-->
+
+    <%= link_to raw('<span class="oi oi-arrow-left"></span>Voltar'), user_profile_path,  :class => "btn btn-danger" %>
 </div>
