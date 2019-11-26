@@ -1,6 +1,7 @@
 var coorUser;
 var coorHospitals = [""];
 var distancias = [""];
+
 //faz elemento vetor[1] descer até sua posição "certa"
 function maxHeap (tamanhoVetor, vetor) {
    var filho = 2;
@@ -15,12 +16,12 @@ function maxHeap (tamanhoVetor, vetor) {
       filho = filho*2; //filho do filho
    }
 }
-// Troca elementos de duas posições de um vetor
 function trocaElementosVetor(a,b,vetor){
   var aux = vetor[a];
   vetor[a] = vetor[b];
   vetor[b] = aux;
 }
+
 // Rearranja um vetor v[1..tamanhoVetor] de modo a
 // transformá-lo em heap
 function constroiHeap(tamanhoVetor, vetor){
@@ -47,19 +48,17 @@ function heapsort(vetor){
 }
 //inicia google maps
 function initMap(pos) {
-  // coordenadas do usuario
   coorUser = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
   var mapOptions = {
     center: coorUser,
     zoom: 12
   };
-  //array de distancias entre o usuario e os hospitais
+  //array de distancias entre o usuario e cada hospital
   for(var i = 1;i < coorHospitals.length;i++){
     distancias.push(google.maps.geometry.spherical.computeDistanceBetween(coorUser, coorHospitals[i]));
   }
-  // ordena as distancias
   heapsort(distancias);
-  // marcadores vermelhos no mapa para os endereços
+  // marcadores vermelhos no mapa para as coordenadas
   var map = new google.maps.Map(document.getElementById('map'), mapOptions);
   var userMarker = new google.maps.Marker({
     position: coorUser,
@@ -82,7 +81,6 @@ function getLocation() {
     alert("Geolocation is not supported by this browser.");
   }
 }
-//vetor de coordenadas dos hospitais
 function addCoorHospitals(obj){
   var lat, lng;
   for(var i = 0; i < obj.length; i++){
@@ -90,7 +88,7 @@ function addCoorHospitals(obj){
   }
 }
 //requisição para pegar as informações dos hospitais
-function pegarDadosHopitais(/*data*/){
+function pegarDadosHopitais(data){
   return $.ajax({
     url: '/hospitals/info',
     type:'GET',
@@ -108,8 +106,6 @@ function mainMapa(){
     }
   );
 }
-//açoes pra fazer ao carregar a página
 document.addEventListener("DOMContentLoaded", function(){
   mainMapa();
-  //pegarDadosHopitais();
 });
