@@ -31,11 +31,9 @@ class AdminsController < ApplicationController
     @admin = Admin.new(admin_params)
 
     if @admin.save
-<<<<<<< HEAD
-      redirect_to @admin, notice: 'Admin foi criado com sucesso!'
-=======
+
       redirect_to admins_profile_path, notice: 'Admin criado com sucesso!'
->>>>>>> 51b4fac813a917b2219adcb7eeb86a1e419d7767
+
       sign_in_admin
     else
       render action: :new

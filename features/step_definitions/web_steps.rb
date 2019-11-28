@@ -188,10 +188,8 @@ Então("o usuario sera autenticado") do
     expect(page).to have_content @email
 end
 
-<<<<<<< HEAD
 Então("devo ter a seguinte mensagem {string}") do |mensagem|
     expect(page).to have_content mensagem
-=======
 #Edita Usuário
 Dado /^.* logado$/ do
   @email= "gabriel@bloodiscounts.com"
@@ -246,5 +244,4 @@ end
 
 Então /^devo receber a mensagem: (.+)$/ do |msg|
   expect(page).to have_content msg
->>>>>>> 51b4fac813a917b2219adcb7eeb86a1e419d7767
 end

@@ -20,16 +20,15 @@ gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use Active Model has_secure_password
-<<<<<<< HEAD
+
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'	
 gem 'bcrypt' 
-=======
-gem 'bcrypt'
+
 # User validation and sign up
 gem 'devise'
 gem 'jquery-rails'
->>>>>>> 51b4fac813a917b2219adcb7eeb86a1e419d7767
+
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
