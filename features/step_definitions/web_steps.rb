@@ -4,6 +4,10 @@ Dado("que eu entro na página de cadastro de hospitais") do
   visit '/hospitals/new'
 end
 
+Dado("que eu entro na página de cadastro de admins") do
+  visit '/admins/new'
+end
+
 Dado('que eu entro na página de login do admin') do
     Admin.create(
         adm_username: "alexandrefreire",
@@ -150,6 +154,13 @@ Quando("acionar o botão cadastrar") do
     click_button 'Cadastrar'
 end
 
+Quando('eu preencher os campos do novo admin com email {string}, nome {string}, cpf {string} e password {string}') do |email, nome, cpf, password|
+    find('input[id=admin_email]').set email
+    find('input[id=admin_name]').set nome
+    find('input[id=admin_cpf]').set cpf
+    find('input[id=admin_password]').set password
+end
+
 # Então/Then
 
 # Clicar no botão cadastrar
@@ -186,6 +197,11 @@ end
 Então("o usuario sera autenticado") do
     # expect->rspec; page->capybara
     expect(page).to have_content @email
+end
+
+# Clicar no botão cadastrar
+Então("devo clicar em create admin") do
+    click_button "Create Admin"
 end
 
 #Edita Usuário
