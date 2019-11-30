@@ -24,7 +24,7 @@ RSpec.describe "admins/new", type: :view do
 
       assert_select "input[name=?]", "admin[adm_cpf]"
 
-      expect(rendered).to match(/Santa Casa/)
+      assert_select "input[name=expect(rendered).to match(/Freirospital/)]", "admin[hospital_name]"
     end
   end
 end

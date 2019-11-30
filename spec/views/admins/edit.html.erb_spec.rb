@@ -18,7 +18,7 @@ RSpec.describe "admins/edit", type: :view do
       assert_select "input[name=?]", "admin[adm_username]"
       assert_select "input[name=?]", "admin[adm_name]"
       assert_select "input[name=?]", "admin[adm_cpf]"
-      expect(rendered).to match(/Freirospital/)
+      assert_select "input[name=expect(rendered).to match(/Freirospital/)]", "admin[hospital_name]"
       assert_select "input[name=?]", "admin[password]"
     end
   end
