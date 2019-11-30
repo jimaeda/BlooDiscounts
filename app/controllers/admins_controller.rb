@@ -18,6 +18,7 @@ class AdminsController < ApplicationController
   # GET /admins/new
   def new
     @admin = Admin.new
+    @hospital_options = Hospital.all
   end
 
   # GET /admins/1/edit
@@ -64,7 +65,6 @@ class AdminsController < ApplicationController
     redirect_to quit_path
   end
 
-<<<<<<< HEAD
   def register_donation
     if params[:donor].nil?
       return
@@ -92,9 +92,6 @@ class AdminsController < ApplicationController
   def registerdonation_params
     params.require(:donor).permit(:id, :points)
   end
-=======
-  def register_donation; end
->>>>>>> 51b4fac813a917b2219adcb7eeb86a1e419d7767
 
   private
 
