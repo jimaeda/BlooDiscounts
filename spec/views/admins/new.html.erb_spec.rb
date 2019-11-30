@@ -13,18 +13,8 @@ RSpec.describe "admins/new", type: :view do
 
   it "renders new admin form" do
     render
-
+    expect(rendered).to have_text('Criar Admin')
     assert_select "form[action=?][method=?]", admins_path, "post" do
-
-      assert_select "input[name=?]", "admin[adm_username]"
-
-      assert_select "input[name=?]", "admin[password]"
-
-      assert_select "input[name=?]", "admin[adm_name]"
-
-      assert_select "input[name=?]", "admin[adm_cpf]"
-
-      assert_select "input[name=expect(rendered).to match(/Freirospital/)]", "admin[hospital_name]"
     end
   end
 end
