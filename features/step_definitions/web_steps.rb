@@ -154,12 +154,12 @@ Quando("acionar o botão cadastrar") do
     click_button 'Cadastrar'
 end
 
-Quando('eu preencher os campos do novo admin com email {string}, nome {string}, cpf {string}, password {string} e hospital {string}') do |email, nome, cpf, password, hospital|
-    fill_in 'admin[email]', with: email
-    fill_in 'admin[nome]', with: nome
-    fill_in 'admin[cpf]', with: cpf
+Quando("eu adiciono as informações {string} e {string} e {string} e {string} e {string}") do |adm_username, adm_name, adm_cpf, password, hospital_name|
+    fill_in 'admin[adm_username]', with: adm_username
+    fill_in 'admin[adm_name]', with: adm_name
+    fill_in 'admin[adm_cpf]', with: adm_cpf
     fill_in 'admin[password]', with: password
-    fill_in 'admin[hospital]', with: hospital
+    fill_in 'admin[hospital_name]', with: hospital_name
     click_button 'Create Admin'
 end
 

@@ -4,22 +4,38 @@ Funcionalidade: Cadastrar um novo admin
   Eu quero me cadastrar no site
   A fim de acessar o site
 
-Contexto:
-    Dado a página de cadastro do BlooDiscounts
 
+  Cenario: Cadastro com sucesso
+    Dado que eu entro na página de cadastro de admins
+    Quando eu adiciono as informações "abcdef@gamil.com" e "supername" e "12371351711" e "123456" e "hospital"  
+    Então eu devo ver a mensagem "Admin was successfully created"
 
-Esquema do Cenário: Tentativas de Cadastro
-  Quando preencher os campos com email "<email>" e nome "<nome>"
-  E cpf "<cpf>" e senha "<senha>"
-  E hospital "<hospital>"
-  Então eu devo ver a mensagem "<mensagem>"
+  Cenario: Cadastro sem email
+    Dado que eu entro na página de cadastro de admins
+    Quando eu adiciono as informações "" e "supername" e "12371351711" e "123456" e "hospital"  
+    Então eu devo ver a mensagem "Email can't be blank"
 
-  Exemplos:
-  |email|nome|cpf|senha|mensagem|hospital|
-  |abcdef@gamil.com|supername|12371351711|12345|hospital|Password is too short (minimum is 6 characters)|
-  |abcdef@gamil.com|supername|12371351711||hospital|Password can't be blank|
-  ||supername|12371351711|123456|hospital|Email can't be blank|
-  |abcdef@gamil.com||12371351711|123456|hospital|Name can't be blank|
-  |abcdef@gamil.com|supername||123456|hospital|CPF can't be blank|
-  |abcdef@gamil.com|supername|12371351711|123456||Hospital can't be blank|
-  |abcdef@gamil.com|supername|12371351711|123456|hospital|Welcome! You have signed up successfully.|
+  Cenario: Cadastro sem nome
+    Dado que eu entro na página de cadastro de admins
+    Quando eu adiciono as informações "abcdef@gamil.com" e "" e "12371351711" e "123456" e "hospital"  
+    Então eu devo ver a mensagem "Name can't be blank"
+
+  Cenario: Cadastro sem cpf
+    Dado que eu entro na página de cadastro de admins
+    Quando eu adiciono as informações "abcdef@gamil.com" e "supername" e "" e "123456" e "hospital"  
+    Então eu devo ver a mensagem "CPF can't be blank"
+
+  Cenario: Cadastro sem senha
+    Dado que eu entro na página de cadastro de admins
+    Quando eu adiciono as informações "abcdef@gamil.com" e "supername" e "12371351711" e "" e "hospital"  
+    Então eu devo ver a mensagem "Password can't be blank"
+
+  Cenario: Cadastro sem hospital
+    Dado que eu entro na página de cadastro de admins
+    Quando eu adiciono as informações "abcdef@gamil.com" e "supername" e "12371351711" e "123456" e ""  
+    Então eu devo ver a mensagem "Hospital can't be blank"  
+
+  Cenario: Cadastro com senha inválida
+    Dado que eu entro na página de cadastro de admins
+    Quando eu adiciono as informações "abcdef@gamil.com" e "supername" e "12371351711" e "123456" e "12345"  
+    Então eu devo ver a mensagem "Password is too short (minimum is 6 characters)"  
