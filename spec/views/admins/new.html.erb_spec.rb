@@ -3,11 +3,11 @@ require 'rails_helper'
 RSpec.describe "admins/new", type: :view do
   before(:each) do
     assign(:admin, Admin.new(
-      :adm_username => "MyString",
-      :password => "MyString",
-      :adm_name => "MyString",
-      :adm_cpf => "MyString",
-      :hospital_name => "MyString"
+      :adm_username => "william@br",
+      :password => "123456",
+      :adm_name => "william",
+      :adm_cpf => "1234567789",
+      :hospital_name => "Santa Casa"
     ))
   end
 
@@ -24,7 +24,7 @@ RSpec.describe "admins/new", type: :view do
 
       assert_select "input[name=?]", "admin[adm_cpf]"
 
-      assert_select "input[name=?]", "admin[hospital_name]"
+      expect(rendered).to match(/Santa Casa/)
     end
   end
 end
