@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'user/show'
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
+  post 'rewards/retrieve'
   delete 'quit'  => 'sessions#destroy'
   get 'hospitals/info' => 'hospitals#info'
   resources :admins

@@ -29,17 +29,37 @@ RSpec.describe AdminsController, type: :controller do
   # Admin. As you add validations to Admin, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    { 
+      "adm_username" => "freiredoteste", 
+      "password" => "123456", 
+      "adm_name" => "Freire do Teste", 
+      "adm_cpf" => "87122670074", 
+      "hospital_name" => "Hospital Freire" 
+    }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    { 
+      "adm_username" => nil, 
+      "password" => nil, 
+      "adm_name" => nil, 
+      "adm_cpf" => nil, 
+      "hospital_name" => nil 
+    }
   }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # AdminsController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
+  let(:valid_session) {  
+    { 
+      "adm_username" => "freiredoteste", 
+      "password" => "123456", 
+      "adm_name" => "Freire do Teste", 
+      "adm_cpf" => "87122670074", 
+      "hospital_name" => "Hospital Freire" 
+    } 
+  }
 
   describe "GET #show" do
     it "returns a success response" do
@@ -74,7 +94,7 @@ RSpec.describe AdminsController, type: :controller do
 
       it "redirects to the created admin" do
         post :create, params: {admin: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(Admin.last)
+        expect(response).to redirect_to(admins_profile_path)
       end
     end
 
@@ -89,14 +109,25 @@ RSpec.describe AdminsController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        { 
+          "adm_username" => "danieldoteste", 
+          "password" => "123456", 
+          "adm_name" => "Daniel do Teste", 
+          "adm_cpf" => "87122670074", 
+          "hospital_name" => "Hospital Cordeiro" 
+        }
       }
 
       it "updates the requested admin" do
         admin = Admin.create! valid_attributes
         put :update, params: {id: admin.to_param, admin: new_attributes}, session: valid_session
-        admin.reload
-        skip("Add assertions for updated state")
+        admin.reload # The Method .reload aparently does thye normal behaviour of the requests not the behaviour that we want it to have
+        expect(admin.adm_username).to match("danieldoteste")
+        expect(admin.password).to match("123456")
+        expect(admin.adm_name).to match("Daniel do Teste")
+        expect(admin.adm_cpf).to match("87122670074")
+        expect(admin.hospital_name).to match("Hospital Cordeiro")
+        expect(response).to redirect_to(admin)
       end
 
       it "redirects to the admin" do
@@ -114,20 +145,4 @@ RSpec.describe AdminsController, type: :controller do
       end
     end
   end
-
-  describe "DELETE #destroy" do
-    it "destroys the requested admin" do
-      admin = Admin.create! valid_attributes
-      expect {
-        delete :destroy, params: {id: admin.to_param}, session: valid_session
-      }.to change(Admin, :count).by(-1)
-    end
-
-    it "redirects to the admins list" do
-      admin = Admin.create! valid_attributes
-      delete :destroy, params: {id: admin.to_param}, session: valid_session
-      expect(response).to redirect_to(admins_url)
-    end
-  end
-
 end
