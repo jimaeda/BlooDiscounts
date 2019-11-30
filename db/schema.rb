@@ -72,11 +72,11 @@ ActiveRecord::Schema.define(version: 2019_11_10_173019) do
   end
 
   create_table "stores", force: :cascade do |t|
-    t.string "name"
-    t.string "category"
-    t.string "address"
-    t.string "email"
-    t.string "phone"
+    t.string "name", default: "", null: false
+    t.string "category", default: ""
+    t.string "address", default: "", null: false
+    t.string "email", default: ""
+    t.string "phone", default: "", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

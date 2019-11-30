@@ -29,17 +29,35 @@ RSpec.describe StoresController, type: :controller do
   # Store. As you add validations to Store, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    {
+      "name" => "Loja do Freire",
+      "category" => "Freiregorias",
+      "address" => "Rua Ouvidor Peleja",
+      "email" => "afreire@ime.com.br",
+      "phone" => "99999999"
+    }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    {    
+      "name" => nil,
+      "category" => "Freiregorias",
+      "address" => nil,
+      "email" => "alexandre.freire@ime.com.br",
+      "phone" => nil
+    }
   }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # StoresController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
+  let(:valid_session) { 
+    {
+      "name" => "Loja do Freire",
+      "address" => "Rua Ouvidor Peleja",
+      "phone" => "99999999"
+    }
+  }
 
   describe "GET #index" do
     it "returns a success response" do
@@ -90,7 +108,7 @@ RSpec.describe StoresController, type: :controller do
 
       it "redirects to the created store" do
         post :create, params: {store: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(Store.last)
+        expect(response).to redirect_to(admins_profile_path)
       end
     end
 
@@ -105,20 +123,31 @@ RSpec.describe StoresController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        {
+          "name" => "Loja do Cordeiro",
+          "category" => "Cordeigorias",
+          "address" => "Rua Drausio",
+          "email" => "daniel.cordeiro@usp.br",
+          "phone" => "88888888"
+        }
       }
 
       it "updates the requested store" do
         store = Store.create! valid_attributes
         put :update, params: {id: store.to_param, store: new_attributes}, session: valid_session
         store.reload
-        skip("Add assertions for updated state")
+        expect(store.name).to match("Loja do Cordeiro")
+        expect(store.category).to match("Cordeigorias")
+        expect(store.address).to match("Rua Drausio")
+        expect(store.email).to match("daniel.cordeiro@usp.br")
+        expect(store.phone).to match("88888888")
+        expect(response).to redirect_to(admins_profile_path)
       end
 
       it "redirects to the store" do
         store = Store.create! valid_attributes
         put :update, params: {id: store.to_param, store: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(store)
+        expect(response).to redirect_to(admins_profile_path)
       end
     end
 
