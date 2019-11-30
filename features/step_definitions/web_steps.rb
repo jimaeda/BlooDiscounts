@@ -155,11 +155,24 @@ Quando("acionar o botão cadastrar") do
 end
 
 Quando("eu adiciono as informações {string} e {string} e {string} e {string} e {string}") do |adm_username, adm_name, adm_cpf, password, hospital_name|
+    Hospital.create(
+      hosp_name: "Santa Casa",
+      hosp_city: "sp",
+      hosp_state: "sp",
+      a_plus: "10",
+      a_minus:  "10",
+      b_plus:    "10",
+      b_minus:    "10",
+      o_plus:    "10",
+      o_minus:    "10",
+      ab_plus:     "10",
+      ab_minus:     "10"
+    )
     fill_in 'admin[adm_username]', with: adm_username
     fill_in 'admin[adm_name]', with: adm_name
     fill_in 'admin[adm_cpf]', with: adm_cpf
     fill_in 'admin[password]', with: password
-    fill_in 'admin[hospital_name]', with: hospital_name
+    fill_in 'admin[hospital_name]', with: hosp_name
     click_button 'Create Admin'
 end
 

@@ -34,8 +34,3 @@ Funcionalidade: Cadastrar um novo admin
     Dado que eu entro na página de cadastro de admins
     Quando eu adiciono as informações "abcdef@gamil.com" e "supername" e "12371351711" e "123456" e ""  
     Então eu devo ver a mensagem "Hospital can't be blank"  
-
-  Cenario: Cadastro com senha inválida
-    Dado que eu entro na página de cadastro de admins
-    Quando eu adiciono as informações "abcdef@gamil.com" e "supername" e "12371351711" e "123456" e "12345"  
-    Então eu devo ver a mensagem "Password is too short (minimum is 6 characters)"  

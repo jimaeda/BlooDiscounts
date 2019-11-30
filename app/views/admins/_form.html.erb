@@ -38,15 +38,21 @@
  </div>
 </div>
 <br/>
-  <span>Hospital</span>
+<div class="field flex-layout flex-cell">
+    <label class="pure-material-textfield-outlined">
+      <span>Hospital</span>
 <br/>
-  <%if (!@hospital_options.nil? || !@hospital_options.blank?)
-      options = options_from_collection_for_select(@hospital_options, 'id','hosp_name')
-      form.select :hospital_name,  options
-    else
+  <%
+  if (!@hospital_options.nil? || !@hospital_options.blank?)
+    options = options_from_collection_for_select(@hospital_options, 'id','hosp_name')
+    form.select :all_val, options
   %>
-    <span>Não há hemocentros registrados.</span>
-  <%end%>
+  <%else%>
+    <br/>
+    <p>Sem hospital irmão.</p>
+  <%end%>  
+    </label>
+  </div>
   <br/>
   <br/>
   <div class="actions flex-layout flex-cell">
