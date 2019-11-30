@@ -1,7 +1,11 @@
 # Dado/Given
 
 Dado("que eu entro na página de cadastro de hospitais") do
-	visit '/hospitals/new'
+  visit '/hospitals/new'
+end
+
+Dado("que eu entro na página de cadastro de admins") do
+  visit '/admins/new'
 end
 
 Dado('que eu entro na página de login do admin') do
@@ -24,7 +28,7 @@ end
 
 Dado('que eu entro na página de login') do
     FactoryBot.create(:user, email: 'nathan@nathan.com',password: 'nathan',first_name: 'Nathan')
-	visit '/users/sign_in'
+  visit '/users/sign_in'
 end
 
 Dado("a página de cadastro do BlooDiscounts") do
@@ -99,9 +103,9 @@ Quando('eu faço login de admin com {string} e {string}') do |adm_username,passw
 end
 
 Quando('eu faço login com {string} e {string}') do |email,senha|
-	fill_in 'user[email]', with: email
-	fill_in 'user[password]', with: senha
-	click_button 'Entrar'
+  fill_in 'user[email]', with: email
+  fill_in 'user[password]', with: senha
+  click_button 'Entrar'
 end
 
 Quando("preencher os campos com nome {string} e sobrenome {string}") do |nome, sobrenome|
@@ -150,6 +154,28 @@ Quando("acionar o botão cadastrar") do
     click_button 'Cadastrar'
 end
 
+Quando("eu adiciono as informações {string} e {string} e {string} e {string} e {string}") do |adm_username, adm_name, adm_cpf, password, hospital_name|
+    Hospital.create(
+      hosp_name: "Santa Casa",
+      hosp_city: "sp",
+      hosp_state: "sp",
+      a_plus: "10",
+      a_minus:  "10",
+      b_plus:    "10",
+      b_minus:    "10",
+      o_plus:    "10",
+      o_minus:    "10",
+      ab_plus:     "10",
+      ab_minus:     "10"
+    )
+    fill_in 'admin[adm_username]', with: adm_username
+    fill_in 'admin[adm_name]', with: adm_name
+    fill_in 'admin[adm_cpf]', with: adm_cpf
+    fill_in 'admin[password]', with: password
+    fill_in 'admin[hospital_name]', with: hosp_name
+    click_button 'Create Admin'
+end
+
 # Então/Then
 
 # Clicar no botão cadastrar
@@ -176,16 +202,21 @@ Então('eu devo ficar na página de login') do
 end
 
 Então('eu devo ir para a página de perfil') do
-	expect(page).to have_content 'Signed in successfully.'
+  expect(page).to have_content 'Signed in successfully.'
 end
 
 Então('eu devo ver a mensagem {string}') do |mensagem|
-	expect(page).to have_content mensagem
+  expect(page).to have_content mensagem
 end
 
 Então("o usuario sera autenticado") do
     # expect->rspec; page->capybara
     expect(page).to have_content @email
+end
+
+# Clicar no botão cadastrar
+Então("devo clicar em create admin") do
+    click_button "Create Admin"
 end
 
 #Edita Usuário

@@ -1,50 +1,61 @@
 <%= form_with(model: admin, local: true) do |form| %>
-   <% if admin.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(admin.errors.count, "erro") %> impediram a atualização das informações:</h2>
-      <ul>
-        <% admin.errors.full_messages.each do |message| %>
-          <%= message %><br/>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="flex-layout">
-    <div class="field flex-cell">
-      <label class="pure-material-textfield-outlined">
-        <%= form.text_field :adm_username, autofocus: true, :placeholder => " " %>
-        <span>Admin Username</span>
-      </label>
-    </div>
-    <div class="field flex-cell">
-      <label class="pure-material-textfield-outlined">
-        <%= form.text_field :adm_name, autocomplete: "off", :placeholder => " " %>
-        <span>Nome</span>
-      </label>
-    </div>
+<% if admin.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(admin.errors.count, "erro") %> impediram a atualização das informações:</h2>
+  <ul>
+    <% admin.errors.full_messages.each do |message| %>
+    <%= message %><br/>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+<div class="flex-layout">
+  <div class="field flex-cell">
+    <label class="pure-material-textfield-outlined">
+      <%= form.text_field :adm_username, autofocus: true, :placeholder => " " %>
+      <span>Admin Username</span>
+    </label>
   </div>
-  <div class="flex-layout">
-    <div class="field flex-cell">
-      <label class="pure-material-textfield-outlined">
-        <%= form.text_field :adm_cpf, autocomplete: "off", :placeholder => " " %>
-        <span>CPF</span>
-      </label>
-    </div>
-    <div class="field flex-cell">
-      <label class="pure-material-textfield-outlined">
-        <%= form.text_field :hospital_name, autocomplete: "off", :placeholder => " " %>
-        <span>Hospital</span>
-      </label>
-    </div>
+  <div class="field flex-cell">
+    <label class="pure-material-textfield-outlined">
+      <%= form.text_field :adm_name, autocomplete: "off", :placeholder => " " %>
+      <span>Nome</span>
+    </label>
+  </div>
+</div>
+<div class="flex-layout">
+  <div class="field flex-cell">
+    <label class="pure-material-textfield-outlined">
+      <%= form.text_field :adm_cpf, autocomplete: "off", :placeholder => " " %>
+      <span>CPF</span>
+    </label>
   </div>
   <div class="field flex-layout flex-cell">
     <label class="pure-material-textfield-outlined">
-      <%= form.password_field :password, autocomplete: "off", :placeholder => " " %>
-      <span>Senha</span>
+     <%= form.password_field :password, autocomplete: "off", :placeholder => " " %>
+     <span>Senha</span>
+   </label>
+ </div>
+</div>
+<br/>
+<div class="field flex-layout flex-cell">
+    <label class="pure-material-textfield-outlined">
+      <span>Hospital</span>
+<br/>
+  <%
+  if (!@hospital_options.nil? || !@hospital_options.blank?)
+    options = options_from_collection_for_select(@hospital_options, 'id','hosp_name')
+    form.select :all_val, options
+  %>
+  <%else%>
+    <br/>
+    <p>Sem hospital irmão.</p>
+  <%end%>  
     </label>
   </div>
   <br/>
+  <br/>
   <div class="actions flex-layout flex-cell">
-      <%= form.submit "Submeter", :class => "custom-button ripple" %>
+    <%= form.submit "Submeter", :class => "custom-button ripple" %>
   </div>
-<% end %>
+  <% end %>

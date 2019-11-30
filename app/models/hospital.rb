@@ -1,4 +1,6 @@
 class Hospital < ApplicationRecord
+	has_many :admins
+	accepts_nested_attributes_for :admins, :allow_destroy => true
 	validates :hosp_name, presence: true, :length => {:minimum => 6 }
 	validates :hosp_city, presence: true
 	validates :hosp_state, presence: true

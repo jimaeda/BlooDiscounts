@@ -29,12 +29,21 @@ class AdminsController < ApplicationController
   # POST /admins.json
   def create
     @admin = Admin.new(admin_params)
+    @hospital_options = Hospital.all
 
-    if @admin.save
-      redirect_to admins_profile_path, notice: 'Admin criado com sucesso!'
-      sign_in_admin
+    if !@hospital_options.nil? && !@hospital_options.blank?
+      if @admin.save
+
+        redirect_to admins_profile_path, notice: 'Admin criado com sucesso!'
+
+        sign_in_admin
+      else
+        flash[:alert] = 'Não foi possível cadastrar o admin.'
+        render action: :new
+      end
     else
-      render action: :new
+      flash[:alert] = 'Não foi possível cadastrar o admin.'
+      redirect_to new_admin_path
     end
   end
 
@@ -46,7 +55,7 @@ class AdminsController < ApplicationController
     if admin_params[:password].blank?
 
     end
-    if @admin.update_attributes(admin_params)
+    if @admin.update(admin_params)
       redirect_to @admin
     else
       render action: :edit
@@ -62,7 +71,33 @@ class AdminsController < ApplicationController
     redirect_to quit_path
   end
 
-  def register_donation; end
+  def register_donation
+    if params[:donor].nil?
+      return
+    end
+    donor = User.find_by(id: params[:donor][:id])
+    if !donor.nil?
+      donor.points = donor.points + 1
+
+      if donor.update(registerdonation_params)
+        flash[:notice] = 'Doação registrada.'
+        render
+      else
+        redirect_to admins_profile_path
+        flash[:alert] = 'Não foi possível registrar a doação.'
+      end
+      return
+    else
+      if donor.nil? && !params[:donor][:id].blank?
+        flash[:alert] = 'Usuário não encontrado.'
+        render
+      end
+    end 
+  end
+
+  def registerdonation_params
+    params.require(:donor).permit(:id, :points)
+  end
 
   private
 

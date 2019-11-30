@@ -18,10 +18,12 @@
     <div align="center">
       <% if notice %>
         <p class="alert alert-success"><%= notice %></p>
+      <% else  %>
+        <% if alert %>
+          <p class="alert alert-danger"><%= alert %></p>
+        <% end %>
       <% end %>
-      <% if alert %>
-        <p class="alert alert-danger"><%= alert %></p>
-      <% end %>
+
     </div>
     <%= yield %>
   </body>
