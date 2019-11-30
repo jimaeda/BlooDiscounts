@@ -23,6 +23,9 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
+# Ignore coverage results produced by simplecov
+/coverage
+
 /public/packs
 /public/packs-test
 /node_modules
