@@ -154,11 +154,13 @@ Quando("acionar o botão cadastrar") do
     click_button 'Cadastrar'
 end
 
-Quando('eu preencher os campos do novo admin com email {string}, nome {string}, cpf {string} e password {string}') do |email, nome, cpf, password|
-    find('input[id=admin_email]').set email
-    find('input[id=admin_name]').set nome
-    find('input[id=admin_cpf]').set cpf
-    find('input[id=admin_password]').set password
+Quando('eu preencher os campos do novo admin com email {string}, nome {string}, cpf {string}, password {string} e hospital {string}') do |email, nome, cpf, password, hospital|
+    fill_in 'admin[email]', with: email
+    fill_in 'admin[nome]', with: nome
+    fill_in 'admin[cpf]', with: cpf
+    fill_in 'admin[password]', with: password
+    fill_in 'admin[hospital]', with: hospital
+    click_button 'Create Admin'
 end
 
 # Então/Then
