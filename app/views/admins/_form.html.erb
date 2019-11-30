@@ -38,13 +38,18 @@
  </div>
 </div>
 <br/>
-<span>Hospital</span>
+  <span>Hospital</span>
 <br/>
-<% options = options_from_collection_for_select(@hospital_options, 'id', 'hosp_name') %>
-<%= form.select :all_val,  options %>
-<br/>
-<br/>
-<div class="actions flex-layout flex-cell">
-  <%= form.submit "Submeter", :class => "custom-button ripple" %>
-</div>
-<% end %>
+  <%if (!@hospital_options.nil? || !@hospital_options.blank?)
+      options = options_from_collection_for_select(@hospital_options, 'id','hosp_name')
+      form.select :hospital_name,  options
+    else
+  %>
+    <span>Não há hemocentros registrados.</span>
+  <%end%>
+  <br/>
+  <br/>
+  <div class="actions flex-layout flex-cell">
+    <%= form.submit "Submeter", :class => "custom-button ripple" %>
+  </div>
+  <% end %>

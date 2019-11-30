@@ -18,7 +18,6 @@ class AdminsController < ApplicationController
   # GET /admins/new
   def new
     @admin = Admin.new
-    @hospital_options = Hospital.all
   end
 
   # GET /admins/1/edit
@@ -30,14 +29,21 @@ class AdminsController < ApplicationController
   # POST /admins.json
   def create
     @admin = Admin.new(admin_params)
+    @hospital_options = Hospital.all
 
-    if @admin.save
+    if !@hospital_options.nil? && !@hospital_options.blank?
+      if @admin.save
 
-      redirect_to admins_profile_path, notice: 'Admin criado com sucesso!'
+        redirect_to admins_profile_path, notice: 'Admin criado com sucesso!'
 
-      sign_in_admin
+        sign_in_admin
+      else
+        flash[:alert] = 'Não foi possível cadastrar o admin.'
+        render action: :new
+      end
     else
-      render action: :new
+      flash[:alert] = 'Não foi possível cadastrar o admin.'
+      redirect_to new_admin_path
     end
   end
 
