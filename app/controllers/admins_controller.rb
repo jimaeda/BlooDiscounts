@@ -82,10 +82,8 @@ class AdminsController < ApplicationController
       end
       return
     else
-      if !params[:donor][:id].blank?
-        flash[:alert] = 'Usuário não encontrado.'
-        redirect_to register_donation_path and return
-      end
+      flash[:alert] = 'Usuário não encontrado.'
+      redirect_to register_donation_path
     end 
   end
 
