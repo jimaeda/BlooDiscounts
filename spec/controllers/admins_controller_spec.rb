@@ -124,7 +124,7 @@ RSpec.describe AdminsController, type: :controller do
         admin.reload # The Method .reload aparently does thye normal behaviour of the requests not the behaviour that we want it to have
         expect(admin.adm_username).to match("danieldoteste")
         expect(admin.password).to match("123456")
-        expect(admin.upda).to match("Daniel do Teste")
+        expect(admin.adm_name).to match("Daniel do Teste")
         expect(admin.adm_cpf).to match("87122670074")
         expect(admin.hospital_name).to match("Hospital Cordeiro")
         expect(response).to redirect_to(admin)
