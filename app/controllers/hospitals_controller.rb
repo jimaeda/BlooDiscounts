@@ -7,6 +7,14 @@ class HospitalsController < ApplicationController
     @hospitals = Hospital.all
   end
 
+  def info
+    respond_to do |format|
+      hospitals = Hospital.all
+      msg = hospitals.to_json
+      format.json {render :json => msg}
+      # format.html {render :json => msg}
+    end
+  end
   # GET /hospitals/1
   # GET /hospitals/1.json
   def show

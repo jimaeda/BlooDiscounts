@@ -4,7 +4,7 @@ Funcionalidade: Login Admin
     Para que eu posso usar as funcionalidades do serviço
     Sendo um admin
     Posso acessar o sistema com meu adm_username e minha senha já cadastrados.
-    @temp
+
     Cenario: Admin autorizado
         Dado que eu entro na página de login do admin
         Quando eu faço login de admin com "alexandrefreire" e "123456"

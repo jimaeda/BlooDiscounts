@@ -9,5 +9,7 @@ class AddInfoToUsers < ActiveRecord::Migration[6.0]
     add_column :users, :state, :varchar, null: false, default: ""
     add_column :users, :country, :varchar, null: false, default: ""
     add_column :users, :points, :integer, null: false, default: 0
+    add_column :users, :bloodtype, :integer
+    add_column :users, :birthdate, :date
   end
 end
