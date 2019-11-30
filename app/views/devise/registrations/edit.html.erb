@@ -2,7 +2,7 @@
 <%= javascript_include_tag 'edicao_usuario.js'%>
 <% end %>
 
-<div class="text-center">
+<div align="center">
   <h1>Editar Informações</h1>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
@@ -177,7 +177,6 @@
         </label>
       </div>
     </div>
-
     <div class="field flex-cell">
       <label class="pure-material-textfield-outlined">
         <%= f.password_field :current_password, autocomplete: "current-password", :placeholder => " ", required: true %>
@@ -190,8 +189,27 @@
     <%= f.submit "Atualizar informações", id: "btn_salvar", class: "btn btn-danger edit-btn-danger btn-medium" %>
   </div>
   <% end %>
+  <div class="flex-layout">
+    <div class="field flex-layout flex-cell">
+      <label class="pure-material-textfield-outlined">
+        <%= f.password_field :password, autocomplete: "new-password", :placeholder => " " %>
+        <span>Nova senha</span>
+      </label>
+    </div>
+    <div class="field flex-cell">
+      <label class="pure-material-textfield-outlined">
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", :placeholder => " " %>
+        <span>Confirme a senha</span>
+      </label>
+    </div>
+  </div>
 
-  <hr>
+  <div class="field flex-cell">
+    <label class="pure-material-textfield-outlined">
+      <%= f.password_field :current_password, autocomplete: "current-password", :placeholder => " ", required: true %>
+      <span>Senha antiga</span>
+    </label>
+  </div>
 
   <div class=flex-cell>
     <%= link_to raw('<span class="oi oi-warning"> </span>Cancelar minha conta'), registration_path(resource_name), data: { confirm: "Tem certeza?" }, method: :delete, class: "btn btn-danger edit-btn-danger btn-medium"%>
@@ -199,6 +217,7 @@
   <div class=flex-cell>
     <%= link_to raw("<span class='oi oi-arrow-left'> </span>Voltar"), :back, class: "btn btn-danger edit-btn-danger" %>
   </div>
+
 </div>
 
 

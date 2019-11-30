@@ -1,0 +1,25 @@
+<div align="center">
+	<h3><%= @reward.name %></h3>
+
+	<h4 class="flex-layout">
+		<strong class="flex-cell">Category:</strong>
+		<%= @reward.category %>
+	</h4>
+
+	<h4 class="flex-layout">
+		<strong class="flex-cell">Quantity:</strong>
+		<%= @reward.quantity %>
+	</h4>
+
+	<h4 class="flex-layout">
+		<strong class="flex-cell">Cost:</strong>
+		<%= @reward.cost %>
+	</h4>
+
+	<% if current_user.points < @reward.cost %>
+		<h5>Você não possui pontos o suficiente para obter essa recompensa.</h5>
+	<% else %>
+		<%= button_to 'Retrieve', retrieve_reward_path(@reward), method: :put, data: { confirm: 'This reward is gonna be retrieved. Are you sure about that?' }  %>
+	<% end %>
+	<%= button_to "Voltar", user_profile_path, :method => :get,:class => "custom-button ripple" %>
+</div>
