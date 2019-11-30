@@ -1,7 +1,7 @@
 # Dado/Given
 
 Dado("que eu entro na página de cadastro de hospitais") do
-	visit '/hospitals/new'
+  visit '/hospitals/new'
 end
 
 Dado('que eu entro na página de login do admin') do
@@ -24,7 +24,7 @@ end
 
 Dado('que eu entro na página de login') do
     FactoryBot.create(:user, email: 'nathan@nathan.com',password: 'nathan',first_name: 'Nathan')
-	visit '/users/sign_in'
+  visit '/users/sign_in'
 end
 
 Dado("a página de cadastro do BlooDiscounts") do
@@ -99,9 +99,9 @@ Quando('eu faço login de admin com {string} e {string}') do |adm_username,passw
 end
 
 Quando('eu faço login com {string} e {string}') do |email,senha|
-	fill_in 'user[email]', with: email
-	fill_in 'user[password]', with: senha
-	click_button 'Entrar'
+  fill_in 'user[email]', with: email
+  fill_in 'user[password]', with: senha
+  click_button 'Entrar'
 end
 
 Quando("preencher os campos com nome {string} e sobrenome {string}") do |nome, sobrenome|
@@ -176,11 +176,11 @@ Então('eu devo ficar na página de login') do
 end
 
 Então('eu devo ir para a página de perfil') do
-	expect(page).to have_content 'Signed in successfully.'
+  expect(page).to have_content 'Signed in successfully.'
 end
 
 Então('eu devo ver a mensagem {string}') do |mensagem|
-	expect(page).to have_content mensagem
+  expect(page).to have_content mensagem
 end
 
 Então("o usuario sera autenticado") do
@@ -188,8 +188,6 @@ Então("o usuario sera autenticado") do
     expect(page).to have_content @email
 end
 
-Então("devo ter a seguinte mensagem {string}") do |mensagem|
-    expect(page).to have_content mensagem
 #Edita Usuário
 Dado /^.* logado$/ do
   @email= "gabriel@bloodiscounts.com"
