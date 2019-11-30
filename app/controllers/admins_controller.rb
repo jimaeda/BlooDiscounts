@@ -55,7 +55,7 @@ class AdminsController < ApplicationController
     if admin_params[:password].blank?
 
     end
-    if @admin.update_attributes(admin_params)
+    if @admin.update(admin_params)
       redirect_to @admin
     else
       render action: :edit
