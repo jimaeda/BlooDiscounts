@@ -46,6 +46,12 @@ function heapsort(vetor){
       maxHeap (i-1, vetor);
    }
 }
+//array de distancias entre o usuario e cada hospital
+function calculacDistancias(){
+  for(var i = 1;i < coorHospitals.length;i++){
+    distancias.push(google.maps.geometry.spherical.computeDistanceBetween(coorUser, coorHospitals[i]));
+  }
+}
 //inicia google maps
 function initMap(pos) {
   coorUser = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
@@ -53,10 +59,7 @@ function initMap(pos) {
     center: coorUser,
     zoom: 12
   };
-  //array de distancias entre o usuario e cada hospital
-  for(var i = 1;i < coorHospitals.length;i++){
-    distancias.push(google.maps.geometry.spherical.computeDistanceBetween(coorUser, coorHospitals[i]));
-  }
+  calculacDistancias();
   heapsort(distancias);
   // marcadores vermelhos no mapa para as coordenadas
   var map = new google.maps.Map(document.getElementById('map'), mapOptions);
