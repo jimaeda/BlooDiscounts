@@ -42,7 +42,8 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'factory_bot_rails'
   gem 'bootstrap-sass'
-
+  # tests in JavaScript
+  gem 'jasmine'
 end
 
 group :development do
@@ -63,8 +64,7 @@ group :test do
   gem 'cucumber-rails', require: false
   # database_cleaner is not required, but highly recommended
   gem 'database_cleaner'
-  # tests in JavaScript
-  gem 'jasmine'
+
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
