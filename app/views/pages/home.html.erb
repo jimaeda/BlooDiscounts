@@ -14,14 +14,11 @@
         </div>
         <br/>
         <br/>
-        <button onclick="window.location ='<%=  new_user_registration_path %>'" class = "btn btn-danger edit-btn-danger btn-medium">
-            Cadastrar
-          </button>
-      <!--  <%= button_to "Cadastrar", new_user_registration_path, :class => "btn btn-danger edit-btn-danger btn-medium", :method => :get %> -->
+      <%= button_to "Cadastrar", new_user_registration_path, :class => "btn btn-danger edit-btn-danger btn-medium", :method => :get %>
         <br/>
         <a>Já possui cadastro? </a>
         <br/>
-      <%= link_to  "Entre aqui", new_user_session_path, class: "btn btn-danger edit-btn-danger"%>
+      <%= link_to  "Entre aqui.", new_user_session_path, class: "btn btn-danger edit-btn-danger"%>
     </div>
 </body>
 </html>

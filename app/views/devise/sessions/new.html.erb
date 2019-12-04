@@ -18,7 +18,7 @@
     <br />
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field">
-      <label class="pure-material-textfield-outlined">
+      <label>Email
         <%= f.email_field :email, autocomplete: "email" ,autofocus: true, :placeholder => " " %>
         <span>Email</span>
       </label>
@@ -40,7 +40,7 @@
       <%= f.submit "Entrar", :class => "btn btn-danger edit-btn-danger btn-medium" %>
     </div>
     <br />
-    <%= link_to 'Voltar', root_path %>
+    <%= link_to raw("<span class='oi oi-arrow-left'> </span>Voltar"), root_path, :class => "btn btn-danger edit-btn-danger" %>
     <% end %>
   </div>
 </body>

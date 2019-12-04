@@ -1,8 +1,6 @@
 <p id="notice"><%= notice %></p>
 <div align="center">
   <h1>Perfil</h1>
-  <div class="card" style="width: 21rem; background-color: #f5f5f5">
-    <div class="card-body">
       <p class="flex-layout">
         <strong class="flex-cell">Nome:</strong>
         <%= current_user.first_name + " " + current_user.last_name%>
@@ -52,11 +50,10 @@
         <strong class="flex-cell">País:</strong>
         <%= current_user.country %>
       </p>
-    </div>
-  </div>
   <br/>
   <%= button_to "Editar informações", edit_user_registration_path, :method => :get,:class => "btn btn-danger edit-btn-danger" %>
   <br/>
 
-    <%= link_to raw('<span class="oi oi-arrow-left"></span>Voltar'), user_profile_path,  :class => "btn btn-danger" %>
+    <%= link_to raw('<span class="oi oi-arrow-left"></span>Voltar'), user_profile_path,
+          :class => "btn btn-danger edit-btn-danger" %>
 </div>
