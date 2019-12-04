@@ -19,11 +19,18 @@ Dado('que eu entro na página de login do admin') do
         email: "email@email.com",
         phone: "1199999999"
     )
+    FactoryBot.create(:user,
+        id: 1
+    )
     visit login_path
 end
 
 Dado('que eu entro na página de login') do
-    FactoryBot.create(:user, email: 'nathan@nathan.com',password: 'nathan',first_name: 'Nathan')
+    FactoryBot.create(
+        :user, email: 'nathan@nathan.com',
+        password: 'nathan',
+        first_name: 'Nathan'
+    )
 	visit '/users/sign_in'
 end
 
@@ -76,6 +83,10 @@ Quando('eu for para tela de listagem de lojas e produtos') do
     click_on "Mostrar/Editar loja e seus produtos"
 end
 
+Quando('eu for para tela de registrar doações') do
+    find('input[value="Registrar doação"]').click
+end
+
 Quando('eu for para tela de cadastro de lojas e produtos') do
     find('input[value="Cadastrar lojas"]').click
 end
@@ -86,6 +97,10 @@ end
 
 Quando('eu preencher os campos com senha antiga {string}') do |senha_antiga|
     fill_in 'user[current_password]', with: senha_antiga
+end
+
+Quando('eu preencher o id do usuário com {string}') do |id|
+    fill_in 'donor[id]', with: id
 end
 
 Quando("preencher o campo com senha {string}") do |senha|
@@ -144,6 +159,10 @@ end
 
 Quando("clicar no botão Submeter") do
     find('input[value="Submeter"]').click
+end
+
+Quando('clicar no botão registrar') do
+    find('input[value="Registrar"]').click
 end
 
 Quando("acionar o botão cadastrar") do

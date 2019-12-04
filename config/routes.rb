@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'sessions/new'
   get 'admins/profile'
   get 'register_donation' => 'admins#register_donation'
-  post 'register_donation' => 'admins#register_donation'
+  post 'register_donation' => 'admins#save_donation'
   get 'user/profile'
   get 'user/points'
   get 'user/show'

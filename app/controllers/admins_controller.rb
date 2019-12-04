@@ -62,7 +62,34 @@ class AdminsController < ApplicationController
     redirect_to quit_path
   end
 
-  def register_donation; end
+  def register_donation
+  end
+
+  def save_donation
+    if params[:donor].nil? || params[:donor][:id].blank?
+      flash[:alert] = 'Campo não pode estar vazio.'
+      redirect_to register_donation_path and return
+    end
+    donor = User.find_by(id: params[:donor][:id])
+    if !donor.nil?
+      donor.points = donor.points + 1
+      if donor.update(registerdonation_params)
+        flash[:notice] = 'Doação registrada.'
+        redirect_to register_donation_path
+      else
+        flash[:alert] = 'Não foi possível registrar a doação.'
+        redirect_to register_donation_path
+      end
+      return
+    else
+      flash[:alert] = 'Usuário não encontrado.'
+      redirect_to register_donation_path
+    end 
+  end
+
+  def registerdonation_params
+    params.require(:donor).permit(:id, :points)
+  end
 
   private
 
