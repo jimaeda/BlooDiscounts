@@ -1,5 +1,7 @@
-<h1>New Donation</h1>
+<div align="center">
+  <h1>New Donation</h1>
 
-<%= render 'form', donation: @donation %>
+  <%= render 'form', donation: @donation %>
 
-<%= link_to 'Back', donations_path %>
+  <%= link_to raw('<span class="oi oi-arrow-left"></span>Back'), donations_path, class: "btn btn-danger edit-btn-danger" %>
+</div>

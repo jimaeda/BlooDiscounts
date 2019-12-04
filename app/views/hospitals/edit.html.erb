@@ -4,7 +4,8 @@
 	<%= render 'form', hospital: @hospital %>
 
 	<hr>
-	<%= link_to 'Show', @hospital %> |
-	<%= link_to 'Back', hospitals_path %>
+	<%= link_to 'Mostrar', @hospital, class: "btn btn-danger edit-btn-danger btn-medium" %> |
+	<%= link_to raw('<span class="oi oi-arrow-left"></span>Voltar'), hospitals_path,
+				:class => "btn btn-danger edit-btn-danger" %>
 
 </div>
