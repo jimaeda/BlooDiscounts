@@ -3,5 +3,5 @@
 
 	<%= render 'form', hospital: @hospital %>
 	<hr>
-	<%= link_to 'Back', hospitals_path %>
+	<%= link_to raw('<span class="oi oi-arrow-left"></span>Back'), hospitals_path, class: "btn btn-danger edit-btn-danger" %>
 </div>

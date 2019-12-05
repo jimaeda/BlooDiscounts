@@ -1,10 +1,14 @@
 class AdminsController < ApplicationController
-  before_action :set_admin, only: [:show, :edit, :update, :destroy]
+  before_action :set_admin, only: %i[show edit update destroy]
 
   def profile; end
 
   def index
-    @admins = Admin.all
+    if @admin.nil? && current_admin.nil?
+      redirect_to new_admin_path
+    else
+      redirect_to admins_profile_path
+    end
   end
 
   # GET /admins/1
@@ -27,7 +31,7 @@ class AdminsController < ApplicationController
     @admin = Admin.new(admin_params)
 
     if @admin.save
-      redirect_to @admin, notice: 'Usuário foi criado com sucesso!'
+      redirect_to admins_profile_path, notice: 'Admin criado com sucesso!'
       sign_in_admin
     else
       render action: :new
@@ -59,7 +63,32 @@ class AdminsController < ApplicationController
   end
 
   def register_donation
-    
+  end
+
+  def save_donation
+    if params[:donor].nil? || params[:donor][:id].blank?
+      flash[:alert] = 'Campo não pode estar vazio.'
+      redirect_to register_donation_path and return
+    end
+    donor = User.find_by(id: params[:donor][:id])
+    if !donor.nil?
+      donor.points = donor.points + 1
+      if donor.update(registerdonation_params)
+        flash[:notice] = 'Doação registrada.'
+        redirect_to register_donation_path
+      else
+        flash[:alert] = 'Não foi possível registrar a doação.'
+        redirect_to register_donation_path
+      end
+      return
+    else
+      flash[:alert] = 'Usuário não encontrado.'
+      redirect_to register_donation_path
+    end 
+  end
+
+  def registerdonation_params
+    params.require(:donor).permit(:id, :points)
   end
 
   private
@@ -71,6 +100,7 @@ class AdminsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def admin_params
-    params.require(:admin).permit(:adm_username, :password, :adm_name, :adm_cpf, :hospital_name)
+    params.require(:admin)
+          .permit(:adm_username, :password, :adm_name, :adm_cpf, :hospital_name)
   end
 end

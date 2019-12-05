@@ -36,6 +36,18 @@ RSpec.describe AdminsController, type: :controller do
     skip("Add a hash of attributes invalid for your model")
   }
 
+  let(:valid_id) {
+    {
+      "id" => 1
+    }
+  }
+
+  let(:invalid_id) {
+    {
+      "id" => nil
+    }
+  }
+
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # AdminsController. Be sure to keep this updated too.
@@ -130,4 +142,30 @@ RSpec.describe AdminsController, type: :controller do
     end
   end
 
+  describe "GET #register_donation" do
+    it "returns a success response" do
+      admin = Admin.create! valid_attributes
+      get :register_donation, params: {id: admin.to_param}, session: valid_session
+      expect(response).to be_successful
+    end
+  end
+
+  # describe "POST #register_donation" do
+  #   context "with valid params" do
+  #     it "update user points" do
+  #       expect {
+  #         post :register_donation, params: {donor: valid_id}
+  #       }.to change(@user.points).by(1)
+  #     end
+  #   end
+
+  #   context "with invalid params" do
+  #     it "do not update user points" do
+  #       post :create, params: {donor: invalid_id}
+  #       expect {
+  #         post :register_donation, params: {donor: valid_id}
+  #       }.to change(@user.points).by(0)
+  #     end
+  #   end
+  # end
 end

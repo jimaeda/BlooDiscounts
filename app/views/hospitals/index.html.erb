@@ -1,18 +1,22 @@
+<% provide :head_tags do %>
+<meta name='turbolinks-visit-control' content='reload'>
+  <%= javascript_include_tag 'map_hospitals.js' %>
+<% end %>
 
 <div align="center">
 <p id="notice"><%= notice %></p>
 
 <h1>Hospitals</h1>
 
-<%= link_to 'Add New Hospital', new_hospital_path %>
+<%= link_to raw("<span class='oi oi-plus'></span> Novo Hospital"), new_hospital_path, class: "btn btn-danger edit-btn-danger btn-medium"%>
 
-<table width="1200">
+<table width="1200" class="table">
   <thead>
     <tr>
       <th>Name</th>
       <th>City</th>
       <th>State</th>
-      <th>Lattitude</th>
+      <th>Latitude</th>
       <th>Longitude</th>
       <th>Level A+</th>
       <th>Level A-</th>
@@ -41,14 +45,18 @@
         <td><%= hospital.o_minus %></td>
         <td><%= hospital.ab_plus %></td>
         <td><%= hospital.ab_minus %></td>
-        <td><%= link_to 'Show', hospital %></td>
-        <td><%= link_to 'Edit', edit_hospital_path(hospital) %></td>
-        <td><%= link_to 'Destroy', hospital, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to raw('<span class="oi oi-eye"></span>'), hospital %></td>
+        <td><%= link_to raw('<span class="oi oi-pencil"></span>'), edit_hospital_path(hospital) %></td>
+        <td><%= link_to raw('<span class="oi oi-x"></span>'), hospital, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
+<button onclick="pegarDadosHopitais()", class="btn btn-danger edit-btn-danger" >Buscar os 3 Hospitais mais próximos</button>
+<p>
+    <div id="map"></div>
+</p>
 <br>
 
 </div>

@@ -15,6 +15,7 @@
  */
 
 @import './bootstrap/dist/css/bootstrap.min.css';
+@import './@icon/open-iconic/open-iconic.css';
 
 @font-face {
   font-family: 'Rubik', sans-serif;
@@ -25,6 +26,13 @@ body{
 	 /*I think that not using a wallpaper works better */
     /*background-image: url(backg.png); */
     /*background-position: 90px 0px;*/
+}
+
+a
+{
+  font-family: 'Rubik';
+  font-size: 20px;
+  margin-bottom:10px;
 }
 
 h1 {
@@ -39,6 +47,31 @@ h3 {
     font-size: 200%;
 }
 
+th {
+  color: white;
+  font-family: 'Rubik';
+  text-align: center;
+  font-weight: bold;
+  font-size: 25px;
+  background: #BF0000;
+  vertical-align: middle !important;
+}
+
+td {
+  font-family: 'Rubik';
+  padding: 10px;
+  font-size: 15px;
+}
+
+
+table {
+
+/*
+  border-spacing: 10px;
+  border-collapse: separate;
+*/
+}
+
 .field {
     font-family: 'Rubik';
 }
@@ -47,6 +80,17 @@ h3 {
     width: 150px;
     height: 150px;
     margin-top: 10px;
+}
+
+.edit-btn-danger{
+  background-color: #FF0000;
+  font-family: 'Rubik';
+  font-size: 20px;
+  margin-bottom:10px;
+}
+
+.btn-medium{
+  width: 20vw;
 }
 
 .custom-button{

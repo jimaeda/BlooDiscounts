@@ -1,8 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+<div align="center">
 <h1>Donations</h1>
 
-<table>
+<table style="max-width:75%" class="table table-hover">
   <thead>
     <tr>
       <th>User cpf</th>
@@ -20,9 +21,9 @@
         <td><%= donation.hospital_name %></td>
         <td><%= donation.donated_amount %></td>
         <td><%= donation.donation_date %></td>
-        <td><%= link_to 'Show', donation %></td>
-        <td><%= link_to 'Edit', edit_donation_path(donation) %></td>
-        <td><%= link_to 'Destroy', donation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to raw('<span class="oi oi-eye"></span>'), donation %></td>
+        <td><%= link_to raw('<span class="oi oi-pencil"></span>'), edit_donation_path(donation) %></td>
+        <td><%= link_to raw('<span class="oi oi-x"></span>'), donation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +31,5 @@
 
 <br>
 
-<%= link_to 'New Donation', new_donation_path %>
+<%= link_to raw('<span class="oi oi-plus"></span>New Donation'), new_donation_path, class: "btn btn-danger edit-btn-danger btn-medium" %>
+</div>

@@ -41,4 +41,5 @@ class UserController < ApplicationController
     return hosps
   end
   helper_method :nivelsangue
+
 end

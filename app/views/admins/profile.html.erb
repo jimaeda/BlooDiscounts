@@ -12,17 +12,17 @@
             <h1> Bem vindo </h1>
             <h3><%= current_admin.adm_name %></h3>
             <br/>
-            <%= button_to "Registrar doação", register_donation_path, :method => :get,:class => "custom-button ripple" %>
+            <%= button_to "Registrar doação", register_donation_path, :method => :get,:class => "btn btn-danger edit-btn-danger btn-medium" %>
             <br/>
-            <%= button_to "Exibir estoque de sangue", quit_path, :class => "custom-button ripple"  %>
+            <%= button_to "Exibir estoque de sangue", quit_path, :class => "btn btn-danger edit-btn-danger btn-medium"  %>
             <br/>
-             <%= button_to "Cadastrar lojas", quit_path, :class => "custom-button ripple"  %>
+            <%= button_to "Cadastrar lojas", new_store_path, :method => :get, :class => "btn btn-danger edit-btn-danger btn-medium"  %>
             <br/>
-             <%= button_to "Listar produtos de uma loja", quit_path, :class => "custom-button ripple"  %>
+            <%= button_to "Listar produtos de uma loja", stores_path, :method => :get, :class => "btn btn-danger edit-btn-danger btn-medium"  %>
             <br/>
-            <%= button_to "Exibir perfil", current_admin, :method => :get,:class => "custom-button ripple" %>
+            <%= button_to "Exibir perfil", current_admin, :method => :get,:class => "btn btn-danger edit-btn-danger btn-medium" %>
             <br/>
-            <%= button_to "Sair", quit_path ,:method => :delete,:class => "custom-button ripple" %>
+            <%= button_to "Sair", quit_path ,:method => :delete,:class => "btn btn-danger edit-btn-danger btn-medium" %>
         <% end %>
     </div>
 </body>
