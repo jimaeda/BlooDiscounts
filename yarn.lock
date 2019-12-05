@@ -679,6 +679,11 @@
   resolved "https://registry.yarnpkg.com/@csstools/convert-colors/-/convert-colors-1.4.0.tgz#ad495dc41b12e75d588c6db8b9834f08fa131eb7"
   integrity sha512-5a6wqoJV/xEdbRNKVo6I4hO3VjyDq//8q2f9I6PBAvMesJHFauXDorcNCsr9RzvsZnaWi5NYCcfyqP1QeFHFbw==
 
+"@icon/open-iconic@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@icon/open-iconic/-/open-iconic-1.1.1.tgz#951e32d0271d80483e8b512a5a226bd1e479115c"
+  integrity sha512-PM8/kPSvhkwGH48GyT7F39SX4Cj/Q7jEetHAtcmexbtn6HqK+J+kiKBVZqqTfbETg6ZsC24HE3zH2GwGJFsI9g==
+
 "@rails/actioncable@^6.0.0-alpha":
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/@rails/actioncable/-/actioncable-6.0.0.tgz#8bff9c902be1531ef7a9e191562e9771efcfdfe1"

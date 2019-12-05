@@ -93,7 +93,8 @@
 <p>
     <div id="map"></div>
 </p>
-<%= link_to 'Edit', edit_hospital_path(@hospital) %> |
-<%= link_to 'Back', hospitals_path %>
+<%= link_to 'Edit', edit_hospital_path(@hospital), class: "btn btn-danger edit-btn-danger btn-medium" %>
+<br/>
+<%= link_to raw('<span class="oi oi-arrow-left"></span>Back'), hospitals_path, class: "btn btn-danger edit-btn-danger" %>
 
 </div>

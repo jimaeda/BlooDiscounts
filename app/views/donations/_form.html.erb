@@ -1,3 +1,4 @@
+
 <%= form_with(model: donation, local: true) do |form| %>
   <% if donation.errors.any? %>
     <div id="error_explanation">
@@ -11,27 +12,27 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field col-md-2">
     <%= form.label :user_cpf %>
-    <%= form.text_field :user_cpf %>
+    <%= form.text_field :user_cpf, class:"form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field col-md-2">
     <%= form.label :hospital_name %>
-    <%= form.text_field :hospital_name %>
+    <%= form.text_field :hospital_name, class:"form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field col-md-2">
     <%= form.label :donated_amount %>
-    <%= form.text_field :donated_amount %>
+    <%= form.text_field :donated_amount, class:"form-control" %>
   </div>
 
-  <div class="field">
+  <div class="field col-md-5">
     <%= form.label :donation_date %>
-    <%= form.datetime_select :donation_date %>
+    <%= form.datetime_select :donation_date, class:"form-control" %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-danger edit-btn-danger btn-medium" %>
   </div>
 <% end %>

@@ -19,12 +19,15 @@
                 <h3><%="Olá, " +  current_user.first_name + " " + +  current_user.last_name %></h3>
                 <br/>
                 <%= button_to "Resgatar pontos", rewards_path, :method => :get,
-                :class => "custom-button ripple" %>
+                :class => "btn btn-danger edit-btn-danger btn-medium" %>
                 <%# <%= button_to "Hospitais próximos", :class => "custom-button ripple"  %>
                 <br/>
-                <%= button_to "Exibir perfil", user_show_path, :method => :get, :class => "custom-button ripple" %>
+
+                <%= button_to "Exibir perfil", user_show_path, :method => :get, :class => "btn btn-danger edit-btn-danger btn-medium" %>
                 <br/>
-                <%= button_to "Sair", destroy_user_session_path, :method => :delete,:class => "custom-button ripple" %>
+
+                <%= button_to "Sair", destroy_user_session_path, :method => :delete,
+                :class => "btn btn-danger edit-btn-danger btn-medium" %>
             <% end %>
             <br/>
             <br/>

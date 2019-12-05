@@ -19,101 +19,83 @@
       <br/>
       <h3>Cadastro</h3>
       <br/>
-      <div class="flex-layout">
-        <div class="field flex-cell">
-          <label class="pure-material-textfield-outlined">
-            <%= form.text_field :first_name, autofocus: true, :placeholder => " " %>
-            <span>Nome</span>
-          </label>
+      <div class="form-row justify-content-center">
+        <div class="form-group col-md-2">
+          <label> Nome </label>
+            <%= form.text_field :first_name, autofocus: true, :placeholder => " ", class: "form-control" %>
         </div>
-        <div class="field flex-cell">
-          <label class="pure-material-textfield-outlined">
-            <%= form.text_field :last_name, autocomplete: "off", :placeholder => " " %>
-            <span>Sobrenome</span>
-          </label>
+        <div class="form-group col-md-2">
+          <label>Sobrenome</label>
+            <%= form.text_field :last_name, autocomplete: "off", :placeholder => " ", class: "form-control" %>
+
         </div>
       </div>
 
       <div class="flex-layout">
-        <div class="field flex-cell">
-          <label class="pure-material-textfield-outlined">
-            <%= form.number_field :weight, autocomplete: "off", min: 0, :placeholder => " " %>
-            <span>Peso</span>
-          </label>
+        <div class="form-group col-md-2">
+          <label>Peso</label>
+            <%= form.number_field :weight, autocomplete: "off", min: 0, :placeholder => " ", class: "form-control" %>
         </div>
-        <div class="field flex-cell">
-          <label class="pure-material-textfield-outlined">
-            <%= form.number_field :height, step: :any, autocomplete: "off", in: 1.0 .. 4.0 , :placeholder => " " %>
-            <span>Altura</span>
-          </label>
+        <div class="form-group col-md-2">
+          <label>Altura </label>
+            <%= form.number_field :height, step: :any, autocomplete: "off", in: 1.0 .. 4.0 , :placeholder => " ", class: "form-control" %>
+
         </div>
       </div>
 
       <div class="flex-layout">
-        <div class="field flex-cell">
-          <label class="pure-material-textfield-outlined">
-            <%= form.text_field :city, autocomplete: "off", :placeholder => " " %>
-            <span>Cidade</span>
-          </label>
+        <div class="form-group col-md-2">
+          <label>Cidade</label>
+            <%= form.text_field :city, autocomplete: "off", :placeholder => " ", class: "form-control" %>
+
         </div>
-        <div class="field flex-cell">
-          <label class="pure-material-textfield-outlined">
-            <%= form.text_field :state, autocomplete: "off", :placeholder => " " %>
-            <span>Estado</span>
-          </label>
+        <div class="form-group col-md-2">
+          <label>Estado</label>
+            <%= form.text_field :state, autocomplete: "off", :placeholder => " ", class: "form-control" %>
         </div>
       </div>
 
       <div class="flex-layout">
-        <div class="field flex-cell">
-          <label class="pure-material-textfield-outlined">
-            <%= form.text_field :country, autocomplete: "off", :placeholder => " " %>
-            <span>País</span>
-          </label>
+        <div class="form-group col-md-2">
+          <label>País</label>
+            <%= form.text_field :country, autocomplete: "off", :placeholder => " ", class: "form-control" %>
         </div>
-        <div class="field flex-cell">
-          <label class="pure-material-textfield-outlined">
-            <%= form.date_field :birthdate, autocomplete: "off", :placeholder => " " %>
-            <span>Data de nascimento</span>
-          </label>
+        <div class="form-group col-md-2">
+          <label>Data de Nascimento</label>
+            <%= form.date_field :birthdate, autocomplete: "off", :placeholder => " ", class: "form-control" %>
         </div>
       </div>
 
       <div class="flex-layout">
-        <div class="field flex-cell">
-          <label class="pure-material-textfield-outlined">
-            <%= form.password_field :password, autocomplete: "new-password", :placeholder => " " %>
-            <span>Senha</span>
-          </label>
+        <div class="form-group col-md-2">
+          <label>Senha</label>
+            <%= form.password_field :password, autocomplete: "new-password", :placeholder => " ", class: "form-control" %>
         </div>
-        <div class="field flex-cell">
-          <label class="pure-material-textfield-outlined">
-            <%= form.password_field :password_confirmation, autocomplete: "new-password", :placeholder => " " %>
-            <span>Confirmar senha</span>
-          </label>
+        <div class="form-group col-md-2">
+          <label>Confirmar Senha</label>
+            <%= form.password_field :password_confirmation, autocomplete: "new-password", :placeholder => " ", class: "form-control" %>
+
         </div>
       </div>
 
       <div class="flex-layout">
-        <label class="pure-material-textfield-outlined">
-          <%= form.text_field :email, autocomplete: "off", :placeholder => " " %>
-          <span>Email</span>
-        </label>
+        <label>Email<label>
+          <%= form.text_field :email, autocomplete: "off", :placeholder => " ", class: "form-control" %>
       </div>
 
-      <span>Tipo Sanguíneo</span>
-      <%= form.select(:bloodtype, User.bloodtypes.keys.map {|bloodtype| [bloodtype,bloodtype]}) %>
+      <label>Tipo Sanguíneo</label>
+      <%= form.select(:bloodtype, User.bloodtypes.keys.map {|bloodtype| [bloodtype,bloodtype]}, class: "form-control") %>
 
       <br/>
       <br/>
 
       <div class="actions flex-layout flex-cell">
-        <%= form.submit "Cadastrar", :class => "custom-button ripple" %>
+        <%= form.submit "Cadastrar", :class => "btn btn-danger edit-btn-danger btn-medium" %>
       </div>
 
       <br/>
-  
-      <%= link_to 'Voltar', root_path %>  
+
+      <%= link_to raw("<span class='oi oi-arrow-left'> </span>Voltar"), root_path, :class => "btn btn-danger edit-btn-danger" %>
     <% end %>
   </div>
 </body>

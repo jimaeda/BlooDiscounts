@@ -10,7 +10,7 @@
     <%= form_with(model: hospital, local: true) do |form| %>
       <% if hospital.errors.any? %>
         <div id="error_explanation"  align="center">
-          <h2><%= pluralize(hospital.errors.count, "error") %> prohibited this hospital from being saved:</h2>  
+          <h2><%= pluralize(hospital.errors.count, "error") %> prohibited this hospital from being saved:</h2>
           <ul>
             <% hospital.errors.full_messages.each do |message| %>
               <li><%= message %></li>
@@ -19,75 +19,86 @@
         </div>
       <% end %>
 
-      <div class="field">
+<div class="form-row justify-content-center">
+      <div class="form-group col-md-2">
         <%= form.label :hosp_name, "Hospital Name" %>
-        <%= form.text_field :hosp_name %>
+        <%= form.text_field :hosp_name, class: "form-control" %>
       </div>
 
-      <div class="field">
+      <div class="form-group col-md-2">
         <%= form.label :hosp_city, "Hospital City"%>
-        <%= form.text_field :hosp_city %>
+        <%= form.text_field :hosp_city, class: "form-control" %>
       </div>
-
-      <div class="field">
+</div>
+<div class="form-row justify-content-center">
+      <div class="form-group col-md-2">
         <%= form.label :hosp_state, "Hospital State"%>
-        <%= form.text_field :hosp_state %>
+        <%= form.text_field :hosp_state, class: "form-control" %>
       </div>
 
-      <div class="field">
+      <div class="form-group col-md-2">
         <%= form.label :lattitude, "Lattitude" %>
-        <%= form.text_field :lattitude %>
+        <%= form.text_field :lattitude, class: "form-control" %>
       </div>
+</div>
+<div class="form-row justify-content-center">
 
-      <div class="field">
+      <div class="form-group col-md-2">
         <%= form.label :longitude, "Longitude" %>
-        <%= form.text_field :longitude %>
+        <%= form.text_field :longitude, class: "form-control" %>
       </div>
 
-      <div class="field">
+      <div class="form-group col-md-2">
         <%= form.label :a_plus, "Level A+" %>
-        <%= form.text_field :a_plus, :max => 100, :min => 0 %>
+        <%= form.text_field :a_plus, :max => 100, :min => 0, class: "form-control" %>
       </div>
+</div>
+<div class="form-row justify-content-center">
 
-      <div class="field">
+      <div class="form-group col-md-2">
         <%= form.label :a_minus, "Level A-" %>
-        <%= form.text_field :a_minus, :max => 100, :min => 0  %>
+        <%= form.text_field :a_minus, :max => 100, :min => 0 , class: "form-control" %>
       </div>
 
-      <div class="field">
+      <div class="form-group col-md-2">
         <%= form.label :b_plus, "Level B+" %>
-        <%= form.text_field :b_plus %>
+        <%= form.text_field :b_plus, class: "form-control" %>
       </div>
+</div>
+      <div class="form-row justify-content-center">
 
-      <div class="field">
+      <div class="form-group col-md-2">
         <%= form.label :b_minus, "Level B-" %>
-        <%= form.text_field :b_minus %>
+        <%= form.text_field :b_minus, class: "form-control" %>
       </div>
 
-      <div class="field">
+      <div class="form-group col-md-2">
         <%= form.label :o_plus, "Level O+" %>
-        <%= form.text_field :o_plus %>
+        <%= form.text_field :o_plus, class: "form-control" %>
       </div>
+      </div>
+      <div class="form-row justify-content-center">
 
-      <div class="field">
+      <div class="form-group col-md-2">
         <%= form.label :o_minus, "Level O-" %>
-        <%= form.text_field :o_minus %>
+        <%= form.text_field :o_minus, class: "form-control" %>
       </div>
 
-      <div class="field">
+      <div class="form-group col-md-2">
         <%= form.label :ab_plus, "Level AB+" %>
-        <%= form.text_field :ab_plus %>
+        <%= form.text_field :ab_plus, class: "form-control" %>
       </div>
-
-      <div class="field">
+</div>
+      <div class="form-row justify-content-center">
+      <div class="form-group col-md-2">
         <%= form.label :ab_minus, "Level AB-" %>
-        <%= form.text_field :ab_minus %>
+        <%= form.text_field :ab_minus, class: "form-control" %>
       </div>
-
+</div>
       <br/>
 
       <div class="actions">
-        <%= form.submit %>
+        <%= form.submit class: "btn btn-danger edit-btn-danger btn-medium"%>
       </div>
 
     <% end %>
