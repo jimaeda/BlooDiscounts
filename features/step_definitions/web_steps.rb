@@ -22,6 +22,15 @@ Dado("que eu acesso o cadastro de recompensas") do
     visit 'http://localhost:3000/rewards/new'
 end
 
+
+Dado("que eu esteja logado como o usuario {string}") do |string|
+    FactoryBot.create(:user, email: 'sangueA@email.com', password: 'senhaa', first_name: 'sangue', bloodtype: 'A+', city: 'sp',state: 'sp' )
+    FactoryBot.create(:hospital, hosp_name: 'Banco Teste 1', hosp_city: 'sp', hosp_state: 'sp', a_plus: 0)
+    visit '/users/sign_in'
+    find('input[id=user_password]').set 'senhaa'
+    find('input[id=user_email]').set 'sangueA@email.com'
+end
+
 # Quando/When
 
 Quando("eu adiciono as informações {string} e {string} e {string} e {string} e {string} e {string} e {string} e {string} e {string} e {string} e {string} e {string} e {string}") do 
@@ -148,6 +157,10 @@ end
 Quando("acionar o botão cadastrar") do
     click_button 'Cadastrar'
 end
+
+Quando("o hospital {string} estiver com pouco sangue") do |hosp|
+    click_button 'Entrar'
+end
   
 # Então/Then
 
@@ -190,3 +203,12 @@ end
 Então("devo ter a seguinte mensagem {string}") do |mensagem|
     expect(page).to have_content mensagem
 end
+  
+Então("devo ver a mensagem {string}") do |mensagem|
+    expect(page).to have_content mensagem
+ end
+  
+ Então("não devo ver a mensagem {string}") do |mensagem|
+    expect(page).to have_no_content mensagem
+ end
+  
