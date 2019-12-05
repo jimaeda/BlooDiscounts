@@ -3,6 +3,7 @@
 
   <%= render 'form', donation: @donation %>
 
-  <%= link_to 'Show', @donation %> |
-  <%= link_to 'Back', donations_path %>
+  <%= link_to 'Show', @donation, class: "btn btn-danger edit-btn-danger btn-medium" %>
+  <br/>
+  <%= link_to raw('<span class="oi oi-arrow-left"></span>Back'), donations_path, class: "btn btn-danger edit-btn-danger" %>
 </div>
